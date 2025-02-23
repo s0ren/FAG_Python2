@@ -1,5 +1,4 @@
 project:
   title: "FAG_Pathon2"
-
-
-
+  output-dir: output
+  
