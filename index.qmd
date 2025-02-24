@@ -22,13 +22,38 @@ No foreslår CRUD til realationsdatabaser. og paralelisering... bumbum.
 I Python er det almindeligt at håndtere dataset med en abstraction som kaldes et _dataset_. Dette findes i mange forskellige framworks.
 Den nemmeste framwork med dataframes at lære, er Pandas. Jeg har fundet et lille undervisningsforløb fra Matt Williams, University of Bristol, se <https://gitlab.com/milliams/data_analysis_python>.
 
-## Agregering, vialisering og explorativ analyse
-* Case med Datadetektiv arbejde
-    * Vind og EL-produktion, hvornår står møllerne stille?
-    ![vind vs el-prod](./assets/Vindel.svg)
-    ![god korr](./assets/Vindel%20-%20korrelation.svg)
-    ![anormali](./assets/Vindel%20-%20anormali.svg)
+## Agregering, visualisering og explorativ analyse
+
+### Hvornår holder vindmøllerne stille?
+_En Case med Data-detektiv arbejde._
+
+Mange har oplevet at vindmøllerne kan holde stille selv om vinden blæser.
+
+#### Hypoteser
+
+Der er et par oplagte hypoteser til hvorfor dette sker:
+
+* Møllen skal repareres \
+  Så er det oftes en, eller et par stykker, der holder stille. Ikke hele flokken.
+* Det blæser for meget. \
+  Møllerne kan ikke holde til orkan, så de lukker ned af sikkerhedshensyn.
+* Der er ikke afsætning eller frobrug til at afsætte strømmen. \
+  F.eks midt om natten.
+* El-nettet har ikke kapacitet til at sende strømmen videre. \
+  Det kunne have noget at gøre med eksporten...
+
+#### Databaseret undersøgelse
+
+Vi har særligt to interessante dataset tilgængelige, som måske kan forklare noget om fænomenet.
+Vi har data for vindhastigheder, og data for vindmølle-el-produktion.
+![vind vs el-prod](./assets/Vind_el.png)
+Disse data har helt forskellige enheder, og vi kan ikke forvente at alt vden energi vinden kommer med, kan omsættes til el-produktion. Langt fra. Men der grund til at tro de er proprtionale. Og vi kan godt vise dem i samme diagram, med forskellige y-akser.
+
+![god korr](./assets/Vind_el_korrelation.png)
+Gennerelt må man formode at der er en god korrelation mellem disse data, da det er vinden som driver møllerne rund, og når det blæser mere, må møllerne køre mere rundt, og producere mere strøm. Omvendt, når det _ikke_ blæser, produceres heller _ingen_ strøm.
     
+![anormali](./assets/Vind_el_anormali.png)
+Det vi er på jagt efter er hvornår opfører dataerne sig _ikke_-proportionalt. Er der dårligere korrelation nogen gange, end normalt. Mangler der noget. Er der en _anormali_.
 
 ## WebScraping
 * bilpriser
