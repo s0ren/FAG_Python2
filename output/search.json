@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "FAG Python II",
+    "section": "",
+    "text": "Vi skal arbejde med Dataset, agregering og visualisering. No foreslår CRUD til realationsdatabaser. og paralelisering… bumbum.\n\n\nI Python er det almindeligt at håndtere dataset med en abstraction som kaldes et dataset. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas. Jeg har fundet et lille undervisningsforløb fra Matt Williams, University of Bristol, se https://gitlab.com/milliams/data_analysis_python.\n\n\n\n\nCase med Datadetektiv arbejde\n\nVind og EL-produktion, hvornår står møllerne stille?   \n\n\n\n\n\n\nbilpriser\nnye it/tech buzzwords, fra jobopslag\n\n\n\n\n\nSQLAlchemy\n\n\n\n\n\nDuckDB"
+  },
+  {
+    "objectID": "index.html#dataset",
+    "href": "index.html#dataset",
+    "title": "FAG Python II",
+    "section": "",
+    "text": "I Python er det almindeligt at håndtere dataset med en abstraction som kaldes et dataset. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas. Jeg har fundet et lille undervisningsforløb fra Matt Williams, University of Bristol, se https://gitlab.com/milliams/data_analysis_python."
+  },
+  {
+    "objectID": "index.html#agregering-vialisering-og-explorativ-analyse",
+    "href": "index.html#agregering-vialisering-og-explorativ-analyse",
+    "title": "FAG Python II",
+    "section": "",
+    "text": "Case med Datadetektiv arbejde\n\nVind og EL-produktion, hvornår står møllerne stille?"
+  },
+  {
+    "objectID": "index.html#webscraping",
+    "href": "index.html#webscraping",
+    "title": "FAG Python II",
+    "section": "",
+    "text": "bilpriser\nnye it/tech buzzwords, fra jobopslag"
+  },
+  {
+    "objectID": "index.html#crud",
+    "href": "index.html#crud",
+    "title": "FAG Python II",
+    "section": "",
+    "text": "SQLAlchemy"
+  },
+  {
+    "objectID": "index.html#littlebigdata",
+    "href": "index.html#littlebigdata",
+    "title": "FAG Python II",
+    "section": "",
+    "text": "DuckDB"
+  }
+]
