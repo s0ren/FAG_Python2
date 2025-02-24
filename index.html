@@ -111,7 +111,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#python-ii" id="toc-python-ii" class="nav-link active" data-scroll-target="#python-ii">Python II</a>
   <ul class="collapse">
   <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a></li>
-  <li><a href="#agregering-vialisering-og-explorativ-analyse" id="toc-agregering-vialisering-og-explorativ-analyse" class="nav-link" data-scroll-target="#agregering-vialisering-og-explorativ-analyse">Agregering, vialisering og explorativ analyse</a></li>
+  <li><a href="#agregering-visualisering-og-explorativ-analyse" id="toc-agregering-visualisering-og-explorativ-analyse" class="nav-link" data-scroll-target="#agregering-visualisering-og-explorativ-analyse">Agregering, visualisering og explorativ analyse</a>
+  <ul class="collapse">
+  <li><a href="#hvornår-holder-vindmøllerne-stille" id="toc-hvornår-holder-vindmøllerne-stille" class="nav-link" data-scroll-target="#hvornår-holder-vindmøllerne-stille">Hvornår holder vindmøllerne stille?</a></li>
+  </ul></li>
   <li><a href="#webscraping" id="toc-webscraping" class="nav-link" data-scroll-target="#webscraping">WebScraping</a></li>
   <li><a href="#crud" id="toc-crud" class="nav-link" data-scroll-target="#crud">CRUD</a></li>
   <li><a href="#littlebigdata" id="toc-littlebigdata" class="nav-link" data-scroll-target="#littlebigdata">LittleBigData</a></li>
@@ -153,14 +156,33 @@ Alice -> Bob: test
 <h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
 <p>I Python er det almindeligt at håndtere dataset med en abstraction som kaldes et <em>dataset</em>. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas. Jeg har fundet et lille undervisningsforløb fra Matt Williams, University of Bristol, se <a href="https://gitlab.com/milliams/data_analysis_python" class="uri">https://gitlab.com/milliams/data_analysis_python</a>.</p>
 </section>
-<section id="agregering-vialisering-og-explorativ-analyse" class="level2">
-<h2 class="anchored" data-anchor-id="agregering-vialisering-og-explorativ-analyse">Agregering, vialisering og explorativ analyse</h2>
+<section id="agregering-visualisering-og-explorativ-analyse" class="level2">
+<h2 class="anchored" data-anchor-id="agregering-visualisering-og-explorativ-analyse">Agregering, visualisering og explorativ analyse</h2>
+<section id="hvornår-holder-vindmøllerne-stille" class="level3">
+<h3 class="anchored" data-anchor-id="hvornår-holder-vindmøllerne-stille">Hvornår holder vindmøllerne stille?</h3>
+<p><em>En Case med Data-detektiv arbejde.</em></p>
+<p>Mange har oplevet at vindmøllerne kan holde stille selv om vinden blæser.</p>
+<section id="hypoteser" class="level4">
+<h4 class="anchored" data-anchor-id="hypoteser">Hypoteser</h4>
+<p>Der er et par oplagte hypoteser til hvorfor dette sker:</p>
 <ul>
-<li>Case med Datadetektiv arbejde
-<ul>
-<li>Vind og EL-produktion, hvornår står møllerne stille? <img src="./assets/Vindel.svg" class="img-fluid" alt="vind vs el-prod"> <img src="./assets/Vindel - korrelation.svg" class="img-fluid" alt="god korr"> <img src="./assets/Vindel - anormali.svg" class="img-fluid" alt="anormali"></li>
-</ul></li>
+<li>Møllen skal repareres<br>
+Så er det oftes en, eller et par stykker, der holder stille. Ikke hele flokken.</li>
+<li>Det blæser for meget.<br>
+Møllerne kan ikke holde til orkan, så de lukker ned af sikkerhedshensyn.</li>
+<li>Der er ikke afsætning eller frobrug til at afsætte strømmen.<br>
+F.eks midt om natten.</li>
+<li>El-nettet har ikke kapacitet til at sende strømmen videre.<br>
+Det kunne have noget at gøre med eksporten…</li>
 </ul>
+</section>
+<section id="databaseret-undersøgelse" class="level4">
+<h4 class="anchored" data-anchor-id="databaseret-undersøgelse">Databaseret undersøgelse</h4>
+<p>Vi har særligt to interessante dataset tilgængelige, som måske kan forklare noget om fænomenet. Vi har data for vindhastigheder, og data for vindmølle-el-produktion. <img src="./assets/Vind_el.png" class="img-fluid" alt="vind vs el-prod"> Disse data har helt forskellige enheder, og vi kan ikke forvente at alt vden energi vinden kommer med, kan omsættes til el-produktion. Langt fra. Men der grund til at tro de er proprtionale. Og vi kan godt vise dem i samme diagram, med forskellige y-akser.</p>
+<p><img src="./assets/Vind_el_korrelation.png" class="img-fluid" alt="god korr"> Gennerelt må man formode at der er en god korrelation mellem disse data, da det er vinden som driver møllerne rund, og når det blæser mere, må møllerne køre mere rundt, og producere mere strøm. Omvendt, når det <em>ikke</em> blæser, produceres heller <em>ingen</em> strøm.</p>
+<p><img src="./assets/Vind_el_anormali.png" class="img-fluid" alt="anormali"> Det vi er på jagt efter er hvornår opfører dataerne sig <em>ikke</em>-proportionalt. Er der dårligere korrelation nogen gange, end normalt. Mangler der noget. Er der en <em>anormali</em>.</p>
+</section>
+</section>
 </section>
 <section id="webscraping" class="level2">
 <h2 class="anchored" data-anchor-id="webscraping">WebScraping</h2>
