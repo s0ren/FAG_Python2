@@ -1,0 +1,49 @@
+---
+title: "FAG Python II"
+
+format: 
+  html:
+    filters:
+      - diagram
+---
+
+<!-- ```{.plantuml}
+@startuml
+Alice -> Bob: test
+@enduml
+``` -->
+
+# Python II
+
+Vi skal arbejde med Dataset, agregering og visualisering.
+No foreslår CRUD til realationsdatabaser. og paralelisering... bumbum.
+
+## Dataset
+I Python er det almindeligt at håndtere dataset med en abstraction som kaldes et _dataset_. Dette findes i mange forskellige framworks.
+Den nemmeste framwork med dataframes at lære, er Pandas. Jeg har fundet et lille undervisningsforløb fra Matt Williams, University of Bristol, se <https://gitlab.com/milliams/data_analysis_python>.
+
+## Agregering, vialisering og explorativ analyse
+* Case med Datadetektiv arbejde
+    * Vind og EL-produktion, hvornår står møllerne stille?
+    ![vind vs el-prod](./assets/Vindel.svg)
+    ![god korr](./assets/Vindel%20-%20korrelation.svg)
+    ![anormali](./assets/Vindel%20-%20anormali.svg)
+    
+
+## WebScraping
+* bilpriser
+* nye it/tech buzzwords, fra jobopslag
+
+## CRUD
+* SQLAlchemy
+
+## LittleBigData
+* DuckDB
+
+
+
+<!-- 
+---
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>. -->
