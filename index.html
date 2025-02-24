@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>webscraping_cases – FAG_Pathon2</title>
+<title>FAG Python II – FAG_Pathon2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3ba3dee58e357f6946a964c4b08b72d5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3ba3dee58e357f6946a964c4b08b72d5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">FAG_Pathon2</span>
     </a>
   </div>
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -103,17 +103,92 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#python-ii" id="toc-python-ii" class="nav-link active" data-scroll-target="#python-ii">Python II</a>
+  <ul class="collapse">
+  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a></li>
+  <li><a href="#agregering-vialisering-og-explorativ-analyse" id="toc-agregering-vialisering-og-explorativ-analyse" class="nav-link" data-scroll-target="#agregering-vialisering-og-explorativ-analyse">Agregering, vialisering og explorativ analyse</a></li>
+  <li><a href="#webscraping" id="toc-webscraping" class="nav-link" data-scroll-target="#webscraping">WebScraping</a></li>
+  <li><a href="#crud" id="toc-crud" class="nav-link" data-scroll-target="#crud">CRUD</a></li>
+  <li><a href="#littlebigdata" id="toc-littlebigdata" class="nav-link" data-scroll-target="#littlebigdata">LittleBigData</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">FAG Python II</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<!-- ```{.plantuml}
+@startuml
+Alice -> Bob: test
+@enduml
+``` -->
+<section id="python-ii" class="level1">
+<h1>Python II</h1>
+<p>Vi skal arbejde med Dataset, agregering og visualisering. No foreslår CRUD til realationsdatabaser. og paralelisering… bumbum.</p>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<p>I Python er det almindeligt at håndtere dataset med en abstraction som kaldes et <em>dataset</em>. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas. Jeg har fundet et lille undervisningsforløb fra Matt Williams, University of Bristol, se <a href="https://gitlab.com/milliams/data_analysis_python" class="uri">https://gitlab.com/milliams/data_analysis_python</a>.</p>
+</section>
+<section id="agregering-vialisering-og-explorativ-analyse" class="level2">
+<h2 class="anchored" data-anchor-id="agregering-vialisering-og-explorativ-analyse">Agregering, vialisering og explorativ analyse</h2>
+<ul>
+<li>Case med Datadetektiv arbejde
+<ul>
+<li>Vind og EL-produktion, hvornår står møllerne stille? <img src="./assets/Vindel.svg" class="img-fluid" alt="vind vs el-prod"> <img src="./assets/Vindel - korrelation.svg" class="img-fluid" alt="god korr"> <img src="./assets/Vindel - anormali.svg" class="img-fluid" alt="anormali"></li>
+</ul></li>
+</ul>
+</section>
+<section id="webscraping" class="level2">
+<h2 class="anchored" data-anchor-id="webscraping">WebScraping</h2>
+<ul>
+<li>bilpriser</li>
+<li>nye it/tech buzzwords, fra jobopslag</li>
+</ul>
+</section>
+<section id="crud" class="level2">
+<h2 class="anchored" data-anchor-id="crud">CRUD</h2>
+<ul>
+<li>SQLAlchemy</li>
+</ul>
+</section>
+<section id="littlebigdata" class="level2">
+<h2 class="anchored" data-anchor-id="littlebigdata">LittleBigData</h2>
+<ul>
+<li>DuckDB</li>
+</ul>
+<!-- 
+---
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>. -->
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -206,7 +281,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/s0ren\.github\.io\/FAG_Python2\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
