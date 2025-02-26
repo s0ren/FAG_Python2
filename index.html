@@ -113,10 +113,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a></li>
   <li><a href="#agregering-visualisering-og-explorativ-analyse" id="toc-agregering-visualisering-og-explorativ-analyse" class="nav-link" data-scroll-target="#agregering-visualisering-og-explorativ-analyse">Agregering, visualisering og explorativ analyse</a>
   <ul class="collapse">
-  <li><a href="#hvornår-holder-vindmøllerne-stille" id="toc-hvornår-holder-vindmøllerne-stille" class="nav-link" data-scroll-target="#hvornår-holder-vindmøllerne-stille">Hvornår holder vindmøllerne stille?</a></li>
+  <li><a href="#detaljerede-data" id="toc-detaljerede-data" class="nav-link" data-scroll-target="#detaljerede-data">Detaljerede data</a></li>
+  <li><a href="#sammensæt-resumerede-data-med-agregering" id="toc-sammensæt-resumerede-data-med-agregering" class="nav-link" data-scroll-target="#sammensæt-resumerede-data-med-agregering">Sammensæt resumerede data med Agregering</a></li>
+  <li><a href="#agregering-i-intervaller" id="toc-agregering-i-intervaller" class="nav-link" data-scroll-target="#agregering-i-intervaller">Agregering i intervaller</a></li>
+  <li><a href="#agregering-i-intervaller-i-tid-og-dato" id="toc-agregering-i-intervaller-i-tid-og-dato" class="nav-link" data-scroll-target="#agregering-i-intervaller-i-tid-og-dato">Agregering i intervaller i tid og dato</a></li>
   </ul></li>
+  <li><a href="#case-hvornår-holder-vindmøllerne-stille" id="toc-case-hvornår-holder-vindmøllerne-stille" class="nav-link" data-scroll-target="#case-hvornår-holder-vindmøllerne-stille">Case: Hvornår holder vindmøllerne stille?</a></li>
   <li><a href="#webscraping" id="toc-webscraping" class="nav-link" data-scroll-target="#webscraping">WebScraping</a></li>
-  <li><a href="#crud" id="toc-crud" class="nav-link" data-scroll-target="#crud">CRUD</a></li>
+  <li><a href="#crud-sql-ddl" id="toc-crud-sql-ddl" class="nav-link" data-scroll-target="#crud-sql-ddl">CRUD / SQL DDL</a></li>
   <li><a href="#littlebigdata" id="toc-littlebigdata" class="nav-link" data-scroll-target="#littlebigdata">LittleBigData</a></li>
   </ul></li>
   </ul>
@@ -158,8 +162,29 @@ Alice -> Bob: test
 </section>
 <section id="agregering-visualisering-og-explorativ-analyse" class="level2">
 <h2 class="anchored" data-anchor-id="agregering-visualisering-og-explorativ-analyse">Agregering, visualisering og explorativ analyse</h2>
-<section id="hvornår-holder-vindmøllerne-stille" class="level3">
-<h3 class="anchored" data-anchor-id="hvornår-holder-vindmøllerne-stille">Hvornår holder vindmøllerne stille?</h3>
+<section id="detaljerede-data" class="level3">
+<h3 class="anchored" data-anchor-id="detaljerede-data">Detaljerede data</h3>
+<p>Til dataanalyse har man optimalt rådighed over data som beskriver enkeltbegivenheder. Hvert salg i en butik, hver enkelt transaktion i bank, hvert registrering af måledata, hver gang en tæller aktiveret, hver gang en handling udføres. Hver enkelt af alting.<br>
+Det er den fineste detaljeringsgrad.</p>
+</section>
+<section id="sammensæt-resumerede-data-med-agregering" class="level3">
+<h3 class="anchored" data-anchor-id="sammensæt-resumerede-data-med-agregering">Sammensæt resumerede data med Agregering</h3>
+<p>Ofte vil man gerne have sammensat oplysningerne på en af flere måder. Det kaldes aggregering.<br>
+Agregeringsfunktionerne kan være <em>tælle</em> (count), <em>summering</em> (sum), <em>gennemsnit</em> (mean/avg), <em>minimum/maksimum</em> (min/max).<br>
+Det er en mulighed at anvende agreringerne globat, så der bare returneres et tal; antallet af salg i hele butikkenshistorie, indestående på alle konti i banken osv.<br>
+Det er også muligt at man ønsker agregering gruperet på data fra en anden kolonne eller felt i en post. F.eks hvor meget er derm omsat i hver filial af en butikskæde, hvor meget har hver sælger solgt for, hvor mange biler er kørt ind i anlæget, hvad er det højeste antal udlånte bøger på biblioteket, osv.</p>
+</section>
+<section id="agregering-i-intervaller" class="level3">
+<h3 class="anchored" data-anchor-id="agregering-i-intervaller">Agregering i intervaller</h3>
+<p>Man kan gruppere på unikke værdier, men også på intervaller af værdier, f.eks. borgere med intægter 0-250.000, 250.000-500.000, 500.000-1.000.000, 1.000.000 eller mere.</p>
+</section>
+<section id="agregering-i-intervaller-i-tid-og-dato" class="level3">
+<h3 class="anchored" data-anchor-id="agregering-i-intervaller-i-tid-og-dato">Agregering i intervaller i tid og dato</h3>
+<p>Intervallerne er ofte også tidsintervaller, grupperet pr. time, pr dag. pr. måned eller år.</p>
+</section>
+</section>
+<section id="case-hvornår-holder-vindmøllerne-stille" class="level2">
+<h2 class="anchored" data-anchor-id="case-hvornår-holder-vindmøllerne-stille">Case: Hvornår holder vindmøllerne stille?</h2>
 <p><em>En Case med Data-detektiv arbejde.</em></p>
 <p>Mange har oplevet at vindmøllerne kan holde stille selv om vinden blæser.</p>
 <section id="hypoteser" class="level4">
@@ -183,7 +208,6 @@ Det kunne have noget at gøre med eksporten…</li>
 <p><img src="./assets/Vind_el_anormali.png" class="img-fluid" alt="anormali"> Det vi er på jagt efter er hvornår opfører dataerne sig <em>ikke</em>-proportionalt. Er der dårligere korrelation nogen gange, end normalt. Mangler der noget. Er der en <em>anormali</em>.</p>
 </section>
 </section>
-</section>
 <section id="webscraping" class="level2">
 <h2 class="anchored" data-anchor-id="webscraping">WebScraping</h2>
 <ul>
@@ -191,11 +215,10 @@ Det kunne have noget at gøre med eksporten…</li>
 <li>nye it/tech buzzwords, fra jobopslag</li>
 </ul>
 </section>
-<section id="crud" class="level2">
-<h2 class="anchored" data-anchor-id="crud">CRUD</h2>
-<ul>
-<li>SQLAlchemy</li>
-</ul>
+<section id="crud-sql-ddl" class="level2">
+<h2 class="anchored" data-anchor-id="crud-sql-ddl">CRUD / SQL DDL</h2>
+<p>Vi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.</p>
+<p>Se &lt;SQL_DDL/duckdb.qmd&gt; <a href="./SQL_DDL/duckdb.html">duckdb</a></p>
 </section>
 <section id="littlebigdata" class="level2">
 <h2 class="anchored" data-anchor-id="littlebigdata">LittleBigData</h2>

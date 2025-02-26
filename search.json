@@ -1,10 +1,66 @@
 [
   {
+    "objectID": "SQL_DDL/duckdb.html",
+    "href": "SQL_DDL/duckdb.html",
+    "title": "DuckDB SQL Øvelser - Kapitel 3",
+    "section": "",
+    "text": "Læs i DuckDB in Action, kapitel 3, om baggrunden for øvelserne.\nBemærk at opgaverne skal laves, så DuckDB kaldes fra python.\n\n\n\nOpret en tabel kaldet customers med følgende kolonner:\n\nid (INTEGER, PRIMARY KEY)\nname (VARCHAR(50), NOT NULL)\nemail (VARCHAR(100))\nsignup_date (DATE, NOT NULL)\n\nIndsæt 5 kunder i tabellen med forskellige værdier.\nOpret en tabel kaldet purchases med følgende kolonner:\n\nid (INTEGER, PRIMARY KEY)\ncustomer_id (INTEGER, FOREIGN KEY refererer til customers.id)\nproduct (VARCHAR(100), NOT NULL)\nprice (DECIMAL(10,2), NOT NULL)\npurchase_date (TIMESTAMP, NOT NULL)\n\nIndsæt 10 køb fordelt på de forskellige kunder.\n\n\n\n\n\nFind alle køb, der er foretaget af en bestemt kunde (vælg en kunde-id).\nFind alle køb, der er foretaget efter en bestemt dato.\nSkriv en forespørgsel der JOIN’er customers og purchases tabellerne for at vise kundenavn, produktnavn og pris for alle køb.\nFind den totale sum af alle køb for hver kunde og sorter efter den højeste sum først.\n\n\n\n\n\nBrug vinduesfunktioner til at tilføje en kolonne, der viser den kumulative sum af køb per kunde, sorteret efter købsdato.\nFind det mest populære produkt (det produkt der er købt flest gange).\nBeregn gennemsnitsprisen per produkt.\nBrug en vinduesfunktion til at rangere kunder efter deres totale købssum.\n\n\n\n\n\nSkriv en CTE, der finder den gennemsnitlige pris per køb per kunde, og brug derefter denne CTE til at finde de kunder, der i gennemsnit bruger mere end gennemsnittet for alle kunder.\nOpret en CTE, der finder det seneste køb for hver kunde, og brug denne til at vise kundenavn, produkt og dage siden sidste køb.\n\n\n\n\n\nBrug SELECT * EXCLUDE() til at vælge alle kolonner fra purchases tabellen undtagen id.\nBrug SELECT * REPLACE() til at vise alle kolonner fra purchases, men omdan price til at vise i en anden valuta (fx gang med 7.5 for at konvertere fra USD til DKK).\nBrug COLUMNS til at vælge alle kolonner i customers tabellen, der indeholder ordet “date”.\n\n\n\n\n\nBrug GROUP BY og HAVING til at finde kunder, der har foretaget mere end 2 køb.\nOpret en rapport, der viser den totale omsætning per måned.\nBrug GROUP BY CUBE til at oprette en rapport, der viser totalt salg per kunde, per produkt og den samlede total.\n\n\n\n\n\nOpret en tabel kaldet categories med kolonner id, name og parent_id (som kan pege til en anden kategori).\nIndsæt nogle kategorier, hvor nogle er underkategorier af andre.\nSkriv en rekursiv CTE, der kan vise hele kategorihierarkiet med indrykning baseret på niveau."
+  },
+  {
+    "objectID": "SQL_DDL/duckdb.html#øvelse-1-grundlæggende-tabeller-og-indsætning-af-data",
+    "href": "SQL_DDL/duckdb.html#øvelse-1-grundlæggende-tabeller-og-indsætning-af-data",
+    "title": "DuckDB SQL Øvelser - Kapitel 3",
+    "section": "",
+    "text": "Opret en tabel kaldet customers med følgende kolonner:\n\nid (INTEGER, PRIMARY KEY)\nname (VARCHAR(50), NOT NULL)\nemail (VARCHAR(100))\nsignup_date (DATE, NOT NULL)\n\nIndsæt 5 kunder i tabellen med forskellige værdier.\nOpret en tabel kaldet purchases med følgende kolonner:\n\nid (INTEGER, PRIMARY KEY)\ncustomer_id (INTEGER, FOREIGN KEY refererer til customers.id)\nproduct (VARCHAR(100), NOT NULL)\nprice (DECIMAL(10,2), NOT NULL)\npurchase_date (TIMESTAMP, NOT NULL)\n\nIndsæt 10 køb fordelt på de forskellige kunder."
+  },
+  {
+    "objectID": "SQL_DDL/duckdb.html#øvelse-2-sql-forespørgsler-med-where-og-join",
+    "href": "SQL_DDL/duckdb.html#øvelse-2-sql-forespørgsler-med-where-og-join",
+    "title": "DuckDB SQL Øvelser - Kapitel 3",
+    "section": "",
+    "text": "Find alle køb, der er foretaget af en bestemt kunde (vælg en kunde-id).\nFind alle køb, der er foretaget efter en bestemt dato.\nSkriv en forespørgsel der JOIN’er customers og purchases tabellerne for at vise kundenavn, produktnavn og pris for alle køb.\nFind den totale sum af alle køb for hver kunde og sorter efter den højeste sum først."
+  },
+  {
+    "objectID": "SQL_DDL/duckdb.html#øvelse-3-vinduesfunktioner-og-aggregeringer",
+    "href": "SQL_DDL/duckdb.html#øvelse-3-vinduesfunktioner-og-aggregeringer",
+    "title": "DuckDB SQL Øvelser - Kapitel 3",
+    "section": "",
+    "text": "Brug vinduesfunktioner til at tilføje en kolonne, der viser den kumulative sum af køb per kunde, sorteret efter købsdato.\nFind det mest populære produkt (det produkt der er købt flest gange).\nBeregn gennemsnitsprisen per produkt.\nBrug en vinduesfunktion til at rangere kunder efter deres totale købssum."
+  },
+  {
+    "objectID": "SQL_DDL/duckdb.html#øvelse-4-common-table-expressions-cte",
+    "href": "SQL_DDL/duckdb.html#øvelse-4-common-table-expressions-cte",
+    "title": "DuckDB SQL Øvelser - Kapitel 3",
+    "section": "",
+    "text": "Skriv en CTE, der finder den gennemsnitlige pris per køb per kunde, og brug derefter denne CTE til at finde de kunder, der i gennemsnit bruger mere end gennemsnittet for alle kunder.\nOpret en CTE, der finder det seneste køb for hver kunde, og brug denne til at vise kundenavn, produkt og dage siden sidste køb."
+  },
+  {
+    "objectID": "SQL_DDL/duckdb.html#øvelse-5-duckdb-specifikke-sql-udvidelser",
+    "href": "SQL_DDL/duckdb.html#øvelse-5-duckdb-specifikke-sql-udvidelser",
+    "title": "DuckDB SQL Øvelser - Kapitel 3",
+    "section": "",
+    "text": "Brug SELECT * EXCLUDE() til at vælge alle kolonner fra purchases tabellen undtagen id.\nBrug SELECT * REPLACE() til at vise alle kolonner fra purchases, men omdan price til at vise i en anden valuta (fx gang med 7.5 for at konvertere fra USD til DKK).\nBrug COLUMNS til at vælge alle kolonner i customers tabellen, der indeholder ordet “date”."
+  },
+  {
+    "objectID": "SQL_DDL/duckdb.html#øvelse-6-gruppering-og-avanceret-filtrering",
+    "href": "SQL_DDL/duckdb.html#øvelse-6-gruppering-og-avanceret-filtrering",
+    "title": "DuckDB SQL Øvelser - Kapitel 3",
+    "section": "",
+    "text": "Brug GROUP BY og HAVING til at finde kunder, der har foretaget mere end 2 køb.\nOpret en rapport, der viser den totale omsætning per måned.\nBrug GROUP BY CUBE til at oprette en rapport, der viser totalt salg per kunde, per produkt og den samlede total."
+  },
+  {
+    "objectID": "SQL_DDL/duckdb.html#bonus-øvelse-rekursive-forespørgsler",
+    "href": "SQL_DDL/duckdb.html#bonus-øvelse-rekursive-forespørgsler",
+    "title": "DuckDB SQL Øvelser - Kapitel 3",
+    "section": "",
+    "text": "Opret en tabel kaldet categories med kolonner id, name og parent_id (som kan pege til en anden kategori).\nIndsæt nogle kategorier, hvor nogle er underkategorier af andre.\nSkriv en rekursiv CTE, der kan vise hele kategorihierarkiet med indrykning baseret på niveau."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "FAG Python II",
     "section": "",
-    "text": "Vi skal arbejde med Dataset, agregering og visualisering. No foreslår CRUD til realationsdatabaser. og paralelisering… bumbum.\n\n\nI Python er det almindeligt at håndtere dataset med en abstraction som kaldes et dataset. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas. Jeg har fundet et lille undervisningsforløb fra Matt Williams, University of Bristol, se https://gitlab.com/milliams/data_analysis_python.\n\n\n\n\n\nEn Case med Data-detektiv arbejde.\nMange har oplevet at vindmøllerne kan holde stille selv om vinden blæser.\n\n\nDer er et par oplagte hypoteser til hvorfor dette sker:\n\nMøllen skal repareres\nSå er det oftes en, eller et par stykker, der holder stille. Ikke hele flokken.\nDet blæser for meget.\nMøllerne kan ikke holde til orkan, så de lukker ned af sikkerhedshensyn.\nDer er ikke afsætning eller frobrug til at afsætte strømmen.\nF.eks midt om natten.\nEl-nettet har ikke kapacitet til at sende strømmen videre.\nDet kunne have noget at gøre med eksporten…\n\n\n\n\nVi har særligt to interessante dataset tilgængelige, som måske kan forklare noget om fænomenet. Vi har data for vindhastigheder, og data for vindmølle-el-produktion.  Disse data har helt forskellige enheder, og vi kan ikke forvente at alt vden energi vinden kommer med, kan omsættes til el-produktion. Langt fra. Men der grund til at tro de er proprtionale. Og vi kan godt vise dem i samme diagram, med forskellige y-akser.\n Gennerelt må man formode at der er en god korrelation mellem disse data, da det er vinden som driver møllerne rund, og når det blæser mere, må møllerne køre mere rundt, og producere mere strøm. Omvendt, når det ikke blæser, produceres heller ingen strøm.\n Det vi er på jagt efter er hvornår opfører dataerne sig ikke-proportionalt. Er der dårligere korrelation nogen gange, end normalt. Mangler der noget. Er der en anormali.\n\n\n\n\n\n\nbilpriser\nnye it/tech buzzwords, fra jobopslag\n\n\n\n\n\nSQLAlchemy\n\n\n\n\n\nDuckDB"
+    "text": "Vi skal arbejde med Dataset, agregering og visualisering. No foreslår CRUD til realationsdatabaser. og paralelisering… bumbum.\n\n\nI Python er det almindeligt at håndtere dataset med en abstraction som kaldes et dataset. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas. Jeg har fundet et lille undervisningsforløb fra Matt Williams, University of Bristol, se https://gitlab.com/milliams/data_analysis_python.\n\n\n\n\n\nTil dataanalyse har man optimalt rådighed over data som beskriver enkeltbegivenheder. Hvert salg i en butik, hver enkelt transaktion i bank, hvert registrering af måledata, hver gang en tæller aktiveret, hver gang en handling udføres. Hver enkelt af alting.\nDet er den fineste detaljeringsgrad.\n\n\n\nOfte vil man gerne have sammensat oplysningerne på en af flere måder. Det kaldes aggregering.\nAgregeringsfunktionerne kan være tælle (count), summering (sum), gennemsnit (mean/avg), minimum/maksimum (min/max).\nDet er en mulighed at anvende agreringerne globat, så der bare returneres et tal; antallet af salg i hele butikkenshistorie, indestående på alle konti i banken osv.\nDet er også muligt at man ønsker agregering gruperet på data fra en anden kolonne eller felt i en post. F.eks hvor meget er derm omsat i hver filial af en butikskæde, hvor meget har hver sælger solgt for, hvor mange biler er kørt ind i anlæget, hvad er det højeste antal udlånte bøger på biblioteket, osv.\n\n\n\nMan kan gruppere på unikke værdier, men også på intervaller af værdier, f.eks. borgere med intægter 0-250.000, 250.000-500.000, 500.000-1.000.000, 1.000.000 eller mere.\n\n\n\nIntervallerne er ofte også tidsintervaller, grupperet pr. time, pr dag. pr. måned eller år.\n\n\n\n\nEn Case med Data-detektiv arbejde.\nMange har oplevet at vindmøllerne kan holde stille selv om vinden blæser.\n\n\nDer er et par oplagte hypoteser til hvorfor dette sker:\n\nMøllen skal repareres\nSå er det oftes en, eller et par stykker, der holder stille. Ikke hele flokken.\nDet blæser for meget.\nMøllerne kan ikke holde til orkan, så de lukker ned af sikkerhedshensyn.\nDer er ikke afsætning eller frobrug til at afsætte strømmen.\nF.eks midt om natten.\nEl-nettet har ikke kapacitet til at sende strømmen videre.\nDet kunne have noget at gøre med eksporten…\n\n\n\n\nVi har særligt to interessante dataset tilgængelige, som måske kan forklare noget om fænomenet. Vi har data for vindhastigheder, og data for vindmølle-el-produktion.  Disse data har helt forskellige enheder, og vi kan ikke forvente at alt vden energi vinden kommer med, kan omsættes til el-produktion. Langt fra. Men der grund til at tro de er proprtionale. Og vi kan godt vise dem i samme diagram, med forskellige y-akser.\n Gennerelt må man formode at der er en god korrelation mellem disse data, da det er vinden som driver møllerne rund, og når det blæser mere, må møllerne køre mere rundt, og producere mere strøm. Omvendt, når det ikke blæser, produceres heller ingen strøm.\n Det vi er på jagt efter er hvornår opfører dataerne sig ikke-proportionalt. Er der dårligere korrelation nogen gange, end normalt. Mangler der noget. Er der en anormali.\n\n\n\n\n\nbilpriser\nnye it/tech buzzwords, fra jobopslag\n\n\n\n\nVi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.\nSe &lt;SQL_DDL/duckdb.qmd&gt; duckdb\n\n\n\n\nDuckDB"
   },
   {
     "objectID": "index.html#dataset",
@@ -18,6 +74,13 @@
     "href": "index.html#agregering-visualisering-og-explorativ-analyse",
     "title": "FAG Python II",
     "section": "",
+    "text": "Til dataanalyse har man optimalt rådighed over data som beskriver enkeltbegivenheder. Hvert salg i en butik, hver enkelt transaktion i bank, hvert registrering af måledata, hver gang en tæller aktiveret, hver gang en handling udføres. Hver enkelt af alting.\nDet er den fineste detaljeringsgrad.\n\n\n\nOfte vil man gerne have sammensat oplysningerne på en af flere måder. Det kaldes aggregering.\nAgregeringsfunktionerne kan være tælle (count), summering (sum), gennemsnit (mean/avg), minimum/maksimum (min/max).\nDet er en mulighed at anvende agreringerne globat, så der bare returneres et tal; antallet af salg i hele butikkenshistorie, indestående på alle konti i banken osv.\nDet er også muligt at man ønsker agregering gruperet på data fra en anden kolonne eller felt i en post. F.eks hvor meget er derm omsat i hver filial af en butikskæde, hvor meget har hver sælger solgt for, hvor mange biler er kørt ind i anlæget, hvad er det højeste antal udlånte bøger på biblioteket, osv.\n\n\n\nMan kan gruppere på unikke værdier, men også på intervaller af værdier, f.eks. borgere med intægter 0-250.000, 250.000-500.000, 500.000-1.000.000, 1.000.000 eller mere.\n\n\n\nIntervallerne er ofte også tidsintervaller, grupperet pr. time, pr dag. pr. måned eller år."
+  },
+  {
+    "objectID": "index.html#case-hvornår-holder-vindmøllerne-stille",
+    "href": "index.html#case-hvornår-holder-vindmøllerne-stille",
+    "title": "FAG Python II",
+    "section": "",
     "text": "En Case med Data-detektiv arbejde.\nMange har oplevet at vindmøllerne kan holde stille selv om vinden blæser.\n\n\nDer er et par oplagte hypoteser til hvorfor dette sker:\n\nMøllen skal repareres\nSå er det oftes en, eller et par stykker, der holder stille. Ikke hele flokken.\nDet blæser for meget.\nMøllerne kan ikke holde til orkan, så de lukker ned af sikkerhedshensyn.\nDer er ikke afsætning eller frobrug til at afsætte strømmen.\nF.eks midt om natten.\nEl-nettet har ikke kapacitet til at sende strømmen videre.\nDet kunne have noget at gøre med eksporten…\n\n\n\n\nVi har særligt to interessante dataset tilgængelige, som måske kan forklare noget om fænomenet. Vi har data for vindhastigheder, og data for vindmølle-el-produktion.  Disse data har helt forskellige enheder, og vi kan ikke forvente at alt vden energi vinden kommer med, kan omsættes til el-produktion. Langt fra. Men der grund til at tro de er proprtionale. Og vi kan godt vise dem i samme diagram, med forskellige y-akser.\n Gennerelt må man formode at der er en god korrelation mellem disse data, da det er vinden som driver møllerne rund, og når det blæser mere, må møllerne køre mere rundt, og producere mere strøm. Omvendt, når det ikke blæser, produceres heller ingen strøm.\n Det vi er på jagt efter er hvornår opfører dataerne sig ikke-proportionalt. Er der dårligere korrelation nogen gange, end normalt. Mangler der noget. Er der en anormali."
   },
   {
@@ -28,11 +91,11 @@
     "text": "bilpriser\nnye it/tech buzzwords, fra jobopslag"
   },
   {
-    "objectID": "index.html#crud",
-    "href": "index.html#crud",
+    "objectID": "index.html#crud-sql-ddl",
+    "href": "index.html#crud-sql-ddl",
     "title": "FAG Python II",
     "section": "",
-    "text": "SQLAlchemy"
+    "text": "Vi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.\nSe &lt;SQL_DDL/duckdb.qmd&gt; duckdb"
   },
   {
     "objectID": "index.html#littlebigdata",

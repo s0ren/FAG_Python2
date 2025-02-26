@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://s0ren.github.io/FAG_Python2/index.html</loc>
-    <lastmod>2025-02-24T12:36:03.506Z</lastmod>
+    <loc>https://s0ren.github.io/FAG_Python2/SQL_DDL/duckdb.html</loc>
+    <lastmod>2025-02-26T12:12:50.024Z</lastmod>
   </url>
   <url>
-    <loc>https://s0ren.github.io/FAG_Python2/emner/LittleBigData.html</loc>
-    <lastmod>2025-02-24T11:10:50.086Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s0ren.github.io/FAG_Python2/emner/CRUD.html</loc>
-    <lastmod>2025-02-24T11:10:50.067Z</lastmod>
-  </url>
-  <url>
-    <loc>https://s0ren.github.io/FAG_Python2/emner/Case_Vind-El.html</loc>
-    <lastmod>2025-02-24T11:10:50.074Z</lastmod>
+    <loc>https://s0ren.github.io/FAG_Python2/emner/WebScraping_Cases.html</loc>
+    <lastmod>2025-02-24T11:10:50.094Z</lastmod>
   </url>
   <url>
     <loc>https://s0ren.github.io/FAG_Python2/emner/DataSet.html</loc>
     <lastmod>2025-02-24T11:10:50.080Z</lastmod>
   </url>
   <url>
-    <loc>https://s0ren.github.io/FAG_Python2/emner/WebScraping_Cases.html</loc>
-    <lastmod>2025-02-24T11:10:50.094Z</lastmod>
+    <loc>https://s0ren.github.io/FAG_Python2/emner/Case_Vind-El.html</loc>
+    <lastmod>2025-02-24T11:10:50.074Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s0ren.github.io/FAG_Python2/emner/CRUD.html</loc>
+    <lastmod>2025-02-24T11:10:50.067Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s0ren.github.io/FAG_Python2/emner/LittleBigData.html</loc>
+    <lastmod>2025-02-24T11:10:50.086Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s0ren.github.io/FAG_Python2/index.html</loc>
+    <lastmod>2025-02-26T12:11:39.162Z</lastmod>
   </url>
 </urlset>
