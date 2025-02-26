@@ -1,0 +1,70 @@
+
+
+# DuckDB SQL Øvelser - Kapitel 3
+
+Læs i <./duckdb_in_action.pdf>, kapitel 3, om baggrunden for øvelserne.
+
+Bemærk at opgaverne skal laves, så DuckDB kaldes fra python.
+
+## Øvelse 1: Grundlæggende Tabeller og Indsætning af Data
+1. Opret en tabel kaldet `customers` med følgende kolonner:
+   - `id` (INTEGER, PRIMARY KEY)
+   - `name` (VARCHAR(50), NOT NULL)
+   - `email` (VARCHAR(100))
+   - `signup_date` (DATE, NOT NULL)
+
+2. Indsæt 5 kunder i tabellen med forskellige værdier.
+
+3. Opret en tabel kaldet `purchases` med følgende kolonner:
+   - `id` (INTEGER, PRIMARY KEY)
+   - `customer_id` (INTEGER, FOREIGN KEY refererer til customers.id)
+   - `product` (VARCHAR(100), NOT NULL)
+   - `price` (DECIMAL(10,2), NOT NULL)
+   - `purchase_date` (TIMESTAMP, NOT NULL)
+
+4. Indsæt 10 køb fordelt på de forskellige kunder.
+
+## Øvelse 2: SQL-forespørgsler med WHERE og JOIN
+1. Find alle køb, der er foretaget af en bestemt kunde (vælg en kunde-id).
+
+2. Find alle køb, der er foretaget efter en bestemt dato.
+
+3. Skriv en forespørgsel der JOIN'er `customers` og `purchases` tabellerne for at vise kundenavn, produktnavn og pris for alle køb.
+
+4. Find den totale sum af alle køb for hver kunde og sorter efter den højeste sum først.
+
+## Øvelse 3: Vinduesfunktioner og Aggregeringer
+1. Brug vinduesfunktioner til at tilføje en kolonne, der viser den kumulative sum af køb per kunde, sorteret efter købsdato.
+
+2. Find det mest populære produkt (det produkt der er købt flest gange).
+
+3. Beregn gennemsnitsprisen per produkt.
+
+4. Brug en vinduesfunktion til at rangere kunder efter deres totale købssum.
+
+## Øvelse 4: Common Table Expressions (CTE)
+1. Skriv en CTE, der finder den gennemsnitlige pris per køb per kunde, og brug derefter denne CTE til at finde de kunder, der i gennemsnit bruger mere end gennemsnittet for alle kunder.
+
+2. Opret en CTE, der finder det seneste køb for hver kunde, og brug denne til at vise kundenavn, produkt og dage siden sidste køb.
+
+## Øvelse 5: DuckDB-specifikke SQL-udvidelser
+1. Brug `SELECT * EXCLUDE()` til at vælge alle kolonner fra `purchases` tabellen undtagen `id`.
+
+2. Brug `SELECT * REPLACE()` til at vise alle kolonner fra `purchases`, men omdan `price` til at vise i en anden valuta (fx gang med 7.5 for at konvertere fra USD til DKK).
+
+3. Brug `COLUMNS` til at vælge alle kolonner i `customers` tabellen, der indeholder ordet "date".
+
+## Øvelse 6: Gruppering og Avanceret Filtrering
+1. Brug `GROUP BY` og `HAVING` til at finde kunder, der har foretaget mere end 2 køb.
+
+2. Opret en rapport, der viser den totale omsætning per måned.
+
+3. Brug `GROUP BY CUBE` til at oprette en rapport, der viser totalt salg per kunde, per produkt og den samlede total.
+
+## Bonus-øvelse: Rekursive forespørgsler
+1. Opret en tabel kaldet `categories` med kolonner `id`, `name` og `parent_id` (som kan pege til en anden kategori).
+
+2. Indsæt nogle kategorier, hvor nogle er underkategorier af andre.
+
+3. Skriv en rekursiv CTE, der kan vise hele kategorihierarkiet med indrykning baseret på niveau.
+
