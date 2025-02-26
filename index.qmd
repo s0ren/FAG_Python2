@@ -77,9 +77,11 @@ Vi har særligt to interessante dataset tilgængelige, som måske kan forklare n
 -   bilpriser
 -   nye it/tech buzzwords, fra jobopslag
 
-## CRUD
+## CRUD / SQL DDL
 
--   SQLAlchemy
+Vi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.
+
+Se <SQL_DDL/duckdb.qmd> [duckdb](./SQL_DDL/duckdb.qmd)
 
 ## LittleBigData
 

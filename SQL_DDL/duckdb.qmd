@@ -2,7 +2,7 @@
 
 # DuckDB SQL Øvelser - Kapitel 3
 
-Læs i <./duckdb_in_action.pdf>, kapitel 3, om baggrunden for øvelserne.
+Læs i [DuckDB in Action](duckdb_in_action.pdf), kapitel 3, om baggrunden for øvelserne.
 
 Bemærk at opgaverne skal laves, så DuckDB kaldes fra python.
 
