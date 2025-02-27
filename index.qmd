@@ -17,7 +17,7 @@ Alice -> Bob: test
 
 # Python II
 
-Python II, er lavet for at give forudsætninger til at arbejde med Big Data, hvor mange værktøjer programmeres med python.
+Python II, er lavet for at give forudsætninger til at arbejde med faget Big Data II, hvor mange værktøjer programmeres med python.
 Der er nogen kompetencer vi tænker er nødvendige at have i den nuværende udgave af Big Data II:
 
 * Dataset (som i `Pandas`' DataFrames), 
@@ -34,27 +34,11 @@ Se <https://gitlab.com/milliams/data_analysis_python>.
 
 ## Agregering, visualisering og explorativ analyse
 
-### Detaljerede data
+Detaljerede data kan samles og give bedre overblik, ved at agregeres.
 
-Til dataanalyse har man optimalt rådighed over data som beskriver enkeltbegivenheder. Hvert salg i en butik, hver enkelt transaktion i bank, hvert registrering af måledata, hver gang en tæller aktiveret, hver gang en handling udføres. Hver enkelt af alting. \
-Det er den fineste detaljeringsgrad.
+Se [Agregering](emner/agregering/agregering.qmd)
 
-### Sammensæt resumerede data med Agregering
-
-Ofte vil man gerne have sammensat oplysningerne på en af flere måder. Det kaldes aggregering. \
-Agregeringsfunktionerne kan være *tælle* (count), *summering* (sum), *gennemsnit* (mean/avg), *minimum/maksimum* (min/max).\
-Det er en mulighed at anvende agreringerne globat, så der bare returneres et tal; antallet af salg i hele butikkenshistorie, indestående på alle konti i banken osv.\
-Det er også muligt at man ønsker agregering gruperet på data fra en anden kolonne eller felt i en post. F.eks hvor meget er derm omsat i hver filial af en butikskæde, hvor meget har hver sælger solgt for, hvor mange biler er kørt ind i anlæget, hvad er det højeste antal udlånte bøger på biblioteket, osv.
-
-### Agregering i intervaller
-
-Man kan gruppere på unikke værdier, men også på intervaller af værdier, f.eks. borgere med intægter 0-250.000, 250.000-500.000, 500.000-1.000.000, 1.000.000 eller mere.
-
-### Agregering i intervaller i tid og dato
-
-Intervallerne er ofte også tidsintervaller, grupperet pr. time, pr dag. pr. måned eller år.
-
-## Case: Hvornår holder vindmøllerne stille?
+### Case: Hvornår holder vindmøllerne stille?
 
 [Case: Vind og EL](./emner/Case_Vind-El.qmd)
 
@@ -68,14 +52,11 @@ Intervallerne er ofte også tidsintervaller, grupperet pr. time, pr dag. pr. må
 
 Vi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.
 
-* [Begyndervejledning til DuckDB: Installation, Tilslutning og CRUD-operationer](./SQL_DDL/igang_med_dockdb.qmd)
-    * slides [DuckDB Quickstart](./SQL_DDL/DuckDB_quickstart.qmd)
+* [Begyndervejledning til DuckDB: Installation, Tilslutning og CRUD-operationer](./emner/CRUD_DDL_SQL/igang_med_dockdb.qmd)
+    * slides [DuckDB Quickstart](./emner/CRUD_DDL_SQL/DuckDB_quickstart.qmd)
 
-Se [duckdb](./SQL_DDL/duckdb_opgave.qmd)
+Se [Opgaver til duckdb](./emner/CRUD_DDL_SQL/duckdb_opgave.qmd)
 
-## LittleBigData
-
--   DuckDB
 
 ```{=html}
 <!-- 
