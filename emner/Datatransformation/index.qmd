@@ -1,12 +1,11 @@
 ---
 title: "Databehandling: Fra Rådata til Brugbar Viden"
-order: 4
+format: 
+    html:
+        order: 10
 
 
 ---
-
-
-# Databehandling: Fra Rådata til Brugbar Viden
 
 I databehandlingens verden er transformation nøglen til at omdanne uoverskuelige datamængder til meningsfulde indsigter. Forestil dig et datasæt som en uordnet værktøjskasse: hver enkelt del har potentiale, men først når delene organiseres systematisk, bliver de virkelig nyttige.
 
