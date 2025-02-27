@@ -1,3 +1,4 @@
 /.quarto/
 /output/
 /.venv/
+SQL_DDL/*.db
