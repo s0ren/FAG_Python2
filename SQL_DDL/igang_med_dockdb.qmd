@@ -5,20 +5,28 @@ __Installation, Tilslutning og CRUD-operationer__
 ## Installation af DuckDB
 
 ### macOS
-1. Brug Homebrew til at installere DuckDB:
+1. Brug `Homebrew` til at installere DuckDB:
    ```bash
    brew install duckdb
    ```
 
 ### Windows
+Hvis du har `winget`installeret:
+
+1. Brug `winget`:
+   ```powershell
+   winget install DuckDB.cli
+   ```
+
+Ellers
+
 1. Download den seneste version fra [DuckDB's hjemmeside](https://duckdb.org/docs/installation/)
 2. Udpak ZIP-filen til en mappe efter eget valg
 
 ### Linux
 1. Download den seneste version:
    ```bash
-   wget https://github.com/duckdb/duckdb/releases/download/v0.10.0/duckdb_cli-linux-amd64.zip
-   unzip duckdb_cli-linux-amd64.zip
+   curl https://install.duckdb.org | sh
    ```
 
 ### Python-installation
@@ -41,14 +49,17 @@ duckdb mindb.db
 ```
 
 ### Via Python
-```python
+```{python}
+#| echo: true
+
 import duckdb
 
-# Opret forbindelse (in-memory database)
+# Forbind til en database-fil
+conn = duckdb.connect('mindb.db')
+
+# Eller opret forbindelse (in-memory database)
 conn = duckdb.connect()
 
-# Eller forbind til en database-fil
-conn = duckdb.connect('mindb.db')
 ```
 
 ## Grundlæggende CRUD-operationer
@@ -66,7 +77,9 @@ CREATE TABLE kunder (
 ```
 
 **Via Python:**
-```python
+```{python}
+#| output: false
+
 conn.execute("""
 CREATE TABLE kunder (
     id INTEGER PRIMARY KEY,
@@ -94,7 +107,9 @@ INSERT INTO kunder (id, navn, email) VALUES
 ```
 
 **Via Python:**
-```python
+```{python}
+#| output: false
+
 conn.execute("INSERT INTO kunder (id, navn, email) VALUES (5, 'Jonas Hansen', 'jonas@example.com')")
 
 # Flere rækker
@@ -103,6 +118,7 @@ INSERT INTO kunder (id, navn, email) VALUES
 (6, 'Sofie Larsen', 'sofie@example.com'),
 (7, 'Ole Madsen', 'ole@example.com')
 """)
+
 ```
 
 ### 3. Læse data (SELECT)
@@ -128,16 +144,22 @@ SELECT * FROM kunder ORDER BY navn ASC;
 ```
 
 **Via Python:**
-```python
+```{python}
+#| echo: true
+
 # Hent alle rækker
 result = conn.execute("SELECT * FROM kunder").fetchall()
 for row in result:
     print(row)
+```
 
+```{python}
+#| echo: true
 # Brug pandas til at få en DataFrame
 df = conn.execute("SELECT * FROM kunder").df()
 print(df)
 ```
+
 
 ### 4. Opdatere data (UPDATE)
 
