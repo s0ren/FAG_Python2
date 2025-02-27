@@ -17,11 +17,20 @@ Alice -> Bob: test
 
 # Python II
 
-Vi skal arbejde med Dataset, agregering og visualisering. No foreslår CRUD til realationsdatabaser. og paralelisering... bumbum.
+Python II, er lavet for at give forudsætninger til at arbejde med Big Data, hvor mange værktøjer programmeres med python.
+Der er nogen kompetencer vi tænker er nødvendige at have i den nuværende udgave af Big Data II:
 
-## Dataset
+* Dataset (som i `Pandas`' DataFrames), 
+* agregering og 
+* visualisering. 
+* CRUD til realationsdatabaser.
 
-I Python er det almindeligt at håndtere dataset med en abstraction som kaldes et *dataset*. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas. Jeg har fundet et lille undervisningsforløb fra Matt Williams, University of Bristol, se <https://gitlab.com/milliams/data_analysis_python>.
+## Dataset og dataframes
+
+I Python er det almindeligt at håndtere dataset med en abstraction som kaldes et *dataset*. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas. 
+
+Matt Williams, University of Bristol, et lille undervisningsforløb om det. \
+Se <https://gitlab.com/milliams/data_analysis_python>.
 
 ## Agregering, visualisering og explorativ analyse
 
@@ -47,30 +56,8 @@ Intervallerne er ofte også tidsintervaller, grupperet pr. time, pr dag. pr. må
 
 ## Case: Hvornår holder vindmøllerne stille?
 
-*En Case med Data-detektiv arbejde.*
+[Case: Vind og EL](./emner/Case_Vind-El.qmd)
 
-Mange har oplevet at vindmøllerne kan holde stille selv om vinden blæser.
-
-#### Hypoteser
-
-Der er et par oplagte hypoteser til hvorfor dette sker:
-
--   Møllen skal repareres\
-    Så er det oftes en, eller et par stykker, der holder stille. Ikke hele flokken.
--   Det blæser for meget.\
-    Møllerne kan ikke holde til orkan, så de lukker ned af sikkerhedshensyn.
--   Der er ikke afsætning eller frobrug til at afsætte strømmen.\
-    F.eks midt om natten.
--   El-nettet har ikke kapacitet til at sende strømmen videre.\
-    Det kunne have noget at gøre med eksporten...
-
-#### Databaseret undersøgelse
-
-Vi har særligt to interessante dataset tilgængelige, som måske kan forklare noget om fænomenet. Vi har data for vindhastigheder, og data for vindmølle-el-produktion. ![vind vs el-prod](./assets/Vind_el.png) Disse data har helt forskellige enheder, og vi kan ikke forvente at alt vden energi vinden kommer med, kan omsættes til el-produktion. Langt fra. Men der grund til at tro de er proprtionale. Og vi kan godt vise dem i samme diagram, med forskellige y-akser.
-
-![god korr](./assets/Vind_el_korrelation.png) Gennerelt må man formode at der er en god korrelation mellem disse data, da det er vinden som driver møllerne rund, og når det blæser mere, må møllerne køre mere rundt, og producere mere strøm. Omvendt, når det *ikke* blæser, produceres heller *ingen* strøm.
-
-![anormali](./assets/Vind_el_anormali.png) Det vi er på jagt efter er hvornår opfører dataerne sig *ikke*-proportionalt. Er der dårligere korrelation nogen gange, end normalt. Mangler der noget. Er der en *anormali*.
 
 ## WebScraping
 
@@ -79,11 +66,10 @@ Vi har særligt to interessante dataset tilgængelige, som måske kan forklare n
 
 ## CRUD / SQL DDL
 
+Vi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.
 
 * [Begyndervejledning til DuckDB: Installation, Tilslutning og CRUD-operationer](./SQL_DDL/igang_med_dockdb.qmd)
-    * slides [DuckDB Quickstart](./SQL_DDL/DuckDB_quickstart_.qmd)
-
-Vi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.
+    * slides [DuckDB Quickstart](./SQL_DDL/DuckDB_quickstart.qmd)
 
 Se [duckdb](./SQL_DDL/duckdb_opgave.qmd)
 
