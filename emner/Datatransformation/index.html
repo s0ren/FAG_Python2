@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>case_vind-el – FAG_Pathon2</title>
+<title>Databehandling: Fra Rådata til Brugbar Viden – FAG_Pathon2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skift sidebjælke" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../emner/Dataset_og _dataframes.html">Emner</a></li><li class="breadcrumb-item"><a href="../../emner/agregering/index.html">Agregering og visualisering af data</a></li><li class="breadcrumb-item"><a href="../../emner/agregering/Case_Vind-El.html">Case: Hvornår holder vindmøllerne stille?</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../emner/Dataset_og _dataframes.html">Emner</a></li><li class="breadcrumb-item"><a href="../../emner/Datatransformation/index.html">Databehandling: Fra Rådata til Brugbar Viden</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skift sidebjælke" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -134,14 +134,14 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../emner/agregering/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agregering og visualisering af data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skift sektion">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Skift sektion">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../emner/agregering/Case_Vind-El.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../emner/agregering/Case_Vind-El.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Case: Hvornår holder vindmøllerne stille?</span></a>
   </div>
 </li>
@@ -184,13 +184,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../emner/Datatransformation/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../emner/Datatransformation/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Databehandling: Fra Rådata til Brugbar Viden</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Skift sektion">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skift sektion">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../emner/Datatransformation/duckdb_assignment_description.html" class="sidebar-item-text sidebar-link">
@@ -211,46 +211,78 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">På denne side</h2>
    
   <ul>
-  <li><a href="#case-hvornår-holder-vindmøllerne-stille" id="toc-case-hvornår-holder-vindmøllerne-stille" class="nav-link active" data-scroll-target="#case-hvornår-holder-vindmøllerne-stille">Case: Hvornår holder vindmøllerne stille?</a>
-  <ul class="collapse">
-  <li><a href="#hypoteser" id="toc-hypoteser" class="nav-link" data-scroll-target="#hypoteser">Hypoteser</a></li>
-  <li><a href="#databaseret-undersøgelse" id="toc-databaseret-undersøgelse" class="nav-link" data-scroll-target="#databaseret-undersøgelse">Databaseret undersøgelse</a></li>
-  </ul></li>
+  <li><a href="#centrale-udfordninger" id="toc-centrale-udfordninger" class="nav-link active" data-scroll-target="#centrale-udfordninger">Centrale Udfordninger</a></li>
+  <li><a href="#transformation-i-praksis" id="toc-transformation-i-praksis" class="nav-link" data-scroll-target="#transformation-i-praksis">Transformation i Praksis</a></li>
+  <li><a href="#eksempel-på-pivot-transformation" id="toc-eksempel-på-pivot-transformation" class="nav-link" data-scroll-target="#eksempel-på-pivot-transformation">Eksempel på Pivot-transformation</a></li>
+  <li><a href="#tekniske-gevinster" id="toc-tekniske-gevinster" class="nav-link" data-scroll-target="#tekniske-gevinster">Tekniske Gevinster</a></li>
+  <li><a href="#læringsperspektiv" id="toc-læringsperspektiv" class="nav-link" data-scroll-target="#læringsperspektiv">Læringsperspektiv</a></li>
+  <li><a href="#opgave" id="toc-opgave" class="nav-link" data-scroll-target="#opgave">Opgave</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../emner/Dataset_og _dataframes.html">Emner</a></li><li class="breadcrumb-item"><a href="../../emner/agregering/index.html">Agregering og visualisering af data</a></li><li class="breadcrumb-item"><a href="../../emner/agregering/Case_Vind-El.html">Case: Hvornår holder vindmøllerne stille?</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../emner/Dataset_og _dataframes.html">Emner</a></li><li class="breadcrumb-item"><a href="../../emner/Datatransformation/index.html">Databehandling: Fra Rådata til Brugbar Viden</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Databehandling: Fra Rådata til Brugbar Viden</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="case-hvornår-holder-vindmøllerne-stille" class="level1">
-<h1>Case: Hvornår holder vindmøllerne stille?</h1>
-<p><em>En Case, hvor du skal være Data-Detektiv!</em></p>
-<p>Mange har oplevet at vindmøllerne kan holde stille selv om vinden blæser.</p>
-<section id="hypoteser" class="level2">
-<h2 class="anchored" data-anchor-id="hypoteser">Hypoteser</h2>
-<p>Der er et par oplagte hypoteser til hvorfor dette sker:</p>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>I databehandlingens verden er transformation nøglen til at omdanne uoverskuelige datamængder til meningsfulde indsigter. Forestil dig et datasæt som en uordnet værktøjskasse: hver enkelt del har potentiale, men først når delene organiseres systematisk, bliver de virkelig nyttige.</p>
+<p>Datatransformation handler grundlæggende om at gøre rådata mere anvendelige. I praksis betyder det at konvertere komplekse, ustrukturerede datasæt til klare, analyserbare formater.</p>
+<section id="centrale-udfordninger" class="level2">
+<h2 class="anchored" data-anchor-id="centrale-udfordninger">Centrale Udfordninger</h2>
+<p>Typiske problemer med rådata inkluderer: - Svær at aflæse - Ineffektiv lagring - Besværlig analyse - Unødvendig kompleksitet</p>
+</section>
+<section id="transformation-i-praksis" class="level2">
+<h2 class="anchored" data-anchor-id="transformation-i-praksis">Transformation i Praksis</h2>
+<p>Et konkret eksempel: Et salgsdatasæt med individuelle transaktioner kan transformeres fra en lang liste til en kompakt oversigt. Hvor man før skulle blade gennem hundredvis af rækker for at forstå samlede salgstal, kan man nu med det samme se totaler fordelt på produkter og salgskanaler.</p>
+</section>
+<section id="eksempel-på-pivot-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="eksempel-på-pivot-transformation">Eksempel på Pivot-transformation</h2>
+<p><strong>Før (Rådata):</strong></p>
+<pre><code>produktId | salgsdato  | salgskanal | value
+A001      | 2023-01-15 | online     | 1250.50
+A001      | 2023-01-15 | butik      | 875.25
+A002      | 2023-01-22 | online     | 512.50</code></pre>
+<p><strong>Efter (Pivoteret):</strong></p>
+<pre><code>produktId | salgsdato  | online_salg | butik_salg | total_salg
+A001      | 2023-01-15 | 1250.50     | 875.25     | 2125.75
+A002      | 2023-02-22 | 512.50      | 0.0        | 512.50</code></pre>
+</section>
+<section id="tekniske-gevinster" class="level2">
+<h2 class="anchored" data-anchor-id="tekniske-gevinster">Tekniske Gevinster</h2>
 <ul>
-<li>Møllen skal repareres<br>
-Så er det oftes en, eller et par stykker, der holder stille. Ikke hele flokken.</li>
-<li>Det blæser for meget.<br>
-Møllerne kan ikke holde til orkan, så de lukker ned af sikkerhedshensyn.</li>
-<li>Der er ikke afsætning eller frobrug til at afsætte strømmen.<br>
-F.eks midt om natten.</li>
-<li>El-nettet har ikke kapacitet til at sende strømmen videre.<br>
-Det kunne have noget at gøre med eksporten…</li>
+<li>Datakompression (f.eks. Parquet-format)</li>
+<li>Hurtigere dataadgang</li>
+<li>Mindre hukommelsesforbrug</li>
+<li>Nemmere analyse og visualisering</li>
 </ul>
 </section>
-<section id="databaseret-undersøgelse" class="level2">
-<h2 class="anchored" data-anchor-id="databaseret-undersøgelse">Databaseret undersøgelse</h2>
-<p>Vi har særligt to interessante dataset tilgængelige, som måske kan forklare noget om fænomenet. Vi har data for vindhastigheder, og data for vindmølle-el-produktion. <img src="./assets/Vind_el.png" class="img-fluid" alt="vind vs el-prod"> Disse data har helt forskellige enheder, og vi kan ikke forvente at alt vden energi vinden kommer med, kan omsættes til el-produktion. Langt fra. Men der grund til at tro de er proprtionale. Og vi kan godt vise dem i samme diagram, med forskellige y-akser.</p>
-<p><img src="./assets/Vind_el_korrelation.png" class="img-fluid" alt="god korr"> Gennerelt må man formode at der er en god korrelation mellem disse data, da det er vinden som driver møllerne rund, og når det blæser mere, må møllerne køre mere rundt, og producere mere strøm. Omvendt, når det <em>ikke</em> blæser, produceres heller <em>ingen</em> strøm.</p>
-<p><img src="./assets/Vind_el_anormali.png" class="img-fluid" alt="anormali"> Det vi er på jagt efter er hvornår opfører dataerne sig <em>ikke</em>-proportionalt. Er der dårligere korrelation nogen gange, end normalt. Mangler der noget. Er der en <em>anormali</em>.</p>
-
-
+<section id="læringsperspektiv" class="level2">
+<h2 class="anchored" data-anchor-id="læringsperspektiv">Læringsperspektiv</h2>
+<p>Eleverne lærer ikke blot en teknisk teknik, men en fundamental tilgang til at: - Forstå datastrukturer - Optimere databehandling - Forberede data til videre analyse</p>
+<p>Transformation er brobyggeren mellem råt datamateriale og værdifuld forretningsmæssig indsigt.</p>
 </section>
+<section id="opgave" class="level2">
+<h2 class="anchored" data-anchor-id="opgave">Opgave</h2>
+<p>Du skal lave opgaven <a href="../../emner/Datatransformation/duckdb_assignment_description.html">Databehandling med DuckDB og Parquet</a></p>
+
+
 </section>
 
 </main> <!-- /main -->

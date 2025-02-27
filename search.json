@@ -35,6 +35,90 @@
     "text": "Vi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.\n\nBegyndervejledning til DuckDB: Installation, Tilslutning og CRUD-operationer\n\nslides DuckDB Quickstart\n\n\nSe Opgaver til duckdb"
   },
   {
+    "objectID": "emner/Datatransformation/index.html",
+    "href": "emner/Datatransformation/index.html",
+    "title": "Databehandling: Fra Rådata til Brugbar Viden",
+    "section": "",
+    "text": "I databehandlingens verden er transformation nøglen til at omdanne uoverskuelige datamængder til meningsfulde indsigter. Forestil dig et datasæt som en uordnet værktøjskasse: hver enkelt del har potentiale, men først når delene organiseres systematisk, bliver de virkelig nyttige.\nDatatransformation handler grundlæggende om at gøre rådata mere anvendelige. I praksis betyder det at konvertere komplekse, ustrukturerede datasæt til klare, analyserbare formater.",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/index.html#centrale-udfordninger",
+    "href": "emner/Datatransformation/index.html#centrale-udfordninger",
+    "title": "Databehandling: Fra Rådata til Brugbar Viden",
+    "section": "Centrale Udfordninger",
+    "text": "Centrale Udfordninger\nTypiske problemer med rådata inkluderer: - Svær at aflæse - Ineffektiv lagring - Besværlig analyse - Unødvendig kompleksitet",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/index.html#transformation-i-praksis",
+    "href": "emner/Datatransformation/index.html#transformation-i-praksis",
+    "title": "Databehandling: Fra Rådata til Brugbar Viden",
+    "section": "Transformation i Praksis",
+    "text": "Transformation i Praksis\nEt konkret eksempel: Et salgsdatasæt med individuelle transaktioner kan transformeres fra en lang liste til en kompakt oversigt. Hvor man før skulle blade gennem hundredvis af rækker for at forstå samlede salgstal, kan man nu med det samme se totaler fordelt på produkter og salgskanaler.",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/index.html#eksempel-på-pivot-transformation",
+    "href": "emner/Datatransformation/index.html#eksempel-på-pivot-transformation",
+    "title": "Databehandling: Fra Rådata til Brugbar Viden",
+    "section": "Eksempel på Pivot-transformation",
+    "text": "Eksempel på Pivot-transformation\nFør (Rådata):\nproduktId | salgsdato  | salgskanal | value\nA001      | 2023-01-15 | online     | 1250.50\nA001      | 2023-01-15 | butik      | 875.25\nA002      | 2023-01-22 | online     | 512.50\nEfter (Pivoteret):\nproduktId | salgsdato  | online_salg | butik_salg | total_salg\nA001      | 2023-01-15 | 1250.50     | 875.25     | 2125.75\nA002      | 2023-02-22 | 512.50      | 0.0        | 512.50",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/index.html#tekniske-gevinster",
+    "href": "emner/Datatransformation/index.html#tekniske-gevinster",
+    "title": "Databehandling: Fra Rådata til Brugbar Viden",
+    "section": "Tekniske Gevinster",
+    "text": "Tekniske Gevinster\n\nDatakompression (f.eks. Parquet-format)\nHurtigere dataadgang\nMindre hukommelsesforbrug\nNemmere analyse og visualisering",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/index.html#læringsperspektiv",
+    "href": "emner/Datatransformation/index.html#læringsperspektiv",
+    "title": "Databehandling: Fra Rådata til Brugbar Viden",
+    "section": "Læringsperspektiv",
+    "text": "Læringsperspektiv\nEleverne lærer ikke blot en teknisk teknik, men en fundamental tilgang til at: - Forstå datastrukturer - Optimere databehandling - Forberede data til videre analyse\nTransformation er brobyggeren mellem råt datamateriale og værdifuld forretningsmæssig indsigt.",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/index.html#opgave",
+    "href": "emner/Datatransformation/index.html#opgave",
+    "title": "Databehandling: Fra Rådata til Brugbar Viden",
+    "section": "Opgave",
+    "text": "Opgave\nDu skal lave opgaven Databehandling med DuckDB og Parquet",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden"
+    ]
+  },
+  {
     "objectID": "emner/Dataset_og _dataframes.html",
     "href": "emner/Dataset_og _dataframes.html",
     "title": "Dataset og dataframes",
@@ -442,6 +526,110 @@
       "Emner",
       "CRUD DDL SQL",
       "Hurtig Start med DuckDB i Python"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/duckdb_assignment_description.html",
+    "href": "emner/Datatransformation/duckdb_assignment_description.html",
+    "title": "Opgave: Databehandling med DuckDB og Parquet",
+    "section": "",
+    "text": "At demonstrere avanceret databehandling ved hjælp af DuckDB, med fokus på: - Indlæsning af store datasæt - Pivot-transformation - Effektiv datalagring med Parquet-format - Udnyttelse af multi-core processorteknologi\n\n\n\nDMI (Danmarks Meteorologiske Institut) har leveret et datasæt med meteorologiske observationer. Din opgave er at transformere disse data effektivt.\nDu får udleveret 2-3 års data til at procesere.\nDe findes i filenerne dmi/{yyyy}-{mm}-{dd}.txt\nSe eksemplet duckdb_pivot_example.py, som et generisk eksempel på hvordan en lignende løsning kan se ud:\nimport duckdb\nimport os\n\n# Opret forbindelse til DuckDB i hukommelsen\ncon = duckdb.connect(database=':memory:')\n\n# Eksempel på rådata - en virksomheds salgsdatasæt\nsample_data = [\n    {'produktId': 'A001', 'salgsdato': '2023-01-15', 'salgskanal': 'online', 'value': 1250.50},\n    {'produktId': 'A001', 'salgsdato': '2023-01-15', 'salgskanal': 'butik', 'value': 875.25},\n    {'produktId': 'B002', 'salgsdato': '2023-01-15', 'salgskanal': 'online', 'value': 950.75},\n    {'produktId': 'B002', 'salgsdato': '2023-01-15', 'salgskanal': 'butik', 'value': 1100.00},\n    {'produktId': 'A001', 'salgsdato': '2023-02-20', 'salgskanal': 'online', 'value': 1500.75},\n    {'produktId': 'A001', 'salgsdato': '2023-02-20', 'salgskanal': 'butik', 'value': 1025.50},\n    {'produktId': 'B002', 'salgsdato': '2023-02-20', 'salgskanal': 'online', 'value': 1175.25},\n    {'produktId': 'B002', 'salgsdato': '2023-02-20', 'salgskanal': 'butik', 'value': 1350.75},\n]\n\n# Opret midlertidig tabel med rådata\ncon.execute(\"CREATE TEMPORARY TABLE raw_data AS SELECT * FROM sample_data\")\n\n# Find unikke salgskanaler\nprint(\"Unikke salgskanaler:\")\nchannels = con.execute(\"SELECT DISTINCT salgskanal FROM raw_data\").fetchall()\nfor channel in channels:\n    print(f\"  {channel[0]}\")\n\n# Dynamisk pivot-forespørgsel\nsalgskanal_ids = [channel[0] for channel in channels]\npivot_columns = \", \".join([\n    f\"MAX(CASE WHEN salgskanal = '{channel}' THEN value END) as \\\"{channel}_salg\\\"\"\n    for channel in salgskanal_ids\n])\n\n# Udfør pivot\npivot_query = f\"\"\"\nCREATE TABLE pivoteret_salgsdata AS\nSELECT \n    produktId,\n    salgsdato,\n    EXTRACT(YEAR FROM salgsdato) as år,\n    EXTRACT(MONTH FROM salgsdato) as måned,\n    {pivot_columns},\n    SUM(value) as total_salg\nFROM raw_data\nGROUP BY produktId, salgsdato\n\"\"\"\ncon.execute(pivot_query)\n\n# Opret output-mappe\noutput_dir = \"pivoteret_salgsdata\"\nif not os.path.exists(output_dir):\n    os.makedirs(output_dir)\n\n# Gem pivoterede data som Parquet-filer\nprint(\"\\nGemmer partitionerede Parquet-filer...\")\ncon.execute(f\"\"\"\nCOPY pivoteret_salgsdata \nTO '{output_dir}' \n(FORMAT PARQUET, PARTITION_BY (år, måned), COMPRESSION 'ZSTD')\n\"\"\")\nprint(f\"Data gemt i {output_dir} mappe\")\n\n# Test indlæsning af partitionerede data\nprint(\"\\nTester indlæsning af partitionerede data...\")\nalle_data = con.execute(f\"SELECT * FROM parquet_scan('{output_dir}')\").df()\nprint(f\"Indlæst {len(alle_data)} rækker fra alle partitioner\")\n\n# Vis første få rækker af pivoterede data\nprint(\"\\nPivoterede salgsdata:\")\ncon.execute(\"SELECT * FROM pivoteret_salgsdata\").show()\n\n# Eksempel på partition-specifik forespørgsel\nyear_month = con.execute(\"SELECT DISTINCT år, måned FROM pivoteret_salgsdata ORDER BY år, måned LIMIT 1\").fetchone()\når, måned = year_month\nprint(f\"\\nIndlæser specifik partition for {år}-{måned:02d}...\")\npartition_data = con.execute(f\"\"\"\nSELECT * FROM parquet_scan('{output_dir}') \nWHERE år = {år} AND måned = {måned}\n\"\"\").df()\nprint(f\"Indlæst {len(partition_data)} rækker fra partition {år}-{måned:02d}\")\n\n\n\n\nDataindlæsning\n\nAnvend DuckDB til effektiv indlæsning af datasættet\nUdnyt DuckDB’s multi-core processerings-kapacitet\nHåndtér store datamængder med minimalt hukommelsesforbrug\n\nData Transformation\n\nUdfør pivottering af datasættet\nIdentificér og ekstraher unikke parametre\nSkab en flad tabelstruktur med dynamiske kolonner baseret på parametre\n\nDatalagring\n\nGem transformerede data i Parquet-format\nImplementér partitionering baseret på år og måned\nAnvend ZSTD kompression for optimal pladsudnyttelse\n\n\n\n\n\n\nBrug PRAGMA threads=N til at optimere multi-core udnyttelse\nBenyt dynamisk SQL til pivot-transformation\nAnvend COPY ... PARTITION BY for effektiv partitionering\nUdnyt Parquet-formatets kompressionsegenskaber\n\n\n\n\n\nForståelse af data transformation teknikker\nKendskab til DuckDB’s højtydende databehandlingsegenskaber\nIndsigt i effektiv datalagring og partitionering\n\n\n\n\n\nImplementér yderligere aggregeringer\nVisualisér data efter transformation\nAnalyser performancekarakteristika\n\n\n\n\n\nKomplet Python-script, og uddata filer.\nEt lille eksempel på et query af data fra de transformerede datafiler.\nForbered en 5 minutters fremvisning af din løsning, på din egen computer.\n\nHeld og lykke!",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden",
+      "Opgave: Databehandling med DuckDB og Parquet"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/duckdb_assignment_description.html#formål",
+    "href": "emner/Datatransformation/duckdb_assignment_description.html#formål",
+    "title": "Opgave: Databehandling med DuckDB og Parquet",
+    "section": "",
+    "text": "At demonstrere avanceret databehandling ved hjælp af DuckDB, med fokus på: - Indlæsning af store datasæt - Pivot-transformation - Effektiv datalagring med Parquet-format - Udnyttelse af multi-core processorteknologi",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden",
+      "Opgave: Databehandling med DuckDB og Parquet"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/duckdb_assignment_description.html#baggrund",
+    "href": "emner/Datatransformation/duckdb_assignment_description.html#baggrund",
+    "title": "Opgave: Databehandling med DuckDB og Parquet",
+    "section": "",
+    "text": "DMI (Danmarks Meteorologiske Institut) har leveret et datasæt med meteorologiske observationer. Din opgave er at transformere disse data effektivt.\nDu får udleveret 2-3 års data til at procesere.\nDe findes i filenerne dmi/{yyyy}-{mm}-{dd}.txt\nSe eksemplet duckdb_pivot_example.py, som et generisk eksempel på hvordan en lignende løsning kan se ud:\nimport duckdb\nimport os\n\n# Opret forbindelse til DuckDB i hukommelsen\ncon = duckdb.connect(database=':memory:')\n\n# Eksempel på rådata - en virksomheds salgsdatasæt\nsample_data = [\n    {'produktId': 'A001', 'salgsdato': '2023-01-15', 'salgskanal': 'online', 'value': 1250.50},\n    {'produktId': 'A001', 'salgsdato': '2023-01-15', 'salgskanal': 'butik', 'value': 875.25},\n    {'produktId': 'B002', 'salgsdato': '2023-01-15', 'salgskanal': 'online', 'value': 950.75},\n    {'produktId': 'B002', 'salgsdato': '2023-01-15', 'salgskanal': 'butik', 'value': 1100.00},\n    {'produktId': 'A001', 'salgsdato': '2023-02-20', 'salgskanal': 'online', 'value': 1500.75},\n    {'produktId': 'A001', 'salgsdato': '2023-02-20', 'salgskanal': 'butik', 'value': 1025.50},\n    {'produktId': 'B002', 'salgsdato': '2023-02-20', 'salgskanal': 'online', 'value': 1175.25},\n    {'produktId': 'B002', 'salgsdato': '2023-02-20', 'salgskanal': 'butik', 'value': 1350.75},\n]\n\n# Opret midlertidig tabel med rådata\ncon.execute(\"CREATE TEMPORARY TABLE raw_data AS SELECT * FROM sample_data\")\n\n# Find unikke salgskanaler\nprint(\"Unikke salgskanaler:\")\nchannels = con.execute(\"SELECT DISTINCT salgskanal FROM raw_data\").fetchall()\nfor channel in channels:\n    print(f\"  {channel[0]}\")\n\n# Dynamisk pivot-forespørgsel\nsalgskanal_ids = [channel[0] for channel in channels]\npivot_columns = \", \".join([\n    f\"MAX(CASE WHEN salgskanal = '{channel}' THEN value END) as \\\"{channel}_salg\\\"\"\n    for channel in salgskanal_ids\n])\n\n# Udfør pivot\npivot_query = f\"\"\"\nCREATE TABLE pivoteret_salgsdata AS\nSELECT \n    produktId,\n    salgsdato,\n    EXTRACT(YEAR FROM salgsdato) as år,\n    EXTRACT(MONTH FROM salgsdato) as måned,\n    {pivot_columns},\n    SUM(value) as total_salg\nFROM raw_data\nGROUP BY produktId, salgsdato\n\"\"\"\ncon.execute(pivot_query)\n\n# Opret output-mappe\noutput_dir = \"pivoteret_salgsdata\"\nif not os.path.exists(output_dir):\n    os.makedirs(output_dir)\n\n# Gem pivoterede data som Parquet-filer\nprint(\"\\nGemmer partitionerede Parquet-filer...\")\ncon.execute(f\"\"\"\nCOPY pivoteret_salgsdata \nTO '{output_dir}' \n(FORMAT PARQUET, PARTITION_BY (år, måned), COMPRESSION 'ZSTD')\n\"\"\")\nprint(f\"Data gemt i {output_dir} mappe\")\n\n# Test indlæsning af partitionerede data\nprint(\"\\nTester indlæsning af partitionerede data...\")\nalle_data = con.execute(f\"SELECT * FROM parquet_scan('{output_dir}')\").df()\nprint(f\"Indlæst {len(alle_data)} rækker fra alle partitioner\")\n\n# Vis første få rækker af pivoterede data\nprint(\"\\nPivoterede salgsdata:\")\ncon.execute(\"SELECT * FROM pivoteret_salgsdata\").show()\n\n# Eksempel på partition-specifik forespørgsel\nyear_month = con.execute(\"SELECT DISTINCT år, måned FROM pivoteret_salgsdata ORDER BY år, måned LIMIT 1\").fetchone()\når, måned = year_month\nprint(f\"\\nIndlæser specifik partition for {år}-{måned:02d}...\")\npartition_data = con.execute(f\"\"\"\nSELECT * FROM parquet_scan('{output_dir}') \nWHERE år = {år} AND måned = {måned}\n\"\"\").df()\nprint(f\"Indlæst {len(partition_data)} rækker fra partition {år}-{måned:02d}\")",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden",
+      "Opgave: Databehandling med DuckDB og Parquet"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/duckdb_assignment_description.html#tekniske-krav",
+    "href": "emner/Datatransformation/duckdb_assignment_description.html#tekniske-krav",
+    "title": "Opgave: Databehandling med DuckDB og Parquet",
+    "section": "",
+    "text": "Dataindlæsning\n\nAnvend DuckDB til effektiv indlæsning af datasættet\nUdnyt DuckDB’s multi-core processerings-kapacitet\nHåndtér store datamængder med minimalt hukommelsesforbrug\n\nData Transformation\n\nUdfør pivottering af datasættet\nIdentificér og ekstraher unikke parametre\nSkab en flad tabelstruktur med dynamiske kolonner baseret på parametre\n\nDatalagring\n\nGem transformerede data i Parquet-format\nImplementér partitionering baseret på år og måned\nAnvend ZSTD kompression for optimal pladsudnyttelse",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden",
+      "Opgave: Databehandling med DuckDB og Parquet"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/duckdb_assignment_description.html#anbefalede-teknikker",
+    "href": "emner/Datatransformation/duckdb_assignment_description.html#anbefalede-teknikker",
+    "title": "Opgave: Databehandling med DuckDB og Parquet",
+    "section": "",
+    "text": "Brug PRAGMA threads=N til at optimere multi-core udnyttelse\nBenyt dynamisk SQL til pivot-transformation\nAnvend COPY ... PARTITION BY for effektiv partitionering\nUdnyt Parquet-formatets kompressionsegenskaber",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden",
+      "Opgave: Databehandling med DuckDB og Parquet"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/duckdb_assignment_description.html#forventede-læringsmål",
+    "href": "emner/Datatransformation/duckdb_assignment_description.html#forventede-læringsmål",
+    "title": "Opgave: Databehandling med DuckDB og Parquet",
+    "section": "",
+    "text": "Forståelse af data transformation teknikker\nKendskab til DuckDB’s højtydende databehandlingsegenskaber\nIndsigt i effektiv datalagring og partitionering",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden",
+      "Opgave: Databehandling med DuckDB og Parquet"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/duckdb_assignment_description.html#ekstra-udfordringer-valgfrit",
+    "href": "emner/Datatransformation/duckdb_assignment_description.html#ekstra-udfordringer-valgfrit",
+    "title": "Opgave: Databehandling med DuckDB og Parquet",
+    "section": "",
+    "text": "Implementér yderligere aggregeringer\nVisualisér data efter transformation\nAnalyser performancekarakteristika",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden",
+      "Opgave: Databehandling med DuckDB og Parquet"
+    ]
+  },
+  {
+    "objectID": "emner/Datatransformation/duckdb_assignment_description.html#produktkrav",
+    "href": "emner/Datatransformation/duckdb_assignment_description.html#produktkrav",
+    "title": "Opgave: Databehandling med DuckDB og Parquet",
+    "section": "",
+    "text": "Komplet Python-script, og uddata filer.\nEt lille eksempel på et query af data fra de transformerede datafiler.\nForbered en 5 minutters fremvisning af din løsning, på din egen computer.\n\nHeld og lykke!",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "Databehandling: Fra Rådata til Brugbar Viden",
+      "Opgave: Databehandling med DuckDB og Parquet"
     ]
   }
 ]
