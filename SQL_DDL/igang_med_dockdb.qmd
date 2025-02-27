@@ -1,0 +1,336 @@
+# Begyndervejledning til DuckDB: 
+
+__Installation, Tilslutning og CRUD-operationer__ 
+
+## Installation af DuckDB
+
+### macOS
+1. Brug Homebrew til at installere DuckDB:
+   ```bash
+   brew install duckdb
+   ```
+
+### Windows
+1. Download den seneste version fra [DuckDB's hjemmeside](https://duckdb.org/docs/installation/)
+2. Udpak ZIP-filen til en mappe efter eget valg
+
+### Linux
+1. Download den seneste version:
+   ```bash
+   wget https://github.com/duckdb/duckdb/releases/download/v0.10.0/duckdb_cli-linux-amd64.zip
+   unzip duckdb_cli-linux-amd64.zip
+   ```
+
+### Python-installation
+Hvis du foretrækker at bruge DuckDB gennem Python:
+```bash
+pip install duckdb
+```
+
+## Start og Tilslutning til DuckDB
+
+### Via kommandolinjen
+Start DuckDB med kommandolinjeværktøjet:
+```bash
+duckdb
+```
+
+Dette vil starte en midlertidig in-memory database. For at gemme dine data, angiv et filnavn:
+```bash
+duckdb mindb.db
+```
+
+### Via Python
+```python
+import duckdb
+
+# Opret forbindelse (in-memory database)
+conn = duckdb.connect()
+
+# Eller forbind til en database-fil
+conn = duckdb.connect('mindb.db')
+```
+
+## Grundlæggende CRUD-operationer
+
+### 1. Oprettelse af tabeller (CREATE)
+
+**Via CLI:**
+```sql
+CREATE TABLE kunder (
+    id INTEGER PRIMARY KEY,
+    navn VARCHAR(50) NOT NULL,
+    email VARCHAR(100),
+    oprettet_dato DATE DEFAULT CURRENT_DATE
+);
+```
+
+**Via Python:**
+```python
+conn.execute("""
+CREATE TABLE kunder (
+    id INTEGER PRIMARY KEY,
+    navn VARCHAR(50) NOT NULL,
+    email VARCHAR(100),
+    oprettet_dato DATE DEFAULT CURRENT_DATE
+)
+""")
+```
+
+### 2. Indsætte data (INSERT)
+
+**Indsæt en enkelt række:**
+```sql
+INSERT INTO kunder (id, navn, email) 
+VALUES (1, 'Anders Jensen', 'anders@example.com');
+```
+
+**Indsæt flere rækker på én gang:**
+```sql
+INSERT INTO kunder (id, navn, email) VALUES 
+(2, 'Mette Nielsen', 'mette@example.com'),
+(3, 'Lars Pedersen', 'lars@example.com'),
+(4, 'Hanne Sørensen', 'hanne@example.com');
+```
+
+**Via Python:**
+```python
+conn.execute("INSERT INTO kunder (id, navn, email) VALUES (5, 'Jonas Hansen', 'jonas@example.com')")
+
+# Flere rækker
+conn.execute("""
+INSERT INTO kunder (id, navn, email) VALUES 
+(6, 'Sofie Larsen', 'sofie@example.com'),
+(7, 'Ole Madsen', 'ole@example.com')
+""")
+```
+
+### 3. Læse data (SELECT)
+
+**Vælg alle kolonner og rækker:**
+```sql
+SELECT * FROM kunder;
+```
+
+**Vælg specifikke kolonner:**
+```sql
+SELECT navn, email FROM kunder;
+```
+
+**Filtrering med WHERE:**
+```sql
+SELECT * FROM kunder WHERE id > 3;
+```
+
+**Sortering med ORDER BY:**
+```sql
+SELECT * FROM kunder ORDER BY navn ASC;
+```
+
+**Via Python:**
+```python
+# Hent alle rækker
+result = conn.execute("SELECT * FROM kunder").fetchall()
+for row in result:
+    print(row)
+
+# Brug pandas til at få en DataFrame
+df = conn.execute("SELECT * FROM kunder").df()
+print(df)
+```
+
+### 4. Opdatere data (UPDATE)
+
+**Opdater en enkelt række:**
+```sql
+UPDATE kunder SET email = 'ny_email@example.com' WHERE id = 1;
+```
+
+**Opdater flere rækker:**
+```sql
+UPDATE kunder SET oprettet_dato = '2023-01-01' WHERE id < 5;
+```
+
+**Via Python:**
+```python
+conn.execute("UPDATE kunder SET email = 'anden_email@example.com' WHERE id = 2")
+```
+
+### 5. Slette data (DELETE)
+
+**Slet en enkelt række:**
+```sql
+DELETE FROM kunder WHERE id = 7;
+```
+
+**Slet flere rækker:**
+```sql
+DELETE FROM kunder WHERE id > 5;
+```
+
+**Slet alle rækker:**
+```sql
+DELETE FROM kunder;
+```
+
+**Via Python:**
+```python
+conn.execute("DELETE FROM kunder WHERE id = 6")
+```
+
+## Bulk-operationer
+
+### Masseindsætning fra CSV-fil
+
+**Via CLI:**
+```sql
+-- Indsæt data fra en CSV-fil
+COPY kunder FROM 'data/kunder.csv' (HEADER, DELIMITER ',');
+```
+
+**Via Python:**
+```python
+# Med en lokal CSV-fil
+conn.execute("COPY kunder FROM 'data/kunder.csv' (HEADER, DELIMITER ',')")
+
+# Med pandas
+import pandas as pd
+df = pd.read_csv('data/kunder.csv')
+conn.execute("INSERT INTO kunder SELECT * FROM df")
+```
+
+### Masseindsætning fra Python-liste
+
+```python
+# Indsæt flere rækker fra en liste af tupler
+kunde_data = [
+    (8, 'Emma Winther', 'emma@example.com', '2023-06-01'),
+    (9, 'Niels Berg', 'niels@example.com', '2023-06-02'),
+    (10, 'Ida Holm', 'ida@example.com', '2023-06-03')
+]
+
+# Metode 1: Brug executemany
+conn.executemany(
+    "INSERT INTO kunder (id, navn, email, oprettet_dato) VALUES (?, ?, ?, ?)",
+    kunde_data
+)
+
+# Metode 2: Brug pandas DataFrame
+import pandas as pd
+df = pd.DataFrame(kunde_data, columns=['id', 'navn', 'email', 'oprettet_dato'])
+conn.execute("INSERT INTO kunder SELECT * FROM df")
+```
+
+## Ind- og udlæsning fra forskellige filformater
+
+### Indlæsning fra filformater
+
+**CSV-filer:**
+```sql
+-- Indlæs direkte fra CSV
+SELECT * FROM 'data/kunder.csv';
+
+-- Opret tabel baseret på CSV
+CREATE TABLE nye_kunder AS SELECT * FROM 'data/kunder.csv';
+
+-- Med specifikke indstillinger
+SELECT * FROM read_csv_auto('data/kunder.csv', delim=',', header=true);
+```
+
+**Parquet-filer:**
+```sql
+-- Installer extension hvis nødvendig
+INSTALL parquet;
+LOAD parquet;
+
+-- Indlæs data fra Parquet
+SELECT * FROM 'data/kunder.parquet';
+
+-- Med flere muligheder
+SELECT * FROM read_parquet('data/kunder.parquet');
+```
+
+**JSON-filer:**
+```sql
+-- Installer extension hvis nødvendig
+INSTALL json;
+LOAD json;
+
+-- Indlæs data fra JSON
+SELECT * FROM 'data/kunder.json';
+
+-- Med flere indstillinger
+SELECT * FROM read_json_auto('data/kunder.json');
+```
+
+**Excel-filer:**
+```sql
+-- Installer extension hvis nødvendig
+INSTALL spatial;
+LOAD spatial;
+
+-- Indlæs data fra Excel
+SELECT * FROM st_read('data/kunder.xlsx');
+```
+
+### Udlæsning til filformater
+
+**CSV-filer:**
+```sql
+-- Gem data til CSV
+COPY kunder TO 'output/kunder_eksport.csv' (HEADER, DELIMITER ',');
+```
+
+**Parquet-filer:**
+```sql
+-- Gem data til Parquet
+COPY kunder TO 'output/kunder_eksport.parquet' (FORMAT PARQUET);
+```
+
+**JSON-filer:**
+```sql
+-- Gem data til JSON
+COPY kunder TO 'output/kunder_eksport.json' (FORMAT JSON);
+```
+
+**Via Python:**
+```python
+# Eksporter til CSV
+conn.execute("COPY kunder TO 'output/kunder_eksport.csv' (HEADER, DELIMITER ',')")
+
+# Eksporter til Parquet
+conn.execute("COPY kunder TO 'output/kunder_eksport.parquet' (FORMAT PARQUET)")
+
+# Med pandas
+df = conn.execute("SELECT * FROM kunder").df()
+df.to_csv('output/kunder_pandas.csv', index=False)
+df.to_parquet('output/kunder_pandas.parquet')
+```
+
+## Tips til fejlfinding
+
+1. **Tjek versionsinformation:**
+   ```sql
+   SELECT version();
+   ```
+
+2. **Vis alle tabeller:**
+   ```sql
+   .tables
+   ```
+   eller
+   ```sql
+   SHOW TABLES;
+   ```
+
+3. **Undersøg en tabels struktur:**
+   ```sql
+   DESCRIBE kunder;
+   ```
+
+4. **Se alle rækker i en tabel:**
+   ```sql
+   SELECT * FROM kunder;
+   ```
+
+Denne vejledning dækker de grundlæggende aspekter af DuckDB for begyndere, fra installation til CRUD-operationer og arbejde med forskellige filformater. DuckDB er utrolig effektivt til analytiske opgaver og giver dig mulighed for at arbejde med data direkte fra kildefiler uden først at skulle indlæse dem i databasen.
