@@ -2,31 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://s0ren.github.io/FAG_Python2/index.html</loc>
-    <lastmod>2025-02-27T14:39:29.585Z</lastmod>
+    <lastmod>2025-02-27T16:12:03.368Z</lastmod>
   </url>
   <url>
-    <loc>https://s0ren.github.io/FAG_Python2/emner/CRUD_DDL_SQL/igang_med_dockdb.html</loc>
-    <lastmod>2025-02-27T14:36:24.206Z</lastmod>
+    <loc>https://s0ren.github.io/FAG_Python2/emner/Dataset_og _dataframes.html</loc>
+    <lastmod>2025-02-27T16:04:13.048Z</lastmod>
   </url>
   <url>
     <loc>https://s0ren.github.io/FAG_Python2/emner/CRUD_DDL_SQL/duckdb_opgave.html</loc>
     <lastmod>2025-02-27T14:37:35.771Z</lastmod>
   </url>
   <url>
-    <loc>https://s0ren.github.io/FAG_Python2/emner/agregering/agregering.html</loc>
-    <lastmod>2025-02-27T14:23:17.638Z</lastmod>
+    <loc>https://s0ren.github.io/FAG_Python2/emner/agregering/index.html</loc>
+    <lastmod>2025-02-27T16:04:38.313Z</lastmod>
   </url>
   <url>
-    <loc>https://s0ren.github.io/FAG_Python2/emner/Case_Vind-El.html</loc>
+    <loc>https://s0ren.github.io/FAG_Python2/emner/agregering/Case_Vind-El.html</loc>
     <lastmod>2025-02-27T13:41:09.324Z</lastmod>
   </url>
   <url>
+    <loc>https://s0ren.github.io/FAG_Python2/emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html</loc>
+    <lastmod>2025-02-27T15:12:22.630Z</lastmod>
+  </url>
+  <url>
     <loc>https://s0ren.github.io/FAG_Python2/emner/CRUD_DDL_SQL/DuckDB_quickstart_slide.html</loc>
-    <lastmod>2025-02-27T14:35:37.668Z</lastmod>
+    <lastmod>2025-02-27T15:16:29.527Z</lastmod>
   </url>
   <url>
     <loc>https://s0ren.github.io/FAG_Python2/emner/CRUD_DDL_SQL/DuckDB_quickstart.html</loc>
-    <lastmod>2025-02-27T14:35:37.668Z</lastmod>
+    <lastmod>2025-02-27T15:16:29.527Z</lastmod>
   </url>
   <url>
     <loc>https://s0ren.github.io/FAG_Python2/emner/WebScraping_Cases.html</loc>

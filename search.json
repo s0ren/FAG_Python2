@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "FAG Python II",
     "section": "",
-    "text": "Python II, er lavet for at give forudsætninger til at arbejde med faget Big Data II, hvor mange værktøjer programmeres med python. Der er nogen kompetencer vi tænker er nødvendige at have i den nuværende udgave af Big Data II:\n\nDataset (som i Pandas’ DataFrames),\nagregering og\nvisualisering.\nCRUD til realationsdatabaser.\n\n\n\nI Python er det almindeligt at håndtere dataset med en abstraction som kaldes et dataset. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas.\nMatt Williams, University of Bristol, et lille undervisningsforløb om det.\nSe https://gitlab.com/milliams/data_analysis_python.\n\n\n\nDetaljerede data kan samles og give bedre overblik, ved at agregeres.\nSe Agregering\n\n\nCase: Vind og EL\n\n\n\n\n\nbilpriser\nnye it/tech buzzwords, fra jobopslag\n\n\n\n\nVi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.\n\nBegyndervejledning til DuckDB: Installation, Tilslutning og CRUD-operationer\n\nslides DuckDB Quickstart\n\n\nSe Opgaver til duckdb"
+    "text": "Vi har faget Python II, for at give forudsætninger til at arbejde med faget Big Data II, hvor mange værktøjer programmeres med python. Der er nogen kompetencer vi tænker er nødvendige at have i den nuværende udgave af Big Data II:\n\nDataset (som i Pandas’ DataFrames),\nagregering og\nvisualisering.\nCRUD til realationsdatabaser.\n\n\n\nI Python er det almindeligt at håndtere dataset med en abstraction som kaldes et dataset. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas.\nMatt Williams, University of Bristol, et lille undervisningsforløb om det.\nSe https://gitlab.com/milliams/data_analysis_python.\n\n\n\nDetaljerede data kan samles og give bedre overblik, ved at agregeres.\nSe Agregering\n\n\nCase: Vind og EL\n\n\n\n\n\nbilpriser\nnye it/tech buzzwords, fra jobopslag\n\n\n\n\nVi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.\n\nBegyndervejledning til DuckDB: Installation, Tilslutning og CRUD-operationer\n\nslides DuckDB Quickstart\n\n\nSe Opgaver til duckdb"
   },
   {
     "objectID": "index.html#dataset-og-dataframes",
@@ -35,81 +35,15 @@
     "text": "Vi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.\n\nBegyndervejledning til DuckDB: Installation, Tilslutning og CRUD-operationer\n\nslides DuckDB Quickstart\n\n\nSe Opgaver til duckdb"
   },
   {
-    "objectID": "emner/CRUD_DDL_SQL/igang_med_dockdb.html",
-    "href": "emner/CRUD_DDL_SQL/igang_med_dockdb.html",
-    "title": "Grundlæggende CRUD-operationer",
+    "objectID": "emner/Dataset_og _dataframes.html",
+    "href": "emner/Dataset_og _dataframes.html",
+    "title": "Dataset og dataframes",
     "section": "",
-    "text": "Installation, Tilslutning og CRUD-operationer\n\n\n\n\n\nBrug Homebrew til at installere DuckDB:\nbrew install duckdb\n\n\n\n\nHvis du har wingetinstalleret:\n\nBrug winget:\nwinget install DuckDB.cli\n\nEllers\n\nDownload den seneste version fra DuckDB’s hjemmeside\nUdpak ZIP-filen til en mappe efter eget valg\n\n\n\n\n\nDownload den seneste version:\ncurl https://install.duckdb.org | sh\n\n\n\n\nHvis du foretrækker at bruge DuckDB gennem Python:\npip install duckdb\n\n\n\n\n\n\nStart DuckDB med kommandolinjeværktøjet:\nduckdb\nDette vil starte en midlertidig in-memory database. For at gemme dine data, angiv et filnavn:\nduckdb mindb.db\n\n\n\n\nimport duckdb\n\n# Forbind til en database-fil\nconn = duckdb.connect('mindb.db')\n\n# Eller opret forbindelse (in-memory database)\nconn = duckdb.connect()\n\n\n\n\nVia CLI:\nCREATE TABLE kunder (\n    id INTEGER PRIMARY KEY,\n    navn VARCHAR(50) NOT NULL,\n    email VARCHAR(100),\n    oprettet_dato DATE DEFAULT CURRENT_DATE\n);\nVia Python:\n\nconn.execute(\"\"\"\nCREATE TABLE kunder (\n    id INTEGER PRIMARY KEY,\n    navn VARCHAR(50) NOT NULL,\n    email VARCHAR(100),\n    oprettet_dato DATE DEFAULT CURRENT_DATE\n)\n\"\"\")\n\n\n\n\nIndsæt en enkelt række:\nINSERT INTO kunder (id, navn, email) \nVALUES (1, 'Anders Jensen', 'anders@example.com');\nIndsæt flere rækker på én gang:\nINSERT INTO kunder (id, navn, email) VALUES \n(2, 'Mette Nielsen', 'mette@example.com'),\n(3, 'Lars Pedersen', 'lars@example.com'),\n(4, 'Hanne Sørensen', 'hanne@example.com');\nVia Python:\n\nconn.execute(\"INSERT INTO kunder (id, navn, email) VALUES (5, 'Jonas Hansen', 'jonas@example.com')\")\n\n# Flere rækker\nconn.execute(\"\"\"\nINSERT INTO kunder (id, navn, email) VALUES \n(6, 'Sofie Larsen', 'sofie@example.com'),\n(7, 'Ole Madsen', 'ole@example.com')\n\"\"\")\n\n\n\n\nVælg alle kolonner og rækker:\nSELECT * FROM kunder;\nVælg specifikke kolonner:\nSELECT navn, email FROM kunder;\nFiltrering med WHERE:\nSELECT * FROM kunder WHERE id &gt; 3;\nSortering med ORDER BY:\nSELECT * FROM kunder ORDER BY navn ASC;\nVia Python:\n\n# Hent alle rækker\nresult = conn.execute(\"SELECT * FROM kunder\").fetchall()\nfor row in result:\n    print(row)\n\n(5, 'Jonas Hansen', 'jonas@example.com', datetime.date(2025, 2, 27))\n(6, 'Sofie Larsen', 'sofie@example.com', datetime.date(2025, 2, 27))\n(7, 'Ole Madsen', 'ole@example.com', datetime.date(2025, 2, 27))\n\n\n\n# Brug pandas til at få en DataFrame\ndf = conn.execute(\"SELECT * FROM kunder\").df()\nprint(df)\n\n   id          navn              email oprettet_dato\n0   5  Jonas Hansen  jonas@example.com    2025-02-27\n1   6  Sofie Larsen  sofie@example.com    2025-02-27\n2   7    Ole Madsen    ole@example.com    2025-02-27\n\n\n\n\n\nOpdater en enkelt række:\nUPDATE kunder SET email = 'ny_email@example.com' WHERE id = 1;\nOpdater flere rækker:\nUPDATE kunder SET oprettet_dato = '2023-01-01' WHERE id &lt; 5;\nVia Python:\nconn.execute(\"UPDATE kunder SET email = 'anden_email@example.com' WHERE id = 2\")\n\n\n\nSlet en enkelt række:\nDELETE FROM kunder WHERE id = 7;\nSlet flere rækker:\nDELETE FROM kunder WHERE id &gt; 5;\nSlet alle rækker:\nDELETE FROM kunder;\nVia Python:\nconn.execute(\"DELETE FROM kunder WHERE id = 6\")\n\n\n\n\n\n\nVia CLI:\n-- Indsæt data fra en CSV-fil\nCOPY kunder FROM 'data/kunder.csv' (HEADER, DELIMITER ',');\nVia Python:\n# Med en lokal CSV-fil\nconn.execute(\"COPY kunder FROM 'data/kunder.csv' (HEADER, DELIMITER ',')\")\n\n# Med pandas\nimport pandas as pd\ndf = pd.read_csv('data/kunder.csv')\nconn.execute(\"INSERT INTO kunder SELECT * FROM df\")\n\n\n\n# Indsæt flere rækker fra en liste af tupler\nkunde_data = [\n    (8, 'Emma Winther', 'emma@example.com', '2023-06-01'),\n    (9, 'Niels Berg', 'niels@example.com', '2023-06-02'),\n    (10, 'Ida Holm', 'ida@example.com', '2023-06-03')\n]\n\n# Metode 1: Brug executemany\nconn.executemany(\n    \"INSERT INTO kunder (id, navn, email, oprettet_dato) VALUES (?, ?, ?, ?)\",\n    kunde_data\n)\n\n# Metode 2: Brug pandas DataFrame\nimport pandas as pd\ndf = pd.DataFrame(kunde_data, columns=['id', 'navn', 'email', 'oprettet_dato'])\nconn.execute(\"INSERT INTO kunder SELECT * FROM df\")\n\n\n\n\n\n\nCSV-filer:\n-- Indlæs direkte fra CSV\nSELECT * FROM 'data/kunder.csv';\n\n-- Opret tabel baseret på CSV\nCREATE TABLE nye_kunder AS SELECT * FROM 'data/kunder.csv';\n\n-- Med specifikke indstillinger\nSELECT * FROM read_csv_auto('data/kunder.csv', delim=',', header=true);\nParquet-filer:\n-- Installer extension hvis nødvendig\nINSTALL parquet;\nLOAD parquet;\n\n-- Indlæs data fra Parquet\nSELECT * FROM 'data/kunder.parquet';\n\n-- Med flere muligheder\nSELECT * FROM read_parquet('data/kunder.parquet');\nJSON-filer:\n-- Installer extension hvis nødvendig\nINSTALL json;\nLOAD json;\n\n-- Indlæs data fra JSON\nSELECT * FROM 'data/kunder.json';\n\n-- Med flere indstillinger\nSELECT * FROM read_json_auto('data/kunder.json');\nExcel-filer:\n-- Installer extension hvis nødvendig\nINSTALL spatial;\nLOAD spatial;\n\n-- Indlæs data fra Excel\nSELECT * FROM st_read('data/kunder.xlsx');\n\n\n\nCSV-filer:\n-- Gem data til CSV\nCOPY kunder TO 'output/kunder_eksport.csv' (HEADER, DELIMITER ',');\nParquet-filer:\n-- Gem data til Parquet\nCOPY kunder TO 'output/kunder_eksport.parquet' (FORMAT PARQUET);\nJSON-filer:\n-- Gem data til JSON\nCOPY kunder TO 'output/kunder_eksport.json' (FORMAT JSON);\nVia Python:\n# Eksporter til CSV\nconn.execute(\"COPY kunder TO 'output/kunder_eksport.csv' (HEADER, DELIMITER ',')\")\n\n# Eksporter til Parquet\nconn.execute(\"COPY kunder TO 'output/kunder_eksport.parquet' (FORMAT PARQUET)\")\n\n# Med pandas\ndf = conn.execute(\"SELECT * FROM kunder\").df()\ndf.to_csv('output/kunder_pandas.csv', index=False)\ndf.to_parquet('output/kunder_pandas.parquet')\n\n\n\n\n\nTjek versionsinformation:\nSELECT version();\nVis alle tabeller:\n.tables\neller\nSHOW TABLES;\nUndersøg en tabels struktur:\nDESCRIBE kunder;\nSe alle rækker i en tabel:\nSELECT * FROM kunder;\n\nDenne vejledning dækker de grundlæggende aspekter af DuckDB for begyndere, fra installation til CRUD-operationer og arbejde med forskellige filformater. DuckDB er utrolig effektivt til analytiske opgaver og giver dig mulighed for at arbejde med data direkte fra kildefiler uden først at skulle indlæse dem i databasen.",
+    "text": "I Python er det almindeligt at håndtere dataset med en abstraction som kaldes et dataset. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas.\nMatt Williams, University of Bristol, et lille undervisningsforløb om det.\nSe https://gitlab.com/milliams/data_analysis_python.",
     "crumbs": [
       "Hjem",
       "Emner",
-      "CRUD DDL SQL",
-      "Begyndervejledning til DuckDB:"
-    ]
-  },
-  {
-    "objectID": "emner/CRUD_DDL_SQL/igang_med_dockdb.html#installation-af-duckdb",
-    "href": "emner/CRUD_DDL_SQL/igang_med_dockdb.html#installation-af-duckdb",
-    "title": "Grundlæggende CRUD-operationer",
-    "section": "",
-    "text": "Brug Homebrew til at installere DuckDB:\nbrew install duckdb\n\n\n\n\nHvis du har wingetinstalleret:\n\nBrug winget:\nwinget install DuckDB.cli\n\nEllers\n\nDownload den seneste version fra DuckDB’s hjemmeside\nUdpak ZIP-filen til en mappe efter eget valg\n\n\n\n\n\nDownload den seneste version:\ncurl https://install.duckdb.org | sh\n\n\n\n\nHvis du foretrækker at bruge DuckDB gennem Python:\npip install duckdb",
-    "crumbs": [
-      "Hjem",
-      "Emner",
-      "CRUD DDL SQL",
-      "Begyndervejledning til DuckDB:"
-    ]
-  },
-  {
-    "objectID": "emner/CRUD_DDL_SQL/igang_med_dockdb.html#start-og-tilslutning-til-duckdb",
-    "href": "emner/CRUD_DDL_SQL/igang_med_dockdb.html#start-og-tilslutning-til-duckdb",
-    "title": "Grundlæggende CRUD-operationer",
-    "section": "",
-    "text": "Start DuckDB med kommandolinjeværktøjet:\nduckdb\nDette vil starte en midlertidig in-memory database. For at gemme dine data, angiv et filnavn:\nduckdb mindb.db\n\n\n\n\nimport duckdb\n\n# Forbind til en database-fil\nconn = duckdb.connect('mindb.db')\n\n# Eller opret forbindelse (in-memory database)\nconn = duckdb.connect()\n\n\n\n\nVia CLI:\nCREATE TABLE kunder (\n    id INTEGER PRIMARY KEY,\n    navn VARCHAR(50) NOT NULL,\n    email VARCHAR(100),\n    oprettet_dato DATE DEFAULT CURRENT_DATE\n);\nVia Python:\n\nconn.execute(\"\"\"\nCREATE TABLE kunder (\n    id INTEGER PRIMARY KEY,\n    navn VARCHAR(50) NOT NULL,\n    email VARCHAR(100),\n    oprettet_dato DATE DEFAULT CURRENT_DATE\n)\n\"\"\")\n\n\n\n\nIndsæt en enkelt række:\nINSERT INTO kunder (id, navn, email) \nVALUES (1, 'Anders Jensen', 'anders@example.com');\nIndsæt flere rækker på én gang:\nINSERT INTO kunder (id, navn, email) VALUES \n(2, 'Mette Nielsen', 'mette@example.com'),\n(3, 'Lars Pedersen', 'lars@example.com'),\n(4, 'Hanne Sørensen', 'hanne@example.com');\nVia Python:\n\nconn.execute(\"INSERT INTO kunder (id, navn, email) VALUES (5, 'Jonas Hansen', 'jonas@example.com')\")\n\n# Flere rækker\nconn.execute(\"\"\"\nINSERT INTO kunder (id, navn, email) VALUES \n(6, 'Sofie Larsen', 'sofie@example.com'),\n(7, 'Ole Madsen', 'ole@example.com')\n\"\"\")\n\n\n\n\nVælg alle kolonner og rækker:\nSELECT * FROM kunder;\nVælg specifikke kolonner:\nSELECT navn, email FROM kunder;\nFiltrering med WHERE:\nSELECT * FROM kunder WHERE id &gt; 3;\nSortering med ORDER BY:\nSELECT * FROM kunder ORDER BY navn ASC;\nVia Python:\n\n# Hent alle rækker\nresult = conn.execute(\"SELECT * FROM kunder\").fetchall()\nfor row in result:\n    print(row)\n\n(5, 'Jonas Hansen', 'jonas@example.com', datetime.date(2025, 2, 27))\n(6, 'Sofie Larsen', 'sofie@example.com', datetime.date(2025, 2, 27))\n(7, 'Ole Madsen', 'ole@example.com', datetime.date(2025, 2, 27))\n\n\n\n# Brug pandas til at få en DataFrame\ndf = conn.execute(\"SELECT * FROM kunder\").df()\nprint(df)\n\n   id          navn              email oprettet_dato\n0   5  Jonas Hansen  jonas@example.com    2025-02-27\n1   6  Sofie Larsen  sofie@example.com    2025-02-27\n2   7    Ole Madsen    ole@example.com    2025-02-27\n\n\n\n\n\nOpdater en enkelt række:\nUPDATE kunder SET email = 'ny_email@example.com' WHERE id = 1;\nOpdater flere rækker:\nUPDATE kunder SET oprettet_dato = '2023-01-01' WHERE id &lt; 5;\nVia Python:\nconn.execute(\"UPDATE kunder SET email = 'anden_email@example.com' WHERE id = 2\")\n\n\n\nSlet en enkelt række:\nDELETE FROM kunder WHERE id = 7;\nSlet flere rækker:\nDELETE FROM kunder WHERE id &gt; 5;\nSlet alle rækker:\nDELETE FROM kunder;\nVia Python:\nconn.execute(\"DELETE FROM kunder WHERE id = 6\")",
-    "crumbs": [
-      "Hjem",
-      "Emner",
-      "CRUD DDL SQL",
-      "Begyndervejledning til DuckDB:"
-    ]
-  },
-  {
-    "objectID": "emner/CRUD_DDL_SQL/igang_med_dockdb.html#bulk-operationer",
-    "href": "emner/CRUD_DDL_SQL/igang_med_dockdb.html#bulk-operationer",
-    "title": "Grundlæggende CRUD-operationer",
-    "section": "",
-    "text": "Via CLI:\n-- Indsæt data fra en CSV-fil\nCOPY kunder FROM 'data/kunder.csv' (HEADER, DELIMITER ',');\nVia Python:\n# Med en lokal CSV-fil\nconn.execute(\"COPY kunder FROM 'data/kunder.csv' (HEADER, DELIMITER ',')\")\n\n# Med pandas\nimport pandas as pd\ndf = pd.read_csv('data/kunder.csv')\nconn.execute(\"INSERT INTO kunder SELECT * FROM df\")\n\n\n\n# Indsæt flere rækker fra en liste af tupler\nkunde_data = [\n    (8, 'Emma Winther', 'emma@example.com', '2023-06-01'),\n    (9, 'Niels Berg', 'niels@example.com', '2023-06-02'),\n    (10, 'Ida Holm', 'ida@example.com', '2023-06-03')\n]\n\n# Metode 1: Brug executemany\nconn.executemany(\n    \"INSERT INTO kunder (id, navn, email, oprettet_dato) VALUES (?, ?, ?, ?)\",\n    kunde_data\n)\n\n# Metode 2: Brug pandas DataFrame\nimport pandas as pd\ndf = pd.DataFrame(kunde_data, columns=['id', 'navn', 'email', 'oprettet_dato'])\nconn.execute(\"INSERT INTO kunder SELECT * FROM df\")",
-    "crumbs": [
-      "Hjem",
-      "Emner",
-      "CRUD DDL SQL",
-      "Begyndervejledning til DuckDB:"
-    ]
-  },
-  {
-    "objectID": "emner/CRUD_DDL_SQL/igang_med_dockdb.html#ind--og-udlæsning-fra-forskellige-filformater",
-    "href": "emner/CRUD_DDL_SQL/igang_med_dockdb.html#ind--og-udlæsning-fra-forskellige-filformater",
-    "title": "Grundlæggende CRUD-operationer",
-    "section": "",
-    "text": "CSV-filer:\n-- Indlæs direkte fra CSV\nSELECT * FROM 'data/kunder.csv';\n\n-- Opret tabel baseret på CSV\nCREATE TABLE nye_kunder AS SELECT * FROM 'data/kunder.csv';\n\n-- Med specifikke indstillinger\nSELECT * FROM read_csv_auto('data/kunder.csv', delim=',', header=true);\nParquet-filer:\n-- Installer extension hvis nødvendig\nINSTALL parquet;\nLOAD parquet;\n\n-- Indlæs data fra Parquet\nSELECT * FROM 'data/kunder.parquet';\n\n-- Med flere muligheder\nSELECT * FROM read_parquet('data/kunder.parquet');\nJSON-filer:\n-- Installer extension hvis nødvendig\nINSTALL json;\nLOAD json;\n\n-- Indlæs data fra JSON\nSELECT * FROM 'data/kunder.json';\n\n-- Med flere indstillinger\nSELECT * FROM read_json_auto('data/kunder.json');\nExcel-filer:\n-- Installer extension hvis nødvendig\nINSTALL spatial;\nLOAD spatial;\n\n-- Indlæs data fra Excel\nSELECT * FROM st_read('data/kunder.xlsx');\n\n\n\nCSV-filer:\n-- Gem data til CSV\nCOPY kunder TO 'output/kunder_eksport.csv' (HEADER, DELIMITER ',');\nParquet-filer:\n-- Gem data til Parquet\nCOPY kunder TO 'output/kunder_eksport.parquet' (FORMAT PARQUET);\nJSON-filer:\n-- Gem data til JSON\nCOPY kunder TO 'output/kunder_eksport.json' (FORMAT JSON);\nVia Python:\n# Eksporter til CSV\nconn.execute(\"COPY kunder TO 'output/kunder_eksport.csv' (HEADER, DELIMITER ',')\")\n\n# Eksporter til Parquet\nconn.execute(\"COPY kunder TO 'output/kunder_eksport.parquet' (FORMAT PARQUET)\")\n\n# Med pandas\ndf = conn.execute(\"SELECT * FROM kunder\").df()\ndf.to_csv('output/kunder_pandas.csv', index=False)\ndf.to_parquet('output/kunder_pandas.parquet')",
-    "crumbs": [
-      "Hjem",
-      "Emner",
-      "CRUD DDL SQL",
-      "Begyndervejledning til DuckDB:"
-    ]
-  },
-  {
-    "objectID": "emner/CRUD_DDL_SQL/igang_med_dockdb.html#tips-til-fejlfinding",
-    "href": "emner/CRUD_DDL_SQL/igang_med_dockdb.html#tips-til-fejlfinding",
-    "title": "Grundlæggende CRUD-operationer",
-    "section": "",
-    "text": "Tjek versionsinformation:\nSELECT version();\nVis alle tabeller:\n.tables\neller\nSHOW TABLES;\nUndersøg en tabels struktur:\nDESCRIBE kunder;\nSe alle rækker i en tabel:\nSELECT * FROM kunder;\n\nDenne vejledning dækker de grundlæggende aspekter af DuckDB for begyndere, fra installation til CRUD-operationer og arbejde med forskellige filformater. DuckDB er utrolig effektivt til analytiske opgaver og giver dig mulighed for at arbejde med data direkte fra kildefiler uden først at skulle indlæse dem i databasen.",
-    "crumbs": [
-      "Hjem",
-      "Emner",
-      "CRUD DDL SQL",
-      "Begyndervejledning til DuckDB:"
+      "Dataset og dataframes"
     ]
   },
   {
@@ -217,104 +151,144 @@
     ]
   },
   {
-    "objectID": "emner/agregering/agregering.html",
-    "href": "emner/agregering/agregering.html",
-    "title": "Agregering af data",
+    "objectID": "emner/agregering/index.html",
+    "href": "emner/agregering/index.html",
+    "title": "Agregering og visualisering af data",
     "section": "",
     "text": "Til dataanalyse har man optimalt rådighed over data som beskriver enkeltbegivenheder. Hvert salg i en butik, hver enkelt transaktion i bank, hvert registrering af måledata, hver gang en tæller aktiveret, hver gang en handling udføres. Hver enkelt af alting.\nDet er den fineste detaljeringsgrad.\n\n\n\nOfte vil man gerne have sammensat oplysningerne på en af flere måder. Det kaldes aggregering.\nAgregeringsfunktionerne kan være tælle (count), summering (sum), gennemsnit (mean/avg), minimum/maksimum (min/max).\nDet er en mulighed at anvende agreringerne globat, så der bare returneres et tal; antallet af salg i hele butikkenshistorie, indestående på alle konti i banken osv.\nDet er også muligt at man ønsker agregering gruperet på data fra en anden kolonne eller felt i en post. F.eks hvor meget er derm omsat i hver filial af en butikskæde, hvor meget har hver sælger solgt for, hvor mange biler er kørt ind i anlæget, hvad er det højeste antal udlånte bøger på biblioteket, osv.\n\n\n\nMan kan gruppere på unikke værdier, men også på intervaller af værdier, f.eks. borgere med intægter 0-250.000, 250.000-500.000, 500.000-1.000.000, 1.000.000 eller mere.\n\n\n\nTidsintevaller bruges ofte til at grupere data efter, f.eks. pr. time, pr dag. pr. måned eller år.",
     "crumbs": [
       "Hjem",
       "Emner",
-      "Agregering",
-      "Agregering af data"
+      "Agregering og visualisering af data"
     ]
   },
   {
-    "objectID": "emner/agregering/agregering.html#detaljerede-data",
-    "href": "emner/agregering/agregering.html#detaljerede-data",
-    "title": "Agregering af data",
+    "objectID": "emner/agregering/index.html#detaljeringsgrad",
+    "href": "emner/agregering/index.html#detaljeringsgrad",
+    "title": "Agregering og visualisering af data",
     "section": "",
-    "text": "Til dataanalyse har man optimalt rådighed over data som beskriver enkeltbegivenheder. Hvert salg i en butik, hver enkelt transaktion i bank, hvert registrering af måledata, hver gang en tæller aktiveret, hver gang en handling udføres. Hver enkelt af alting.\nDet er den fineste detaljeringsgrad.",
+    "text": "Til dataanalyse har man optimalt rådighed over data som beskriver enkeltbegivenheder. Hvert salg i en butik, hver enkelt transaktion i bank, hvert registrering af måledata, hver gang en tæller aktiveret, hver gang en handling udføres. Hver enkelt af alting.\nDet er den fineste detaljeringsgrad.\n\n\n\nOfte vil man gerne have sammensat oplysningerne på en af flere måder. Det kaldes aggregering.\nAgregeringsfunktionerne kan være tælle (count), summering (sum), gennemsnit (mean/avg), minimum/maksimum (min/max).\nDet er en mulighed at anvende agreringerne globat, så der bare returneres et tal; antallet af salg i hele butikkenshistorie, indestående på alle konti i banken osv.\nDet er også muligt at man ønsker agregering gruperet på data fra en anden kolonne eller felt i en post. F.eks hvor meget er derm omsat i hver filial af en butikskæde, hvor meget har hver sælger solgt for, hvor mange biler er kørt ind i anlæget, hvad er det højeste antal udlånte bøger på biblioteket, osv.\n\n\n\nMan kan gruppere på unikke værdier, men også på intervaller af værdier, f.eks. borgere med intægter 0-250.000, 250.000-500.000, 500.000-1.000.000, 1.000.000 eller mere.\n\n\n\nTidsintevaller bruges ofte til at grupere data efter, f.eks. pr. time, pr dag. pr. måned eller år.",
     "crumbs": [
       "Hjem",
       "Emner",
-      "Agregering",
-      "Agregering af data"
+      "Agregering og visualisering af data"
     ]
   },
   {
-    "objectID": "emner/agregering/agregering.html#sammensæt-resumerede-data-med-agregering",
-    "href": "emner/agregering/agregering.html#sammensæt-resumerede-data-med-agregering",
-    "title": "Agregering af data",
-    "section": "",
-    "text": "Ofte vil man gerne have sammensat oplysningerne på en af flere måder. Det kaldes aggregering.\nAgregeringsfunktionerne kan være tælle (count), summering (sum), gennemsnit (mean/avg), minimum/maksimum (min/max).\nDet er en mulighed at anvende agreringerne globat, så der bare returneres et tal; antallet af salg i hele butikkenshistorie, indestående på alle konti i banken osv.\nDet er også muligt at man ønsker agregering gruperet på data fra en anden kolonne eller felt i en post. F.eks hvor meget er derm omsat i hver filial af en butikskæde, hvor meget har hver sælger solgt for, hvor mange biler er kørt ind i anlæget, hvad er det højeste antal udlånte bøger på biblioteket, osv.",
-    "crumbs": [
-      "Hjem",
-      "Emner",
-      "Agregering",
-      "Agregering af data"
-    ]
-  },
-  {
-    "objectID": "emner/agregering/agregering.html#agregering-i-intervaller",
-    "href": "emner/agregering/agregering.html#agregering-i-intervaller",
-    "title": "Agregering af data",
-    "section": "",
-    "text": "Man kan gruppere på unikke værdier, men også på intervaller af værdier, f.eks. borgere med intægter 0-250.000, 250.000-500.000, 500.000-1.000.000, 1.000.000 eller mere.",
-    "crumbs": [
-      "Hjem",
-      "Emner",
-      "Agregering",
-      "Agregering af data"
-    ]
-  },
-  {
-    "objectID": "emner/agregering/agregering.html#agregering-i-intervaller-i-tid-og-dato",
-    "href": "emner/agregering/agregering.html#agregering-i-intervaller-i-tid-og-dato",
-    "title": "Agregering af data",
-    "section": "",
-    "text": "Tidsintevaller bruges ofte til at grupere data efter, f.eks. pr. time, pr dag. pr. måned eller år.",
-    "crumbs": [
-      "Hjem",
-      "Emner",
-      "Agregering",
-      "Agregering af data"
-    ]
-  },
-  {
-    "objectID": "emner/Case_Vind-El.html",
-    "href": "emner/Case_Vind-El.html",
+    "objectID": "emner/agregering/Case_Vind-El.html",
+    "href": "emner/agregering/Case_Vind-El.html",
     "title": "Case: Hvornår holder vindmøllerne stille?",
     "section": "",
     "text": "En Case, hvor du skal være Data-Detektiv!\nMange har oplevet at vindmøllerne kan holde stille selv om vinden blæser.\n\n\nDer er et par oplagte hypoteser til hvorfor dette sker:\n\nMøllen skal repareres\nSå er det oftes en, eller et par stykker, der holder stille. Ikke hele flokken.\nDet blæser for meget.\nMøllerne kan ikke holde til orkan, så de lukker ned af sikkerhedshensyn.\nDer er ikke afsætning eller frobrug til at afsætte strømmen.\nF.eks midt om natten.\nEl-nettet har ikke kapacitet til at sende strømmen videre.\nDet kunne have noget at gøre med eksporten…\n\n\n\n\nVi har særligt to interessante dataset tilgængelige, som måske kan forklare noget om fænomenet. Vi har data for vindhastigheder, og data for vindmølle-el-produktion.  Disse data har helt forskellige enheder, og vi kan ikke forvente at alt vden energi vinden kommer med, kan omsættes til el-produktion. Langt fra. Men der grund til at tro de er proprtionale. Og vi kan godt vise dem i samme diagram, med forskellige y-akser.\n Gennerelt må man formode at der er en god korrelation mellem disse data, da det er vinden som driver møllerne rund, og når det blæser mere, må møllerne køre mere rundt, og producere mere strøm. Omvendt, når det ikke blæser, produceres heller ingen strøm.\n Det vi er på jagt efter er hvornår opfører dataerne sig ikke-proportionalt. Er der dårligere korrelation nogen gange, end normalt. Mangler der noget. Er der en anormali.",
     "crumbs": [
       "Hjem",
       "Emner",
+      "Agregering og visualisering af data",
       "Case: Hvornår holder vindmøllerne stille?"
     ]
   },
   {
-    "objectID": "emner/Case_Vind-El.html#hypoteser",
-    "href": "emner/Case_Vind-El.html#hypoteser",
+    "objectID": "emner/agregering/Case_Vind-El.html#hypoteser",
+    "href": "emner/agregering/Case_Vind-El.html#hypoteser",
     "title": "Case: Hvornår holder vindmøllerne stille?",
     "section": "",
     "text": "Der er et par oplagte hypoteser til hvorfor dette sker:\n\nMøllen skal repareres\nSå er det oftes en, eller et par stykker, der holder stille. Ikke hele flokken.\nDet blæser for meget.\nMøllerne kan ikke holde til orkan, så de lukker ned af sikkerhedshensyn.\nDer er ikke afsætning eller frobrug til at afsætte strømmen.\nF.eks midt om natten.\nEl-nettet har ikke kapacitet til at sende strømmen videre.\nDet kunne have noget at gøre med eksporten…",
     "crumbs": [
       "Hjem",
       "Emner",
+      "Agregering og visualisering af data",
       "Case: Hvornår holder vindmøllerne stille?"
     ]
   },
   {
-    "objectID": "emner/Case_Vind-El.html#databaseret-undersøgelse",
-    "href": "emner/Case_Vind-El.html#databaseret-undersøgelse",
+    "objectID": "emner/agregering/Case_Vind-El.html#databaseret-undersøgelse",
+    "href": "emner/agregering/Case_Vind-El.html#databaseret-undersøgelse",
     "title": "Case: Hvornår holder vindmøllerne stille?",
     "section": "",
     "text": "Vi har særligt to interessante dataset tilgængelige, som måske kan forklare noget om fænomenet. Vi har data for vindhastigheder, og data for vindmølle-el-produktion.  Disse data har helt forskellige enheder, og vi kan ikke forvente at alt vden energi vinden kommer med, kan omsættes til el-produktion. Langt fra. Men der grund til at tro de er proprtionale. Og vi kan godt vise dem i samme diagram, med forskellige y-akser.\n Gennerelt må man formode at der er en god korrelation mellem disse data, da det er vinden som driver møllerne rund, og når det blæser mere, må møllerne køre mere rundt, og producere mere strøm. Omvendt, når det ikke blæser, produceres heller ingen strøm.\n Det vi er på jagt efter er hvornår opfører dataerne sig ikke-proportionalt. Er der dårligere korrelation nogen gange, end normalt. Mangler der noget. Er der en anormali.",
     "crumbs": [
       "Hjem",
       "Emner",
+      "Agregering og visualisering af data",
       "Case: Hvornår holder vindmøllerne stille?"
+    ]
+  },
+  {
+    "objectID": "emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html",
+    "href": "emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html",
+    "title": "Grundlæggende CRUD-operationer",
+    "section": "",
+    "text": "Installation, Tilslutning og CRUD-operationer\n\n\n\n\n\nBrug Homebrew til at installere DuckDB:\nbrew install duckdb\n\n\n\n\nHvis du har wingetinstalleret:\n\nBrug winget:\nwinget install DuckDB.cli\n\nEllers\n\nDownload den seneste version fra DuckDB’s hjemmeside\nUdpak ZIP-filen til en mappe efter eget valg\n\n\n\n\n\nDownload den seneste version:\ncurl https://install.duckdb.org | sh\n\n\n\n\nHvis du foretrækker at bruge DuckDB gennem Python:\npip install duckdb\n\n\n\n\n\n\nStart DuckDB med kommandolinjeværktøjet:\nduckdb\nDette vil starte en midlertidig in-memory database. For at gemme dine data, angiv et filnavn:\nduckdb mindb.db\n\n\n\n\nimport duckdb\n\n# Forbind til en database-fil\nconn = duckdb.connect('mindb.db')\n\n# Eller opret forbindelse (in-memory database)\nconn = duckdb.connect()\n\n\n\n\nVia CLI:\nCREATE TABLE kunder (\n    id INTEGER PRIMARY KEY,\n    navn VARCHAR(50) NOT NULL,\n    email VARCHAR(100),\n    oprettet_dato DATE DEFAULT CURRENT_DATE\n);\nVia Python:\n\nconn.execute(\"\"\"\nCREATE TABLE kunder (\n    id INTEGER PRIMARY KEY,\n    navn VARCHAR(50) NOT NULL,\n    email VARCHAR(100),\n    oprettet_dato DATE DEFAULT CURRENT_DATE\n)\n\"\"\")\n\n\n\n\nIndsæt en enkelt række:\nINSERT INTO kunder (id, navn, email) \nVALUES (1, 'Anders Jensen', 'anders@example.com');\nIndsæt flere rækker på én gang:\nINSERT INTO kunder (id, navn, email) VALUES \n(2, 'Mette Nielsen', 'mette@example.com'),\n(3, 'Lars Pedersen', 'lars@example.com'),\n(4, 'Hanne Sørensen', 'hanne@example.com');\nVia Python:\n\nconn.execute(\"INSERT INTO kunder (id, navn, email) VALUES (5, 'Jonas Hansen', 'jonas@example.com')\")\n\n# Flere rækker\nconn.execute(\"\"\"\nINSERT INTO kunder (id, navn, email) VALUES \n(6, 'Sofie Larsen', 'sofie@example.com'),\n(7, 'Ole Madsen', 'ole@example.com')\n\"\"\")\n\n\n\n\nVælg alle kolonner og rækker:\nSELECT * FROM kunder;\nVælg specifikke kolonner:\nSELECT navn, email FROM kunder;\nFiltrering med WHERE:\nSELECT * FROM kunder WHERE id &gt; 3;\nSortering med ORDER BY:\nSELECT * FROM kunder ORDER BY navn ASC;\nVia Python:\n\n# Hent alle rækker\nresult = conn.execute(\"SELECT * FROM kunder\").fetchall()\nfor row in result:\n    print(row)\n\n(5, 'Jonas Hansen', 'jonas@example.com', datetime.date(2025, 2, 27))\n(6, 'Sofie Larsen', 'sofie@example.com', datetime.date(2025, 2, 27))\n(7, 'Ole Madsen', 'ole@example.com', datetime.date(2025, 2, 27))\n\n\n\n# Brug pandas til at få en DataFrame\ndf = conn.execute(\"SELECT * FROM kunder\").df()\nprint(df)\n\n   id          navn              email oprettet_dato\n0   5  Jonas Hansen  jonas@example.com    2025-02-27\n1   6  Sofie Larsen  sofie@example.com    2025-02-27\n2   7    Ole Madsen    ole@example.com    2025-02-27\n\n\n\n\n\nOpdater en enkelt række:\nUPDATE kunder SET email = 'ny_email@example.com' WHERE id = 1;\nOpdater flere rækker:\nUPDATE kunder SET oprettet_dato = '2023-01-01' WHERE id &lt; 5;\nVia Python:\nconn.execute(\"UPDATE kunder SET email = 'anden_email@example.com' WHERE id = 2\")\n\n\n\nSlet en enkelt række:\nDELETE FROM kunder WHERE id = 7;\nSlet flere rækker:\nDELETE FROM kunder WHERE id &gt; 5;\nSlet alle rækker:\nDELETE FROM kunder;\nVia Python:\nconn.execute(\"DELETE FROM kunder WHERE id = 6\")\n\n\n\n\n\n\nVia CLI:\n-- Indsæt data fra en CSV-fil\nCOPY kunder FROM 'data/kunder.csv' (HEADER, DELIMITER ',');\nVia Python:\n# Med en lokal CSV-fil\nconn.execute(\"COPY kunder FROM 'data/kunder.csv' (HEADER, DELIMITER ',')\")\n\n# Med pandas\nimport pandas as pd\ndf = pd.read_csv('data/kunder.csv')\nconn.execute(\"INSERT INTO kunder SELECT * FROM df\")\n\n\n\n# Indsæt flere rækker fra en liste af tupler\nkunde_data = [\n    (8, 'Emma Winther', 'emma@example.com', '2023-06-01'),\n    (9, 'Niels Berg', 'niels@example.com', '2023-06-02'),\n    (10, 'Ida Holm', 'ida@example.com', '2023-06-03')\n]\n\n# Metode 1: Brug executemany\nconn.executemany(\n    \"INSERT INTO kunder (id, navn, email, oprettet_dato) VALUES (?, ?, ?, ?)\",\n    kunde_data\n)\n\n# Metode 2: Brug pandas DataFrame\nimport pandas as pd\ndf = pd.DataFrame(kunde_data, columns=['id', 'navn', 'email', 'oprettet_dato'])\nconn.execute(\"INSERT INTO kunder SELECT * FROM df\")\n\n\n\n\n\n\nCSV-filer:\n-- Indlæs direkte fra CSV\nSELECT * FROM 'data/kunder.csv';\n\n-- Opret tabel baseret på CSV\nCREATE TABLE nye_kunder AS SELECT * FROM 'data/kunder.csv';\n\n-- Med specifikke indstillinger\nSELECT * FROM read_csv_auto('data/kunder.csv', delim=',', header=true);\nParquet-filer:\n-- Installer extension hvis nødvendig\nINSTALL parquet;\nLOAD parquet;\n\n-- Indlæs data fra Parquet\nSELECT * FROM 'data/kunder.parquet';\n\n-- Med flere muligheder\nSELECT * FROM read_parquet('data/kunder.parquet');\nJSON-filer:\n-- Installer extension hvis nødvendig\nINSTALL json;\nLOAD json;\n\n-- Indlæs data fra JSON\nSELECT * FROM 'data/kunder.json';\n\n-- Med flere indstillinger\nSELECT * FROM read_json_auto('data/kunder.json');\nExcel-filer:\n-- Installer extension hvis nødvendig\nINSTALL spatial;\nLOAD spatial;\n\n-- Indlæs data fra Excel\nSELECT * FROM st_read('data/kunder.xlsx');\n\n\n\nCSV-filer:\n-- Gem data til CSV\nCOPY kunder TO 'output/kunder_eksport.csv' (HEADER, DELIMITER ',');\nParquet-filer:\n-- Gem data til Parquet\nCOPY kunder TO 'output/kunder_eksport.parquet' (FORMAT PARQUET);\nJSON-filer:\n-- Gem data til JSON\nCOPY kunder TO 'output/kunder_eksport.json' (FORMAT JSON);\nVia Python:\n# Eksporter til CSV\nconn.execute(\"COPY kunder TO 'output/kunder_eksport.csv' (HEADER, DELIMITER ',')\")\n\n# Eksporter til Parquet\nconn.execute(\"COPY kunder TO 'output/kunder_eksport.parquet' (FORMAT PARQUET)\")\n\n# Med pandas\ndf = conn.execute(\"SELECT * FROM kunder\").df()\ndf.to_csv('output/kunder_pandas.csv', index=False)\ndf.to_parquet('output/kunder_pandas.parquet')\n\n\n\n\n\nTjek versionsinformation:\nSELECT version();\nVis alle tabeller:\n.tables\neller\nSHOW TABLES;\nUndersøg en tabels struktur:\nDESCRIBE kunder;\nSe alle rækker i en tabel:\nSELECT * FROM kunder;\n\nDenne vejledning dækker de grundlæggende aspekter af DuckDB for begyndere, fra installation til CRUD-operationer og arbejde med forskellige filformater. DuckDB er utrolig effektivt til analytiske opgaver og giver dig mulighed for at arbejde med data direkte fra kildefiler uden først at skulle indlæse dem i databasen.",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "CRUD DDL SQL",
+      "Begyndervejledning til DuckDB:"
+    ]
+  },
+  {
+    "objectID": "emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html#installation-af-duckdb",
+    "href": "emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html#installation-af-duckdb",
+    "title": "Grundlæggende CRUD-operationer",
+    "section": "",
+    "text": "Brug Homebrew til at installere DuckDB:\nbrew install duckdb\n\n\n\n\nHvis du har wingetinstalleret:\n\nBrug winget:\nwinget install DuckDB.cli\n\nEllers\n\nDownload den seneste version fra DuckDB’s hjemmeside\nUdpak ZIP-filen til en mappe efter eget valg\n\n\n\n\n\nDownload den seneste version:\ncurl https://install.duckdb.org | sh\n\n\n\n\nHvis du foretrækker at bruge DuckDB gennem Python:\npip install duckdb",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "CRUD DDL SQL",
+      "Begyndervejledning til DuckDB:"
+    ]
+  },
+  {
+    "objectID": "emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html#start-og-tilslutning-til-duckdb",
+    "href": "emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html#start-og-tilslutning-til-duckdb",
+    "title": "Grundlæggende CRUD-operationer",
+    "section": "",
+    "text": "Start DuckDB med kommandolinjeværktøjet:\nduckdb\nDette vil starte en midlertidig in-memory database. For at gemme dine data, angiv et filnavn:\nduckdb mindb.db\n\n\n\n\nimport duckdb\n\n# Forbind til en database-fil\nconn = duckdb.connect('mindb.db')\n\n# Eller opret forbindelse (in-memory database)\nconn = duckdb.connect()\n\n\n\n\nVia CLI:\nCREATE TABLE kunder (\n    id INTEGER PRIMARY KEY,\n    navn VARCHAR(50) NOT NULL,\n    email VARCHAR(100),\n    oprettet_dato DATE DEFAULT CURRENT_DATE\n);\nVia Python:\n\nconn.execute(\"\"\"\nCREATE TABLE kunder (\n    id INTEGER PRIMARY KEY,\n    navn VARCHAR(50) NOT NULL,\n    email VARCHAR(100),\n    oprettet_dato DATE DEFAULT CURRENT_DATE\n)\n\"\"\")\n\n\n\n\nIndsæt en enkelt række:\nINSERT INTO kunder (id, navn, email) \nVALUES (1, 'Anders Jensen', 'anders@example.com');\nIndsæt flere rækker på én gang:\nINSERT INTO kunder (id, navn, email) VALUES \n(2, 'Mette Nielsen', 'mette@example.com'),\n(3, 'Lars Pedersen', 'lars@example.com'),\n(4, 'Hanne Sørensen', 'hanne@example.com');\nVia Python:\n\nconn.execute(\"INSERT INTO kunder (id, navn, email) VALUES (5, 'Jonas Hansen', 'jonas@example.com')\")\n\n# Flere rækker\nconn.execute(\"\"\"\nINSERT INTO kunder (id, navn, email) VALUES \n(6, 'Sofie Larsen', 'sofie@example.com'),\n(7, 'Ole Madsen', 'ole@example.com')\n\"\"\")\n\n\n\n\nVælg alle kolonner og rækker:\nSELECT * FROM kunder;\nVælg specifikke kolonner:\nSELECT navn, email FROM kunder;\nFiltrering med WHERE:\nSELECT * FROM kunder WHERE id &gt; 3;\nSortering med ORDER BY:\nSELECT * FROM kunder ORDER BY navn ASC;\nVia Python:\n\n# Hent alle rækker\nresult = conn.execute(\"SELECT * FROM kunder\").fetchall()\nfor row in result:\n    print(row)\n\n(5, 'Jonas Hansen', 'jonas@example.com', datetime.date(2025, 2, 27))\n(6, 'Sofie Larsen', 'sofie@example.com', datetime.date(2025, 2, 27))\n(7, 'Ole Madsen', 'ole@example.com', datetime.date(2025, 2, 27))\n\n\n\n# Brug pandas til at få en DataFrame\ndf = conn.execute(\"SELECT * FROM kunder\").df()\nprint(df)\n\n   id          navn              email oprettet_dato\n0   5  Jonas Hansen  jonas@example.com    2025-02-27\n1   6  Sofie Larsen  sofie@example.com    2025-02-27\n2   7    Ole Madsen    ole@example.com    2025-02-27\n\n\n\n\n\nOpdater en enkelt række:\nUPDATE kunder SET email = 'ny_email@example.com' WHERE id = 1;\nOpdater flere rækker:\nUPDATE kunder SET oprettet_dato = '2023-01-01' WHERE id &lt; 5;\nVia Python:\nconn.execute(\"UPDATE kunder SET email = 'anden_email@example.com' WHERE id = 2\")\n\n\n\nSlet en enkelt række:\nDELETE FROM kunder WHERE id = 7;\nSlet flere rækker:\nDELETE FROM kunder WHERE id &gt; 5;\nSlet alle rækker:\nDELETE FROM kunder;\nVia Python:\nconn.execute(\"DELETE FROM kunder WHERE id = 6\")",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "CRUD DDL SQL",
+      "Begyndervejledning til DuckDB:"
+    ]
+  },
+  {
+    "objectID": "emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html#bulk-operationer",
+    "href": "emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html#bulk-operationer",
+    "title": "Grundlæggende CRUD-operationer",
+    "section": "",
+    "text": "Via CLI:\n-- Indsæt data fra en CSV-fil\nCOPY kunder FROM 'data/kunder.csv' (HEADER, DELIMITER ',');\nVia Python:\n# Med en lokal CSV-fil\nconn.execute(\"COPY kunder FROM 'data/kunder.csv' (HEADER, DELIMITER ',')\")\n\n# Med pandas\nimport pandas as pd\ndf = pd.read_csv('data/kunder.csv')\nconn.execute(\"INSERT INTO kunder SELECT * FROM df\")\n\n\n\n# Indsæt flere rækker fra en liste af tupler\nkunde_data = [\n    (8, 'Emma Winther', 'emma@example.com', '2023-06-01'),\n    (9, 'Niels Berg', 'niels@example.com', '2023-06-02'),\n    (10, 'Ida Holm', 'ida@example.com', '2023-06-03')\n]\n\n# Metode 1: Brug executemany\nconn.executemany(\n    \"INSERT INTO kunder (id, navn, email, oprettet_dato) VALUES (?, ?, ?, ?)\",\n    kunde_data\n)\n\n# Metode 2: Brug pandas DataFrame\nimport pandas as pd\ndf = pd.DataFrame(kunde_data, columns=['id', 'navn', 'email', 'oprettet_dato'])\nconn.execute(\"INSERT INTO kunder SELECT * FROM df\")",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "CRUD DDL SQL",
+      "Begyndervejledning til DuckDB:"
+    ]
+  },
+  {
+    "objectID": "emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html#ind--og-udlæsning-fra-forskellige-filformater",
+    "href": "emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html#ind--og-udlæsning-fra-forskellige-filformater",
+    "title": "Grundlæggende CRUD-operationer",
+    "section": "",
+    "text": "CSV-filer:\n-- Indlæs direkte fra CSV\nSELECT * FROM 'data/kunder.csv';\n\n-- Opret tabel baseret på CSV\nCREATE TABLE nye_kunder AS SELECT * FROM 'data/kunder.csv';\n\n-- Med specifikke indstillinger\nSELECT * FROM read_csv_auto('data/kunder.csv', delim=',', header=true);\nParquet-filer:\n-- Installer extension hvis nødvendig\nINSTALL parquet;\nLOAD parquet;\n\n-- Indlæs data fra Parquet\nSELECT * FROM 'data/kunder.parquet';\n\n-- Med flere muligheder\nSELECT * FROM read_parquet('data/kunder.parquet');\nJSON-filer:\n-- Installer extension hvis nødvendig\nINSTALL json;\nLOAD json;\n\n-- Indlæs data fra JSON\nSELECT * FROM 'data/kunder.json';\n\n-- Med flere indstillinger\nSELECT * FROM read_json_auto('data/kunder.json');\nExcel-filer:\n-- Installer extension hvis nødvendig\nINSTALL spatial;\nLOAD spatial;\n\n-- Indlæs data fra Excel\nSELECT * FROM st_read('data/kunder.xlsx');\n\n\n\nCSV-filer:\n-- Gem data til CSV\nCOPY kunder TO 'output/kunder_eksport.csv' (HEADER, DELIMITER ',');\nParquet-filer:\n-- Gem data til Parquet\nCOPY kunder TO 'output/kunder_eksport.parquet' (FORMAT PARQUET);\nJSON-filer:\n-- Gem data til JSON\nCOPY kunder TO 'output/kunder_eksport.json' (FORMAT JSON);\nVia Python:\n# Eksporter til CSV\nconn.execute(\"COPY kunder TO 'output/kunder_eksport.csv' (HEADER, DELIMITER ',')\")\n\n# Eksporter til Parquet\nconn.execute(\"COPY kunder TO 'output/kunder_eksport.parquet' (FORMAT PARQUET)\")\n\n# Med pandas\ndf = conn.execute(\"SELECT * FROM kunder\").df()\ndf.to_csv('output/kunder_pandas.csv', index=False)\ndf.to_parquet('output/kunder_pandas.parquet')",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "CRUD DDL SQL",
+      "Begyndervejledning til DuckDB:"
+    ]
+  },
+  {
+    "objectID": "emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html#tips-til-fejlfinding",
+    "href": "emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.html#tips-til-fejlfinding",
+    "title": "Grundlæggende CRUD-operationer",
+    "section": "",
+    "text": "Tjek versionsinformation:\nSELECT version();\nVis alle tabeller:\n.tables\neller\nSHOW TABLES;\nUndersøg en tabels struktur:\nDESCRIBE kunder;\nSe alle rækker i en tabel:\nSELECT * FROM kunder;\n\nDenne vejledning dækker de grundlæggende aspekter af DuckDB for begyndere, fra installation til CRUD-operationer og arbejde med forskellige filformater. DuckDB er utrolig effektivt til analytiske opgaver og giver dig mulighed for at arbejde med data direkte fra kildefiler uden først at skulle indlæse dem i databasen.",
+    "crumbs": [
+      "Hjem",
+      "Emner",
+      "CRUD DDL SQL",
+      "Begyndervejledning til DuckDB:"
     ]
   },
   {
