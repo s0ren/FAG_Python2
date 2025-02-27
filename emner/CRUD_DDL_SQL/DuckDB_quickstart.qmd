@@ -2,11 +2,12 @@
 title: "Hurtig Start med DuckDB i Python"
 
 subtitle: "Dataanalyse i DuckDB for Python-brugere"
+order: 1
 
 format: 
     html:
          x: y
-         order: 1
+        #  order: 1
     revealjs:
         x: z
         output-file: DuckDB_quickstart_slide.html

@@ -1,0 +1,11 @@
+---
+title: Dataset og dataframes
+order: 1
+---
+
+<!-- ## Dataset og dataframes -->
+
+I Python er det almindeligt at håndtere dataset med en abstraction som kaldes et *dataset*. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas. 
+
+Matt Williams, University of Bristol, et lille undervisningsforløb om det. \
+Se <https://gitlab.com/milliams/data_analysis_python>.

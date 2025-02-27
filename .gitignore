@@ -3,3 +3,4 @@
 /.venv/
 _freeze/
 emner/CRUD_DDL_SQL/*.db
+# emner/CRUD_DDL_SQL/DuckDB_quickstart_files/figure-html/cell-10-output-1.png

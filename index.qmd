@@ -7,18 +7,11 @@ format:
       - diagram
 ---
 
-````{=html}
-<!-- ```{.plantuml}
-@startuml
-Alice -> Bob: test
-@enduml
-``` -->
-````
 
 # Python II
 
-Python II, er lavet for at give forudsætninger til at arbejde med faget Big Data II, hvor mange værktøjer programmeres med python.
-Der er nogen kompetencer vi tænker er nødvendige at have i den nuværende udgave af Big Data II:
+Vi har faget Python II, for at give forudsætninger til at arbejde med faget Big Data II, hvor mange værktøjer programmeres med python.
+Der er nogen kompetencer vi tænker er nødvendige at have i den nuværende udgave af Big Data II: 
 
 * Dataset (som i `Pandas`' DataFrames), 
 * agregering og 
@@ -36,11 +29,11 @@ Se <https://gitlab.com/milliams/data_analysis_python>.
 
 Detaljerede data kan samles og give bedre overblik, ved at agregeres.
 
-Se [Agregering](emner/agregering/agregering.qmd)
+Se [Agregering](emner/agregering/)
 
 ### Case: Hvornår holder vindmøllerne stille?
 
-[Case: Vind og EL](./emner/Case_Vind-El.qmd)
+[Case: Vind og EL](./emner/agregering/Case_Vind-El.qmd)
 
 
 ## WebScraping
@@ -52,7 +45,7 @@ Se [Agregering](emner/agregering/agregering.qmd)
 
 Vi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.
 
-* [Begyndervejledning til DuckDB: Installation, Tilslutning og CRUD-operationer](./emner/CRUD_DDL_SQL/igang_med_dockdb.qmd)
+* [Begyndervejledning til DuckDB: Installation, Tilslutning og CRUD-operationer](./emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.qmd)
     * slides [DuckDB Quickstart](./emner/CRUD_DDL_SQL/DuckDB_quickstart.qmd)
 
 Se [Opgaver til duckdb](./emner/CRUD_DDL_SQL/duckdb_opgave.qmd)
