@@ -1,17 +1,35 @@
 ---
 title: "Hurtig Start med DuckDB i Python"
 
-subtitle: "Analyse-databasen DuckDB for Python-brugere"
+subtitle: "Dataanalyse i DuckDB for Python-brugere"
 
-format: revealjs
+format: 
+    html:
+         x: y
+    revealjs:
+        x: z
+        output-file: DuckDB_quickstart_slide.html
+
+
 ---
 
-# 1. Installation med pip
+# Installation med pip
 
+Du behøver faktisk ikke installere en server, eller et decideret commando-linje-program, selv om man godt kan.
 
-```python
-# Installer DuckDB med pip
+Du kan bare nøjes med at installere en python-pakke, med `pip`.
+
+## Installer DuckDB med pip
+
+I _cmd_ / _PowerShell_ / _bash_:
+
+```cmd
 pip install duckdb
+```
+
+I _python_:
+```{python}
+#| echo: true
 
 # Kontroller installation
 import duckdb
@@ -21,9 +39,11 @@ print(f"DuckDB version: {duckdb.__version__}")
 import pandas as pd
 ```
 
-# 2. Tilslutning til database
+## Tilslutning til database
 
-```python
+```{python}
+#| echo: true
+
 # Opret forbindelse til in-memory database
 conn = duckdb.connect()
 
@@ -33,11 +53,23 @@ conn = duckdb.connect('demo.db')
 # Alternativt, download en demo-database
 # conn.execute("INSTALL httpfs; LOAD httpfs;")
 # conn.execute("CREATE TABLE demo AS SELECT * FROM 'https://example.com/demodata.csv'")
+conn.close()
 ```
 
-# 3. Første select og visning som DataFrame
+## Første `SELECT` og visning som DataFrame
 
-```python
+```{python}
+#| echo: false
+#| output: false
+
+# connect til in-memory-database, for reste af denne tekst
+conn = duckdb.connect()
+
+```
+
+```{python}
+#| echo: true
+conn = duckdb.connect()
 # Opret en simpel test-tabel for demo
 conn.execute("CREATE TABLE test(id INTEGER, navn VARCHAR)")
 conn.execute("INSERT INTO test VALUES (1, 'Anders'), (2, 'Mette'), (3, 'Lars')")
@@ -49,16 +81,17 @@ result_df = conn.execute("SELECT * FROM test").df()
 print(result_df)
 ```
 
-```
+<!-- ```
    id    navn
 0   1  Anders
 1   2   Mette
 2   3    Lars
-```
+``` -->
 
-# 4. Indsæt og opdater data
+## Indsæt og opdater data
 
-```python
+```{python}
+#| echo: true
 # Indsæt en enkelt række
 conn.execute("INSERT INTO test VALUES (4, 'Sofie')")
 
@@ -74,9 +107,23 @@ conn.execute("UPDATE test SET navn = 'Anders Nielsen' WHERE id = 1")
 print(conn.execute("SELECT * FROM test").df())
 ```
 
-# 5. Opret ny tabel og indsæt data
+## Opret ny tabel og indsæt data
 
-```python
+```{python}
+#| echo: false
+#| output: false
+
+# clean up before CREATE 
+
+# conn = duckdb.connect('demo.db')
+# conn.execute("DROP TABLE IF EXISTS produkter")
+""
+```
+
+```{python}
+#| echo: true
+#| output: false
+
 # Opret tabel med constraints
 conn.execute("""
 CREATE TABLE produkter (
@@ -97,9 +144,10 @@ INSERT INTO produkter VALUES
 """)
 ```
 
-# 6. Analyse og visualisering
+## Analyse
 
-```python
+```{python}
+#| echo: true
 # Foretag analyse med SQL
 result = conn.execute("""
     SELECT 
@@ -112,7 +160,12 @@ result = conn.execute("""
 """).df()
 
 print(result)
+```
 
+## Visualisering
+
+```{python}
+#| echo: true
 # Fra DuckDB til pandas til visualisering
 import matplotlib.pyplot as plt
 
