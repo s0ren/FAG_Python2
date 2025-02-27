@@ -1,7 +1,5 @@
 ---
-formats:
-   html:
-      order: 2
+order: 2
 ---
 
 # Begyndervejledning til DuckDB: 

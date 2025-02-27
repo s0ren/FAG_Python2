@@ -1,3 +1,7 @@
+---
+order: 1
+---
+
 # Agregering af data
 
 ## Detaljerede data
