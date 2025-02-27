@@ -1,0 +1,57 @@
+# Opgave: Databehandling med DuckDB og Parquet
+
+## Formål
+At demonstrere avanceret databehandling ved hjælp af DuckDB, med fokus på:
+- Indlæsning af store datasæt
+- Pivot-transformation
+- Effektiv datalagring med Parquet-format
+- Udnyttelse af multi-core processorteknologi
+
+## Baggrund
+DMI (Danmarks Meteorologiske Institut) har leveret et datasæt med meteorologiske observationer. Din opgave er at transformere disse data effektivt. \
+Du får udleveret 2-3 års data til at procesere. \
+De findes i filenerne `dmi/{yyyy}-{mm}-{dd}.txt`
+
+Se eksemplet [`duckdb_pivot_example.py`](duckdb_pivot_example.py), som et generisk eksempel på hvordan en lignende løsning kan se ud:
+```{.python filenerne="duckdb_pivot_example.py" } 
+{{< include duckdb_pivot_example.py >}}
+```
+
+## Tekniske Krav
+1. **Dataindlæsning**
+   - Anvend DuckDB til effektiv indlæsning af datasættet
+   - Udnyt DuckDB's multi-core processerings-kapacitet
+   - Håndtér store datamængder med minimalt hukommelsesforbrug
+
+2. **Data Transformation**
+   - Udfør pivottering af datasættet
+   - Identificér og ekstraher unikke parametre
+   - Skab en flad tabelstruktur med dynamiske kolonner baseret på parametre
+
+3. **Datalagring**
+   - Gem transformerede data i Parquet-format
+   - Implementér partitionering baseret på år og måned
+   - Anvend ZSTD kompression for optimal pladsudnyttelse
+
+## Anbefalede Teknikker
+- Brug `PRAGMA threads=N` til at optimere multi-core udnyttelse
+- Benyt dynamisk SQL til pivot-transformation
+- Anvend `COPY ... PARTITION BY` for effektiv partitionering
+- Udnyt Parquet-formatets kompressionsegenskaber
+
+## Forventede Læringsmål
+- Forståelse af data transformation teknikker
+- Kendskab til DuckDB's højtydende databehandlingsegenskaber
+- Indsigt i effektiv datalagring og partitionering
+
+## Ekstra Udfordringer (valgfrit)
+- Implementér yderligere aggregeringer
+- Visualisér data efter transformation
+- Analyser performancekarakteristika
+
+## Produktkrav
+- Komplet Python-script, og uddata filer.
+- Et lille eksempel på et query af data fra de transformerede datafiler.
+- Forbered en 5 minutters fremvisning af din løsning, på din egen computer.
+
+**Held og lykke!**

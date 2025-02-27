@@ -1,0 +1,222 @@
+Du har helt ret - vi kan gøre det meget enklere. DuckDB har faktisk indbygget funktionalitet til at håndtere partitionering ved skrivning til parquet-filer, så vi slipper for manuel håndtering af mappestrukturer. Lad mig revidere opgaven til en mere strømlinet version, hvor DuckDB gør det meste af arbejdet for os.
+
+# DMI Data Processing: Enkel Pivottering og Partitionering med DuckDB
+
+## Formål med opgaven
+I denne opgave skal du arbejde med et omfattende datasæt fra DMI. Din opgave er at transformere rå data til et velorganiseret og effektivt format ved hjælp af DuckDB. Du skal pivottere data og derefter bruge DuckDB's indbyggede funktioner til at partitionere og gemme dem i parquet-format.
+
+## Datasættet
+Du får udleveret 2-3 års vejrdata fra DMI med observationer fra forskellige vejrstationer.
+
+## Opgavebeskrivelse
+
+### Del 1: Dataindlæsning og udforskning (1 time)
+1. Indlæs datasættet med Python og DuckDB
+2. Udforsk datastrukturen og få en forståelse for, hvilke data du arbejder med
+3. Identificer unikke parametertyper i datasættet
+
+### Del 2: Pivottering og partitionering (3 timer)
+1. Pivotter dataene så hver parametertype bliver en kolonne
+2. Gem de pivoterede data i parquet-format med automatisk partitionering
+3. Test indlæsning af de partitionerede data for at verificere korrekthed
+4. Dokumenter din løsning og beskriv fordele ved den valgte fremgangsmåde
+
+## Tekniske anvisninger
+
+### Simplificeret løsning med DuckDB
+
+DuckDB gør det enkelt at håndtere partitionering via `PARTITION BY`-klausulen i `COPY`-kommandoen. Her er en enkel tilgang:
+
+```python
+import duckdb
+import os
+
+# Opret forbindelse til DuckDB
+con = duckdb.connect(database=':memory:')
+
+# Sæt DuckDB til at udnytte alle tilgængelige kerner
+con.execute("PRAGMA threads=8")  # Juster til din maskine
+
+# Indlæs data
+print("Indlæser data...")
+con.execute("CREATE TABLE dmi_data AS SELECT * FROM read_json_auto('2023-01-02_trunc.txt', format='newline_delimited')")
+
+# Udforsk data
+print("\nUnikke parameter IDs:")
+params = con.execute("SELECT DISTINCT parameterId FROM dmi_data").fetchall()
+for param in params:
+    print(f"  {param[0]}")
+
+# Pivotter data
+print("\nPivotterer data...")
+parameter_ids = [param[0] for param in params]
+
+# Byg dynamisk pivot-forespørgsel
+pivot_columns = ", ".join([
+    f"MAX(CASE WHEN parameterId = '{param}' THEN value END) as \"{param}\""
+    for param in parameter_ids
+])
+
+pivot_query = f"""
+CREATE TABLE pivoted_data AS
+SELECT 
+    stationId,
+    observed,
+    EXTRACT(YEAR FROM observed) as year,
+    EXTRACT(MONTH FROM observed) as month,
+    geometry,
+    {pivot_columns}
+FROM dmi_data
+GROUP BY stationId, observed, geometry
+"""
+
+con.execute(pivot_query)
+
+print(f"Data pivoteret med {len(parameter_ids)} parameter-kolonner")
+
+# Opret output-mappe
+output_dir = "pivoteret_partitioneret_data"
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
+# Gem pivoterede data med automatisk partitionering
+print("\nGemmer partitionerede parquet-filer...")
+con.execute(f"""
+COPY pivoted_data 
+TO '{output_dir}' 
+(FORMAT PARQUET, PARTITION_BY (year, month), COMPRESSION 'ZSTD')
+""")
+
+print(f"\nData gemt i {output_dir} mappe med partitionering på år og måned")
+
+# Test indlæsning af partitionerede data
+print("\nTester indlæsning af partitionerede data...")
+# Læs alle partitioner
+all_data = con.execute(f"SELECT * FROM parquet_scan('{output_dir}')").df()
+print(f"Indlæst {len(all_data)} rækker fra alle partitioner")
+
+# Læs specifik partition (første år og måned i datasættet)
+year_month = con.execute("SELECT DISTINCT year, month FROM pivoted_data ORDER BY year, month LIMIT 1").fetchone()
+year, month = year_month
+print(f"\nIndlæser specifik partition for {year}-{month:02d}...")
+partition_data = con.execute(f"""
+SELECT * FROM parquet_scan('{output_dir}') 
+WHERE year = {year} AND month = {month}
+""").df()
+print(f"Indlæst {len(partition_data)} rækker fra partition {year}-{month:02d}")
+```
+
+## Opgavebesvarelse
+
+Lærlingene skal aflevere:
+
+1. Et Python-script med deres løsning
+2. En kort rapport (max 1 side) der beskriver:
+   - Hvilke parametre der findes i datasættet
+   - Hvordan de har anvendt DuckDB til pivottering
+   - Fordele ved den anvendte partitioneringsstrategi
+   - Eventuelle udfordringer de stødte på
+3. Et kort eksempel på, hvordan de partitionerede data kan bruges til en simpel analyse
+
+## Vurderingskriterier
+- Korrekt implementering af pivottering
+- Effektiv brug af DuckDB's indbyggede partitioneringsfunktioner
+- Forståelse for fordele ved strukturen
+- Evne til at dokumentere løsningen klart
+
+---
+
+## Fordele ved denne simplificerede tilgang:
+
+1. **Minimalt kodebehov**: DuckDB håndterer det komplekse partitioneringsarbejde
+2. **Automatisk mappestruktur**: DuckDB opretter den nødvendige mappestruktur baseret på partitioneringskriterier
+3. **Optimeret for læsning**: De resulterende partitioner er optimeret til hurtig filtreringsbaseret læsning
+4. **Simpel implementering**: Lærlingene kan fokusere på at forstå koncepterne frem for at håndtere filsystemer
+
+## Tekniske noter til underviseren:
+
+- DuckDB's `PARTITION_BY` opretter automatisk en Hive-stil partitioneringsstruktur (f.eks. /year=2023/month=1/)
+- Funktionen `parquet_scan()` kan automatisk læse alle partitioner og anvende filtrering baseret på partitioneringskolonner
+- For at opnå den bedste ydeevne, brug ZSTD-komprimering som vist i eksemplet
+- Hvis datasættet er meget stort, kan det være nødvendigt at bruge en disk-baseret DuckDB-database i stedet for in-memory
+
+Denne opgave er mere realistisk inden for tidsrammen på 4 timer og udnytter DuckDB's indbyggede funktionalitet til at håndtere det komplekse partitioneringsarbejde, hvilket gør opgaven mere tilgængelig for lærlingene.
+
+-------------
+
+import duckdb
+import os
+
+# Opret forbindelse til DuckDB
+con = duckdb.connect(database=':memory:')
+
+# Sæt DuckDB til at udnytte alle tilgængelige kerner
+con.execute("PRAGMA threads=8")  # Juster til din maskine
+
+# Indlæs data
+print("Indlæser data...")
+con.execute("CREATE TABLE dmi_data AS SELECT * FROM read_json_auto('2023-01-02_trunc.txt', format='newline_delimited')")
+
+# Udforsk data
+print("\nUnikke parameter IDs:")
+params = con.execute("SELECT DISTINCT parameterId FROM dmi_data").fetchall()
+for param in params:
+    print(f"  {param[0]}")
+
+# Pivotter data
+print("\nPivotterer data...")
+parameter_ids = [param[0] for param in params]
+
+# Byg dynamisk pivot-forespørgsel
+pivot_columns = ", ".join([
+    f"MAX(CASE WHEN parameterId = '{param}' THEN value END) as \"{param}\""
+    for param in parameter_ids
+])
+
+pivot_query = f"""
+CREATE TABLE pivoted_data AS
+SELECT 
+    stationId,
+    observed,
+    EXTRACT(YEAR FROM observed) as year,
+    EXTRACT(MONTH FROM observed) as month,
+    geometry,
+    {pivot_columns}
+FROM dmi_data
+GROUP BY stationId, observed, geometry
+"""
+
+con.execute(pivot_query)
+
+print(f"Data pivoteret med {len(parameter_ids)} parameter-kolonner")
+
+# Opret output-mappe
+output_dir = "pivoteret_partitioneret_data"
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
+# Gem pivoterede data med automatisk partitionering
+print("\nGemmer partitionerede parquet-filer...")
+con.execute(f"""
+COPY pivoted_data 
+TO '{output_dir}' 
+(FORMAT PARQUET, PARTITION_BY (year, month), COMPRESSION 'ZSTD')
+""")
+
+print(f"\nData gemt i {output_dir} mappe med partitionering på år og måned")
+
+# Test indlæsning af partitionerede data
+print("\nTester indlæsning af partitionerede data...")
+# Læs alle partitioner
+all_data = con.execute(f"SELECT * FROM parquet_scan('{output_dir}')").df()
+print(f"Indlæst {len(all_data)} rækker fra alle partitioner")
+
+# Læs specifik partition (første år og måned i datasættet)
+year_month = con.execute("SELECT DISTINCT year, month FROM pivoted_data ORDER BY year, month LIMIT 1").fetchone()
+year, month = year_month
+print(f"\nIndlæser specifik partition for {year}-{month:02d}...")
+partition_data = con.execute(f"""
+SELECT * FROM parquet_scan('{output_dir}') 
+WHERE year = {year} AND month = {month}
+""").df()
+print(f"Indlæst {len(partition_data)} rækker fra partition {year}-{month:02d}")

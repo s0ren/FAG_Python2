@@ -1,0 +1,60 @@
+---
+title: "Databehandling: Fra Rådata til Brugbar Viden"
+order: 4
+
+
+---
+
+
+# Databehandling: Fra Rådata til Brugbar Viden
+
+I databehandlingens verden er transformation nøglen til at omdanne uoverskuelige datamængder til meningsfulde indsigter. Forestil dig et datasæt som en uordnet værktøjskasse: hver enkelt del har potentiale, men først når delene organiseres systematisk, bliver de virkelig nyttige.
+
+Datatransformation handler grundlæggende om at gøre rådata mere anvendelige. I praksis betyder det at konvertere komplekse, ustrukturerede datasæt til klare, analyserbare formater.
+
+## Centrale Udfordninger
+Typiske problemer med rådata inkluderer:
+- Svær at aflæse
+- Ineffektiv lagring
+- Besværlig analyse
+- Unødvendig kompleksitet
+
+## Transformation i Praksis
+Et konkret eksempel: Et salgsdatasæt med individuelle transaktioner kan transformeres fra en lang liste til en kompakt oversigt. Hvor man før skulle blade gennem hundredvis af rækker for at forstå samlede salgstal, kan man nu med det samme se totaler fordelt på produkter og salgskanaler.
+
+
+## Eksempel på Pivot-transformation
+**Før (Rådata):**
+```
+produktId | salgsdato  | salgskanal | value
+A001      | 2023-01-15 | online     | 1250.50
+A001      | 2023-01-15 | butik      | 875.25
+A002      | 2023-01-22 | online     | 512.50
+```
+
+**Efter (Pivoteret):**
+```
+produktId | salgsdato  | online_salg | butik_salg | total_salg
+A001      | 2023-01-15 | 1250.50     | 875.25     | 2125.75
+A002      | 2023-02-22 | 512.50      | 0.0        | 512.50
+```
+
+
+## Tekniske Gevinster
+- Datakompression (f.eks. Parquet-format)
+- Hurtigere dataadgang
+- Mindre hukommelsesforbrug
+- Nemmere analyse og visualisering
+
+## Læringsperspektiv
+Eleverne lærer ikke blot en teknisk teknik, men en fundamental tilgang til at:
+- Forstå datastrukturer
+- Optimere databehandling
+- Forberede data til videre analyse
+
+Transformation er brobyggeren mellem råt datamateriale og værdifuld forretningsmæssig indsigt.
+
+## Opgave
+
+Du skal lave opgaven [Databehandling med DuckDB og Parquet](./duckdb_assignment_description.qmd)
+

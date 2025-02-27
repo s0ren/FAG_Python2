@@ -1,0 +1,248 @@
+    1  docker compose -f .\docker-compose-multi-data-nodes.yml up 
+    2  ls
+    3  cd docker-hadoop/
+    4  docker compose -f .\docker-compose-multi-data-nodes.yml up 
+    5  ls
+    6  docker compose -f docker-compose-multi-data-nodes.yml up 
+    7  make build
+    8  sudo apt install make
+    9  make build
+   10  make wordcount
+   11  docker compose up -d
+   12  docker compose ps
+   13  docker compose up
+   14  docker compose down
+   15  ls
+   16  sudo ls
+   17  pwd
+   18  mkdir myQuarto
+   19  cd myQuarto/
+   20  code .
+   21  7
+   22  exit
+   23  code --install-extension quarto.quarto
+   24  dkpg
+   25  dpkg
+   26  apt --help
+   27  quarto preview /home/smag/myQuarto/Setup_History.md --no-browser --no-watch-inputs
+   28  quarto preview /home/smag/myQuarto/Setup_History.md --to typst --no-browser --no-watch-inputs
+   29  quarto preview /home/smag/myQuarto/Setup_History.md --to pdf --no-browser --no-watch-inputs
+   30  quarto preview /home/smag/myQuarto/Setup_History.md --to html --no-browser --no-watch-inputs
+   31  quarto preview /home/smag/myQuarto/Setup_History.md --to typst --no-browser --no-watch-inputs
+   32  git config --global user.email "smag@tec.dk"
+   33  git config --global user.name " Søren Magnusson"
+   34  quarto preview /home/smag/myQuarto/Untitled-1.qmd --to revealjs --no-browser --no-watch-inputs
+   35  quarto preview /home/smag/myQuarto/hello.qmd --no-browser --no-watch-inputs
+   36  sudo apt install pythonispython3
+   37  sudo apt install python
+   38  sudo apt install python-is-python3
+   39  quarto preview /home/smag/myQuarto/hello.qmd --no-browser --no-watch-inputs
+   40  sudo apt install python3-jupyter
+   41  sudo apt install 
+   42  python3 -m pip install jupyter
+   43  sudo apt install python3-jupyter-core
+   44  python3 -m pip install jupyter
+   45  sudo apt install python3-pip
+   46  sudo apt update
+   47  sudo apt install python3-pip
+   48  python3 -m pip install jupyter
+   49  sudo apt install python3-jupyter-console 
+   50  quarto preview /home/smag/myQuarto/hello.qmd --no-browser --no-watch-inputs
+   51  sudo apt install python3-nbformat 
+   52  quarto preview /home/smag/myQuarto/hello.qmd --no-browser --no-watch-inputs
+   53  sudo apt install python3-nbclient 
+   54  quarto preview /home/smag/myQuarto/hello.qmd --no-browser --no-watch-inputs
+   55  quarto preview /home/smag/myQuarto/Setup_History_wsl.md --no-browser --no-watch-inputs
+   56  python3 -m pip install jupyter matplotlib plotly
+   57  pandoc
+   58  quarto install extension pandoc-ext/diagram
+   59  git clone https://github.com/pandoc-ext/diagram.git
+   60  ls
+   61  quarto preview /home/smag/myQuarto/diagram/test/plantuml-quarto.qmd --no-browser --no-watch-inputs
+   62  quarto install extension pandoc-ext/diagram
+   63  quarto preview /home/smag/myQuarto/diagram/test/plantuml-quarto.qmd --no-browser --no-watch-inputs
+   64  quarto preview /home/smag/myQuarto/plantuml-quarto.qmd --no-browser --no-watch-inputs
+   65  quarto install extension pandoc-ext/diagram
+   66  quarto preview /home/smag/myQuarto/plantuml-quarto.qmd --no-browser --no-watch-inputs
+   67  sudo apt install pandoc
+   68  quarto preview /home/smag/myQuarto/plantuml-quarto.qmd --no-browser --no-watch-inputs
+   69  quarto preview /home/smag/myQuarto/plantuml-quarto_modern.qmd --no-browser --no-watch-inputs
+   70  quarto preview /home/smag/myQuarto/plantuml-quarto.qmd --no-browser --no-watch-inputs
+   71  quarto preview /home/smag/myQuarto/plantuml-quarto_modern.qmd --no-browser --no-watch-inputs
+   72  quarto preview /home/smag/myQuarto/Setup_History_wsl.md --no-browser --no-watch-inputs
+   73  quarto preview /home/smag/myQuarto/slide.qmd --no-browser --no-watch-inputs
+   74  quarto preview /home/smag/myQuarto/Setup_History_wsl.md --no-browser --no-watch-inputs
+   75  quarto preview /home/smag/myQuarto/Setup_History_wsl.md --no-browser --no-watch-inputs
+   76  quarto preview /home/smag/myQuarto/slide.qmd --no-browser --no-watch-inputs
+   77  quarto preview /home/smag/myQuarto/Setup_History_wsl.md --no-browser --no-watch-inputs
+   78  quarto preview /home/smag/myQuarto/slide.qmd --no-browser --no-watch-inputs
+   79  quarto install tinytex
+   80  quarto --?
+   81  quarto --h
+   82  quarto --help
+   83  quarto check
+   84  python --version
+   85  python3 --version
+   86  which python3
+   87  wget https://quarto.org/docs/get-started/hello/_hello.ipynb
+   88  sudo apt --help
+   89  sudo apt list plantuml
+   90  sudo apt show plantuml 
+   91  sudo apt install plantuml 
+   92  sudo apt show plantuml 
+   93  java --version
+   94  plantuml --version
+   95  plantuml --help
+   96  plantuml -?
+   97  plantuml -version
+   98  which plantuml
+   99  ls /usr/bin/plant*
+  100  ls -la /usr/bin/plant*
+  101  cat /usr/bin/plantuml 
+  102  ls -l /usr/share/plantuml/
+  103  wget https://github.com/plantuml/plantuml/releases/download/v1.2025.0/plantuml-1.2025.0.jar
+  104  ls
+  105  ls -l /usr/share/plantuml/
+  106  mv plantuml-1.2025.0.jar /usr/share/plantuml/
+  107  sudo mv plantuml-1.2025.0.jar /usr/share/plantuml/
+  108  ls /usr/share/plantuml/
+  109  mv /usr/share/plantuml/plantuml.jar /usr/share/plantuml/plantuml-old.jar
+  110  sudo mv /usr/share/plantuml/plantuml.jar /usr/share/plantuml/plantuml-old.jar
+  111  ln -s --help
+  112  sudo ln -s /usr/share/plantuml/plantuml-old.jar /usr/share/plantuml/plantuml.jar
+  113  ls /usr/share/plantuml/
+  114  ls -l /usr/share/plantuml/
+  115  sudo ln -s /usr/share/plantuml/plantuml-1.2025.0.jar /usr/share/plantuml/plantuml.jar
+  116  rm /usr/share/plantuml/plantuml.jar 
+  117  sudo rm /usr/share/plantuml/plantuml.jar 
+  118  sudo ln -s /usr/share/plantuml/plantuml-1.2025.0.jar /usr/share/plantuml/plantuml.jar
+  119  history
+  120  cd 
+  121  ls
+  122  cd myQuarto/
+  123  code .
+  124  code --help
+  125  code --install-extension quarto.quarto
+  126  code .
+  127  sudo apt install xclip
+  128  wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.40/quarto-1.6.40-linux-amd64.deb
+  129  ls
+  130  ls -l
+  131  rm quarto-1.6.40-linux-amd64.deb
+  132  mv quarto-1.6.40-linux-amd64.deb.1 quarto-1.6.40-linux-amd64.deb
+  133  ls
+  134  apt install ./quarto-1.6.40-linux-amd64.deb 
+  135  sudo apt install ./quarto-1.6.40-linux-amd64.deb 
+  136  quarto
+  137  quarto --version
+  138  code .
+  139  cd ..
+  140  mkdir myQuarto_
+  141  cd myQuarto_/
+  142  code .
+  143  quarto preview "/mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende del 1/Temperaturlogger med DS18B20.qmd" --no-browser --no-watch-inputs
+  144  ls -l
+  145  sudo chown -r smag:smag *
+  146  sudo chown -R smag:smag *
+  147  ls -l
+  148  sudo chown -R smag:smag ./.
+  149  ls -l
+  150  sudo chown -R smag:smag teknologier_til_IOT1-2.qmd 
+  151  ls -l
+  152  sudo chmod +rwx -R .
+  153  ls -l
+  154  quarto preview "/mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende del 1/Temperaturlogger med DS18B20.qmd" --no-browser --no-watch-inputs
+  155  mc
+  156  sudo apt install mc
+  157  mc
+  158  sudo chown -R smag:smag teknologier_til_IOT1-2.qmd 
+  159  cd /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/
+  160  ls -l
+  161  sudo chown -R smag:smag teknologier_til_IOT1-2.qmd 
+  162  ls -l
+  163  sudo chown -R smag teknologier_til_IOT1-2.qmd 
+  164  ls -l
+  165  sudo chown -R :smag teknologier_til_IOT1-2.qmd 
+  166  ls -l
+  167  cat /etc/wsl.conf 
+  168  ls /mnt/wsl
+  169  ls /mnt/wslg
+  170  ls /mnt/wsl
+  171  ls /mnt/wsl/resolv.conf 
+  172  cat /mnt/wsl/resolv.conf 
+  173  cat /etc/wsl.conf 
+  174  vim /etc/wsl.conf 
+  175  sudo vim /etc/wsl.conf 
+  176  exit
+  177  quarto preview "/mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende del 1/Temperaturlogger med DS18B20.qmd" --no-browser --no-watch-inputs
+  178  quarto preview /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende_del_1/Temperaturlogger_med_DS18B20.qmd --no-browser --no-watch-inputs
+  179  quarto render
+  180  quarto render --help
+  181  quarto preview /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende_del_1/Temperaturlogger_med_DS18B20.qmd --to typst --no-browser --no-watch-inputs
+  182  quarto render /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende_del_1/Temperaturlogger_med_DS18B20.qmd --to all
+  183  quarto preview /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende_del_1/Temperaturlogger_med_DS18B20.qmd --to html --no-browser --no-watch-inputs
+  184  quarto preview /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende_del_1/emner_og_teknologier.qmd --no-browser --no-watch-inputs
+  185  quarto preview /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende_del_1/emner_og_teknologier.qmd --to typst --no-browser --no-watch-inputs
+  186  quarto preview /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende_del_1/emner_og_teknologier.qmd --to html --no-browser --no-watch-inputs
+  187  quarto preview /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende_del_1/checkliste.qmd --no-browser --no-watch-inputs
+  188  quarto preview /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende_del_1/checkliste.qmd --no-browser --no-watch-inputs
+  189  quarto preview /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende_del_1/checkliste.qmd --to typst --no-browser --no-watch-inputs
+  190  quarto preview /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende_del_1/checkliste.qmd --to html --no-browser --no-watch-inputs
+  191  exit
+  192  code .
+  193  exit
+  194  ls
+  195  cd myQuarto
+  196  ls
+  197  code .
+  198  code .
+  199  ls
+  200  cd myQuarto
+  201  code .
+  202  quarto preview /mnt/c/Users/smag/Docs/fag/IOT_del1_prog_tec/opgaver/afsluttende_del_1/emner_og_teknologier.qmd --no-browser --no-watch-inputs
+  203  quarto render
+  204  quarto render opgaver/afsluttende_del_1/emner_og_teknologier.qmd 
+  205  quarto render opgaver/afsluttende_del_1/checkliste.qmd 
+  206  git config --global core.autocrlf input
+  207  quarto build
+  208  quarto 
+  209  quarto --help
+  210  telnet
+  211  ssh 192.168.4.1 80
+  212  ssh 192.168.4.1 p 80
+  213  ssh 192.168.4.1 -P 80
+  214  ssh help
+  215  ssh --help
+  216  ssh 192.168.4.1 -p 80
+  217  quarto preview /mnt/c/Users/smag/Docs/fag/FAG_Python2/FAG_Pathon2.qmd --no-browser --no-watch-inputs
+  218  quarto install extension pandoc-ext/diagram
+  219  quarto preview /mnt/c/Users/smag/Docs/fag/FAG_Python2/FAG_Pathon2.qmd --no-browser --no-watch-inputs
+  220  quarto preview /mnt/c/Users/smag/Docs/fag/FAG_Python2/index.qmd --no-browser --no-watch-inputs
+  221  quarto preview /mnt/c/Users/smag/Docs/fag/FAG_Python2/index.qmd --no-browser
+  222  quarto publish
+  223  quarto preview html
+  224  quarto preview --help
+  225  quarto preview --render html
+  226  quarto preview "/mnt/c/Users/smag/Docs/fag/FAG_Python2/SQL DDL/duckdb.qmd" --no-browser --no-watch-inputs
+  227  quarto preview /mnt/c/Users/smag/Docs/fag/FAG_Python2/SQL_DDL/duckdb.qmd --no-browser --no-watch-inputs
+  228  quarto preview --render html
+  229  quarto preview /mnt/c/Users/smag/Docs/fag/FAG_Python2/SQL_DDL/DuckDB_quickstart.qmd --no-browser --no-watch-inputs
+  230  quarto preview /mnt/c/Users/smag/Docs/fag/FAG_Python2/SQL_DDL/DuckDB_quickstart_.qmd --no-browser --no-watch-inputs
+  231  quarto preview --render html
+  232  quarto preview --render html revealjs
+  233  ls
+  234  quarto publish
+  235  quarto preview --render html revealjs
+  236  quarto preview --render html reveal
+  237  quarto preview --render html 
+  238  venv .venv
+  239  python -m venv .venv
+  240  sudo  apt install python3.12-venv
+  241  python -m venv .venv
+  242  ls
+  243  ls -a
+  244  source ./.venv/bin/activate
+  245  pip install duckdb pandas
+  246  pip install matplotlib seaborn
+  247  history
+  248  history > history.log
