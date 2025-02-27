@@ -1,4 +1,4 @@
 /.quarto/
 /output/
 /.venv/
-SQL_DDL/*.db
+emner/CRUD_DLL_SQL/*.db
