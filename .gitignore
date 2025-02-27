@@ -1,4 +1,5 @@
 /.quarto/
 /output/
 /.venv/
-emner/CRUD_DLL_SQL/*.db
+_freeze/
+emner/CRUD_DDL_SQL/*.db

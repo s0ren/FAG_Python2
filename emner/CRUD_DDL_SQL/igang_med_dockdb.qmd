@@ -1,3 +1,9 @@
+---
+formats:
+   html:
+      order: 2
+---
+
 # Begyndervejledning til DuckDB: 
 
 __Installation, Tilslutning og CRUD-operationer__ 

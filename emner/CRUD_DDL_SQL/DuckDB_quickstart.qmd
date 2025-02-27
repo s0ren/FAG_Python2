@@ -6,6 +6,7 @@ subtitle: "Dataanalyse i DuckDB for Python-brugere"
 format: 
     html:
          x: y
+         order: 1
     revealjs:
         x: z
         output-file: DuckDB_quickstart_slide.html

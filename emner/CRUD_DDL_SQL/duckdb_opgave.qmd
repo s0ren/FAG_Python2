@@ -1,4 +1,8 @@
-
+---
+formats:
+   html:
+      order: 3
+---
 
 # DuckDB SQL Øvelser - Kapitel 3
 

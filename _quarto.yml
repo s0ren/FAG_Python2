@@ -3,19 +3,26 @@ project:
   output-dir: output
   type: website
 
+execute:
+  freeze: auto
+
 website:
-  # title: "today"
+  # reader-mode: true
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: Hjem
       # - about.qmd
+  sidebar: 
+    contents: auto
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    lang: da
+  
 
   
   
