@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://s0ren.github.io/FAG_Python2/SQL_DDL/duckdb.html</loc>
+    <loc>https://s0ren.github.io/FAG_Python2/SQL_DDL/igang_med_dockdb.html</loc>
+    <lastmod>2025-02-26T15:16:41.677Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s0ren.github.io/FAG_Python2/SQL_DDL/duckdb_opgave.html</loc>
     <lastmod>2025-02-26T12:12:50.024Z</lastmod>
   </url>
   <url>
@@ -26,6 +30,10 @@
   </url>
   <url>
     <loc>https://s0ren.github.io/FAG_Python2/index.html</loc>
-    <lastmod>2025-02-26T12:11:39.162Z</lastmod>
+    <lastmod>2025-02-27T06:06:04.090Z</lastmod>
+  </url>
+  <url>
+    <loc>https://s0ren.github.io/FAG_Python2/SQL_DDL/DuckDB_quickstart_.html</loc>
+    <lastmod>2025-02-27T06:02:58.130Z</lastmod>
   </url>
 </urlset>
