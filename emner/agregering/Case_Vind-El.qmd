@@ -24,3 +24,12 @@ Vi har særligt to interessante dataset tilgængelige, som måske kan forklare n
 ![god korr](./assets/Vind_el_korrelation.png) Gennerelt må man formode at der er en god korrelation mellem disse data, da det er vinden som driver møllerne rund, og når det blæser mere, må møllerne køre mere rundt, og producere mere strøm. Omvendt, når det *ikke* blæser, produceres heller *ingen* strøm.
 
 ![anormali](./assets/Vind_el_anormali.png) Det vi er på jagt efter er hvornår opfører dataerne sig *ikke*-proportionalt. Er der dårligere korrelation nogen gange, end normalt. Mangler der noget. Er der en *anormali*.
+
+
+::: {.callout-important}
+
+Sørens ufærdige løsning: <`C:\Users\smag\Docs\foolaround\Vind_El_Explor\dataset.ipynb`>
+
+Analysen mangler især at kigge korrelationskoeficienter over varierede tidsintervaller, og det samme for forskellige vindhastigheder, også over tid.
+
+:::
