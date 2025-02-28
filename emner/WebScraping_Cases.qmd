@@ -1,4 +1,14 @@
 ::: {.callout-important}
+ 
+ <!-- 
+ FIXME Opret hele scraping miniforløbet med:
+    TODO motivation, 
+    TODO teknologier, 
+    TODO anbefalede fremgangsmåder 
+    TODO eksempler
+    TODO projektopgave
+    TODO bedømmelseskriterier
+-->
 
 <`C:\Users\smag\Docs\foolaround\Vind_El_Explor\dataset.ipynb`>
 
