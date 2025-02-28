@@ -32,4 +32,10 @@ Sørens ufærdige løsning: <`C:\Users\smag\Docs\foolaround\Vind_El_Explor\datas
 
 Analysen mangler især at kigge korrelationskoeficienter over varierede tidsintervaller, og det samme for forskellige vindhastigheder, også over tid.
 
+<!--
+FIXME Den "vejledende-løsning" mangler at finde svar. Derfor er vejledningen i retning, fremgangsmåde og teknikker lidt usikker.
+TODO Koorelationsanlyse, 
+TODO histogram på vind og el
+-->
+
 :::

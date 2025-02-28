@@ -17,6 +17,17 @@ De findes i filenerne `dmi/{yyyy}-{mm}-{dd}.txt`
 Eksemplet her er forældet.
 Operationen kan gøres enklere og hurtigere med duckdb alene... men man bør nok afprøve forskellige strategier.
 
+<!-- 
+TODO Vis en fremgangsmåde med DuckDB alene
+TODO ----|| ----------------- pandas
+TODO ----|| ----------------- python
+
+TODO Lav demo med gh-project?
+
+TODO Afprøv parqut effektivitet i querys ved både langt format og bredt format 
+-->
+
+
 Se <`C:\Users\smag\Docs\foolaround\dmi_konvert\transform_and_load.ipynb`>
 
 
