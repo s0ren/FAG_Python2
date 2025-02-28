@@ -12,6 +12,16 @@ DMI (Danmarks Meteorologiske Institut) har leveret et datasæt med meteorologisk
 Du får udleveret 2-3 års data til at procesere. \
 De findes i filenerne `dmi/{yyyy}-{mm}-{dd}.txt`
 
+::: {.callout-warning}
+
+Eksemplet her er forældet.
+Operationen kan gøres enklere og hurtigere med duckdb alene... men man bør nok afprøve forskellige strategier.
+
+Se <`C:\Users\smag\Docs\foolaround\dmi_konvert\transform_and_load.ipynb`>
+
+
+:::
+
 Se eksemplet [`duckdb_pivot_example.py`](duckdb_pivot_example.py), som et generisk eksempel på hvordan en lignende løsning kan se ud:
 ```{.python filenerne="duckdb_pivot_example.py" } 
 {{< include duckdb_pivot_example.py >}}
