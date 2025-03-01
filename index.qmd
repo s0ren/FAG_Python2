@@ -11,14 +11,22 @@ format:
 
 Vi har faget Python II, for at give forudsætninger til at arbejde med faget Big Data II, hvor mange værktøjer programmeres med python. Der er nogen kompetencer vi tænker er nødvendige at have i den nuværende udgave af Big Data II:
 
+-   Virtuelt Envirenment til Python, med git integration
 -   Dataset (som i `Pandas`' DataFrames),
 -   agregering og
 -   visualisering.
 -   CRUD til realationsdatabaser.
-    -   ORM med SQLAlncemy 
+    -   ORM med SQLAlncemy
 -   Little Big Data
     -   Nestede data (i JSON eller XML)
     -   kolonne baserede lagerformater
+
+## Opsætning af virtuelt miljø til dit Python projekt
+
+### og isoler fra git-reposity
+
+<!-- TODO vejledning og øvelser til `venv` og .gitignore 
+-->
 
 ## Dataset og DataFrames
 
