@@ -64,7 +64,7 @@
         "\n",
         "### Via Python"
       ],
-      "id": "ad29f503"
+      "id": "6b636c7b"
     },
     {
       "cell_type": "code",
@@ -80,7 +80,7 @@
         "# Eller opret forbindelse (in-memory database)\n",
         "conn = duckdb.connect()"
       ],
-      "id": "f52b61f4",
+      "id": "01e62f33",
       "execution_count": null,
       "outputs": []
     },
@@ -104,7 +104,7 @@
         "\n",
         "**Via Python:**"
       ],
-      "id": "767bc57a"
+      "id": "3c8b5dcb"
     },
     {
       "cell_type": "code",
@@ -121,7 +121,7 @@
         ")\n",
         "\"\"\")"
       ],
-      "id": "e841253d",
+      "id": "363d1593",
       "execution_count": null,
       "outputs": []
     },
@@ -147,7 +147,7 @@
         "\n",
         "**Via Python:**"
       ],
-      "id": "219962c7"
+      "id": "cf88a19a"
     },
     {
       "cell_type": "code",
@@ -164,7 +164,7 @@
         "(7, 'Ole Madsen', 'ole@example.com')\n",
         "\"\"\")"
       ],
-      "id": "240c8ce4",
+      "id": "3887b833",
       "execution_count": null,
       "outputs": []
     },
@@ -196,7 +196,7 @@
         "\n",
         "**Via Python:**"
       ],
-      "id": "72c06c9a"
+      "id": "02aec5ae"
     },
     {
       "cell_type": "code",
@@ -209,7 +209,7 @@
         "for row in result:\n",
         "    print(row)"
       ],
-      "id": "92bf9bf3",
+      "id": "32dcf7af",
       "execution_count": null,
       "outputs": []
     },
@@ -222,7 +222,7 @@
         "df = conn.execute(\"SELECT * FROM kunder\").df()\n",
         "print(df)"
       ],
-      "id": "1a114ae3",
+      "id": "b0ecfc88",
       "execution_count": null,
       "outputs": []
     },
@@ -426,7 +426,7 @@
         "\n",
         "Denne vejledning dækker de grundlæggende aspekter af DuckDB for begyndere, fra installation til CRUD-operationer og arbejde med forskellige filformater. DuckDB er utrolig effektivt til analytiske opgaver og giver dig mulighed for at arbejde med data direkte fra kildefiler uden først at skulle indlæse dem i databasen."
       ],
-      "id": "d42f7ffc"
+      "id": "07285a05"
     }
   ],
   "metadata": {

@@ -38,7 +38,7 @@
         "\n",
         "I _python_:"
       ],
-      "id": "64492552"
+      "id": "0d34d68d"
     },
     {
       "cell_type": "code",
@@ -53,7 +53,7 @@
         "# Importer pandas for DataFrame visning\n",
         "import pandas as pd"
       ],
-      "id": "a4d5d904",
+      "id": "a8994228",
       "execution_count": null,
       "outputs": []
     },
@@ -63,7 +63,7 @@
       "source": [
         "## Tilslutning til database\n"
       ],
-      "id": "8427d39b"
+      "id": "f70094f1"
     },
     {
       "cell_type": "code",
@@ -82,7 +82,7 @@
         "# conn.execute(\"CREATE TABLE demo AS SELECT * FROM 'https://example.com/demodata.csv'\")\n",
         "conn.close()"
       ],
-      "id": "25a7fe3c",
+      "id": "7c99bc1c",
       "execution_count": null,
       "outputs": []
     },
@@ -92,7 +92,7 @@
       "source": [
         "## Første `SELECT` og visning som DataFrame\n"
       ],
-      "id": "048f56cf"
+      "id": "fa5aa825"
     },
     {
       "cell_type": "code",
@@ -104,7 +104,7 @@
         "# connect til in-memory-database, for reste af denne tekst\n",
         "conn = duckdb.connect()"
       ],
-      "id": "116419e4",
+      "id": "7584476d",
       "execution_count": null,
       "outputs": []
     },
@@ -124,7 +124,7 @@
         "# Vis DataFrame\n",
         "print(result_df)"
       ],
-      "id": "e5f51a7a",
+      "id": "67b97653",
       "execution_count": null,
       "outputs": []
     },
@@ -141,7 +141,7 @@
         "\n",
         "## Indsæt og opdater data"
       ],
-      "id": "f02a7701"
+      "id": "7b3ab30a"
     },
     {
       "cell_type": "code",
@@ -162,7 +162,7 @@
         "# Kontroller ændringerne\n",
         "print(conn.execute(\"SELECT * FROM test\").df())"
       ],
-      "id": "345e5806",
+      "id": "706df1a4",
       "execution_count": null,
       "outputs": []
     },
@@ -172,7 +172,7 @@
       "source": [
         "## Opret ny tabel og indsæt data\n"
       ],
-      "id": "fca8922b"
+      "id": "bfbb1538"
     },
     {
       "cell_type": "code",
@@ -187,7 +187,7 @@
         "# conn.execute(\"DROP TABLE IF EXISTS produkter\")\n",
         "\"\""
       ],
-      "id": "c2927e0e",
+      "id": "2706870c",
       "execution_count": null,
       "outputs": []
     },
@@ -217,7 +217,7 @@
         "    (4, 'Stol', 899.00, 'Møbler')\n",
         "\"\"\")"
       ],
-      "id": "967a28d1",
+      "id": "7b6768bc",
       "execution_count": null,
       "outputs": []
     },
@@ -227,7 +227,7 @@
       "source": [
         "## Analyse\n"
       ],
-      "id": "a1f95303"
+      "id": "c877278a"
     },
     {
       "cell_type": "code",
@@ -247,7 +247,7 @@
         "\n",
         "print(result)"
       ],
-      "id": "569e02d4",
+      "id": "0f4fd09b",
       "execution_count": null,
       "outputs": []
     },
@@ -257,7 +257,7 @@
       "source": [
         "## Visualisering\n"
       ],
-      "id": "108d0427"
+      "id": "b5e7df87"
     },
     {
       "cell_type": "code",
@@ -273,7 +273,7 @@
         "plt.tight_layout()\n",
         "plt.show()"
       ],
-      "id": "72bb9a1c",
+      "id": "e4f68f0a",
       "execution_count": null,
       "outputs": []
     }
