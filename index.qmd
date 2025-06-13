@@ -7,22 +7,36 @@ format:
       - diagram
 ---
 
-
 # Python II
 
-Vi har faget Python II, for at give forudsætninger til at arbejde med faget Big Data II, hvor mange værktøjer programmeres med python.
-Der er nogen kompetencer vi tænker er nødvendige at have i den nuværende udgave af Big Data II: 
+Vi har faget Python II, for at give forudsætninger til at arbejde med faget Big Data II, hvor mange værktøjer programmeres med python. Der er nogen kompetencer vi tænker er nødvendige at have i den nuværende udgave af Big Data II:
 
-* Dataset (som i `Pandas`' DataFrames), 
-* agregering og 
-* visualisering. 
-* CRUD til realationsdatabaser.
+-   Dataset (som i `Pandas`' DataFrames),
+-   agregering og
+-   visualisering.
+-   CRUD til realationsdatabaser.
+
+Ugens forløb:
+
++-------------------------------------------------------------+----------+-------------------+----------------+-------------------------------------------------------+
+| Dag 1                                                       | Dag 2    | Dag 3             | Dag 4          | Dag 5                                                 |
++=============================================================+==========+===================+================+=======================================================+
+| ## Genopfrask Pandas:                                       |          | Aggregering       | Webscraping    | Little Bigdata med duckdb                             |
+|                                                             |          |                   |                |                                                       |
+| Dataset, dataframes og visualisering med Pandas og seaborn. |          | Vindmølle anomali |                |                                                       |
++-------------------------------------------------------------+----------+-------------------+----------------+-------------------------------------------------------+
+|                                                             |          | (Hjemme dag)      |                | Brug python til CRUD operationer i Relationsdatabaser |
++-------------------------------------------------------------+----------+-------------------+----------------+-------------------------------------------------------+
+|                                                             |          |                   |                |                                                       |
++-------------------------------------------------------------+----------+-------------------+----------------+-------------------------------------------------------+
+
+: Ugeplan
 
 ## Dataset og dataframes
 
-I Python er det almindeligt at håndtere dataset med en abstraction som kaldes et *dataset*. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas. 
+I Python er det almindeligt at håndtere dataset med en abstraction som kaldes et *dataset*. Dette findes i mange forskellige framworks. Den nemmeste framwork med dataframes at lære, er Pandas.
 
-Matt Williams, University of Bristol, et lille undervisningsforløb om det. \
+Matt Williams, University of Bristol, et lille undervisningsforløb om det.\
 Se <https://gitlab.com/milliams/data_analysis_python>.
 
 ## Agregering, visualisering og explorativ analyse
@@ -35,7 +49,6 @@ Se [Agregering](emner/agregering/)
 
 [Case: Vind og EL](./emner/agregering/Case_Vind-El.qmd)
 
-
 ## WebScraping
 
 -   bilpriser
@@ -45,11 +58,10 @@ Se [Agregering](emner/agregering/)
 
 Vi laver øverlser i Data Definition Language (at oprette tabeller mm), med DuckDB.
 
-* [Begyndervejledning til DuckDB: Installation, Tilslutning og CRUD-operationer](./emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.qmd)
-    * slides [DuckDB Quickstart](./emner/CRUD_DDL_SQL/DuckDB_quickstart.qmd)
+-   [Begyndervejledning til DuckDB: Installation, Tilslutning og CRUD-operationer](./emner/CRUD_DDL_SQL/Begyndervejledning_til_DuckDB.qmd)
+    -   slides [DuckDB Quickstart](./emner/CRUD_DDL_SQL/DuckDB_quickstart.qmd)
 
 Se [Opgaver til duckdb](./emner/CRUD_DDL_SQL/duckdb_opgave.qmd)
-
 
 ```{=html}
 <!-- 
