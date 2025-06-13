@@ -1,5 +1,6 @@
 /.quarto/
 /output/
+/_output/
 /.venv/
 _freeze/
 emner/CRUD_DDL_SQL/*.db
